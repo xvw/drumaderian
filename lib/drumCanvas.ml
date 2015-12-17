@@ -36,8 +36,32 @@ let create width height =
     let c = Dom_html.(createCanvas document) in
     let _ = c ## width <- width in
     let _ = c ## height <- height
-    in canvas := Some c
+    in canvas := Some c 
 
 (* Append canvas to an element *)
 let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
 let createIn elt w h = let _ = create w h in appendTo elt
+
+(* Module for Bitmap manipulation *)
+module Bitmap =
+struct
+
+  let ctx = perform
+      (fun canvas ->
+         canvas ## getContext(Dom_html._2d_))
+
+end
+
+(* Module for 3D manipulation *)
+module WebGL =
+struct
+
+  let ctx = perform
+      (fun canvas ->
+         Js.Opt.get (
+           try WebGL.getContext canvas
+           with _ -> Js.null
+         ) (fun () -> raise DrumExceptions.WebGL_not_allowed)
+      )
+
+end

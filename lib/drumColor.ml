@@ -21,12 +21,15 @@
 
 open DrumPervasives
 
-type t = {
-  red   : int
-; green : int
-; blue  : int
+type 'a color = {
+  red   : 'a
+; green : 'a
+; blue  : 'a
 ; alpha : float
 }
+
+type t = int color
+type gl = float color
 
 let bound v =
   if v > 255 then 255
@@ -77,6 +80,13 @@ let to_string color =
 let js c =
   to_string c
   |> js_string
+
+let gl c = {
+  red = float_of_int c.red
+; green = float_of_int c.green
+; blue = float_of_int c.blue
+; alpha = c.alpha
+}
 
 let red   = make 255 0 0
 let green = make 0 255 0

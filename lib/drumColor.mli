@@ -22,12 +22,19 @@
 (** This module provide a simple color interface using a type *)
 
 (** {2 Internal representation of a color} *)
-type t = {
-  red   : int
-; green : int
-; blue  : int
+
+type 'a color = {
+  red   : 'a
+; green : 'a
+; blue  : 'a
 ; alpha : float
 }
+
+(** A simple color *)
+type t = int color
+
+(** A WebGL color *)
+type gl = float color
 
 val make : ?alpha:float -> int -> int -> int -> t
 (** [Color.make ~alpha:a r g b] create a color *)
@@ -37,3 +44,6 @@ val of_string : string -> t
 
 val js : t -> Js.js_string Js.t
 (** Create a color usable by a JavaScript function *)
+
+val gl : t -> gl
+(** Create a color usable by a JavaScript function for WebGL *)
