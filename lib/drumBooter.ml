@@ -25,21 +25,21 @@ module type CTX =
 sig
 
   val receiver : string
-  val width : int
-  val height : int
-  val fill : DrumColor.t option
+  val width    : int
+  val height   : int
+  val fill     : DrumColor.t option
 
 end
 
 module Game = functor (F : CTX) ->
 struct
 
+  let game_builder () =
+    let elt = Html.getById F.receiver in
+    let _   = DrumCanvas.createIn elt F.width F.height in
+    ()
   let _ = DrumPromises.(
-      run dom_onload (fun () ->
-          let elt = Html.getById F.receiver in
-          let _   = DrumCanvas.createIn elt F.width F.height in
-          ()
-        )
+      run dom_onload game_builder
     ) 
   
 end
