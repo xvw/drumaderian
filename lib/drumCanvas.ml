@@ -19,4 +19,25 @@
  * 
 *)
 
-module Html = DrumHtml
+(* Store the current canvas *)
+let canvas = ref None
+
+(* Perform an operation on a canvas *)
+let perform f =
+  match !canvas with
+  | None -> raise DrumExceptions.Canvas_not_created
+  | Some x -> f x
+
+(* Create a canvas *)
+let create width height =
+  match !canvas with
+  | Some _ -> raise DrumExceptions.Canvas_already_created
+  | None ->
+    let c = Dom_html.(createCanvas document) in
+    let _ = c ## width <- width in
+    let _ = c ## height <- height
+    in canvas := Some c
+
+(* Append canvas to an element *)
+let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
+let createIn elt w h = let _ = create w h in appendTo elt

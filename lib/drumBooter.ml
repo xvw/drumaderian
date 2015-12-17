@@ -19,4 +19,11 @@
  * 
 *)
 
-module Html = DrumHtml
+module type CTX =
+sig
+
+  val receiver : string
+  val width : int
+  val height : int
+
+end

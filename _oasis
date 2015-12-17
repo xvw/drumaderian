@@ -14,7 +14,12 @@ Plugins: META (0.4), DevFiles (0.4)
 Library "drumaderian"
   Path: lib
   Modules:
-    Drumaderian
+    Drumaderian,
+    DrumExceptions,
+    DrumPervasives,
+    DrumColor,
+    DrumCanvas,
+    DrumBooter
   BuildDepends:
     camlp4,
     js_of_ocaml,

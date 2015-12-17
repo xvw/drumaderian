@@ -19,4 +19,8 @@
  * 
 *)
 
-module Html = DrumHtml
+let ( >>= ) = Lwt.bind
+let caml_string = Js.to_string
+let js_string = Js.string
+let id x = x
+let mk_unit f x = (fun () -> f x)
