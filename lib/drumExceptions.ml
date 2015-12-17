@@ -23,3 +23,5 @@ exception Unbound_id of string
 exception Canvas_not_created
 exception Canvas_already_created
 exception WebGL_not_allowed
+exception WebGL_context_not_initialized
+exception Canvas_not_ready

@@ -21,12 +21,29 @@
 
 (* Store the current canvas *)
 let canvas = ref None
+let context = ref None
 
 (* Perform an operation on a canvas *)
 let perform f =
   match !canvas with
   | None -> raise DrumExceptions.Canvas_not_created
   | Some x -> f x
+
+let perform3d f =
+  match (!canvas, !context) with
+  | None, _ | _, None -> raise DrumExceptions.Canvas_not_ready
+  | Some cn, Some ctx -> f cn ctx
+
+
+(* Retreive the WebGL's context *)
+let retreive_ctx () = perform
+    (fun canvas ->
+       Js.Opt.get (
+         try WebGL.getContext canvas
+         with _ -> Js.null
+       ) (fun () -> raise DrumExceptions.WebGL_not_allowed)
+    )
+
 
 (* Create a canvas *)
 let create width height =
@@ -35,33 +52,29 @@ let create width height =
   | None ->
     let c = Dom_html.(createCanvas document) in
     let _ = c ## width <- width in
-    let _ = c ## height <- height
-    in canvas := Some c 
+    let _ = c ## height <- height in 
+    let _ = canvas  := Some c in 
+    let _ = context := Some (retreive_ctx ()) in ()
 
 (* Append canvas to an element *)
 let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
 let createIn elt w h = let _ = create w h in appendTo elt
 
-(* Module for Bitmap manipulation *)
-module Bitmap =
-struct
-
-  let ctx = perform
-      (fun canvas ->
-         canvas ## getContext(Dom_html._2d_))
-
-end
-
-(* Module for 3D manipulation *)
-module WebGL =
-struct
-
-  let ctx = perform
-      (fun canvas ->
-         Js.Opt.get (
-           try WebGL.getContext canvas
-           with _ -> Js.null
-         ) (fun () -> raise DrumExceptions.WebGL_not_allowed)
-      )
-
-end
+let webgl_initialize rcolor =
+  perform3d (fun canvas ctx ->
+      let color = match rcolor with
+        | Some x -> x
+        | None -> DrumColor.(gl black)
+      in 
+      let _ = ctx ## clearColor(
+          color.red,
+          color.green,
+          color.blue,
+          color.alpha
+        ) in
+      let _ = ctx ## enable(ctx ## _DEPTH_TEST_) in
+      let _ = ctx ## depthFunc(ctx ## _LESS) in
+      let _ = ctx ## clear(
+          ctx##_DEPTH_BUFFER_BIT_ lor ctx##_COLOR_BUFFER_BIT_) in
+      ()
+    )

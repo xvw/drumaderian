@@ -47,3 +47,10 @@ val js : t -> Js.js_string Js.t
 
 val gl : t -> gl
 (** Create a color usable by a JavaScript function for WebGL *)
+
+(** {2 List of presaved colors *)
+val black : t
+val white : t
+val green : t
+val blue  : t
+val red   : t
