@@ -36,7 +36,7 @@ let bound v =
   else if v < 0 then 0
   else v
 
-let make ?(alpha = 0.) r g b = {
+let make ?(alpha = 1.) r g b = {
   red = bound r
 ; green = g
 ; blue = b
@@ -82,9 +82,9 @@ let js c =
   |> js_string
 
 let gl c = {
-  red = float_of_int c.red
-; green = float_of_int c.green
-; blue = float_of_int c.blue
+  red = (float_of_int c.red) /. 255.0
+; green = (float_of_int c.green) /. 255.0
+; blue = (float_of_int c.blue) /. 255.0
 ; alpha = c.alpha
 }
 

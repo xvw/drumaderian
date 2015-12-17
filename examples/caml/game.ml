@@ -1,10 +1,6 @@
 open Drumaderian
 
-module DromaGame = Game(
-  struct
-    let receiver = "modal"
-    let width    = 640
-    let height   = 480
-    let fill     = None
-  end)
+let modal = Html.getById "modal"
+let _ = Canvas.createIn modal 800 420
+let _ = Canvas.webgl_initialize (Some Color.(gl black))
 
