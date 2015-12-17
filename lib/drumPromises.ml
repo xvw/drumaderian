@@ -23,15 +23,13 @@ open DrumPervasives
 
 let wakeup w x _ = let _ = Lwt.wakeup w () in x
 let wrap f = (fun x -> Lwt.return (f x))
-
-(* Run a promise *)
-let run promise f x = promise x >>= (wrap f)
-
-(* Raw onloader *)
-let _onload x () =
+let run promise f elt = promise elt >>= (wrap f)
+                                        
+let raw_onload elt () =
   let thread, wakener = Lwt.wait () in
-  let _ = x ## onload <- Dom.handler (wakeup wakener Js._true)
+  let _ = elt ## onload <-
+      Dom.handler (wakeup wakener Js._true)
   in thread
-
-(* Wait for dom *)
-let dom_onload = _onload Dom_html.window
+    
+let dom_onload () = raw_onload (Dom_html.window) ()
+let img_onload i  = raw_onload i ()

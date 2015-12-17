@@ -20,10 +20,11 @@
 *)
 
 
-module Color    = DrumColor
-module Promises = DrumPromises
-module Canvas   = DrumCanvas
-module Booter   = DrumBooter
+(** This module is a purpose of presaved pomise *)
 
-include DrumPervasives
-include Booter
+(** Execute a promise *)
+val run : ('a -> 'b Lwt.t) -> ('b -> 'c) -> 'a -> 'c Lwt.t
+    
+(** Presaved promise : wait for Dom's loading *)
+val dom_onload : unit -> unit Lwt.t
+

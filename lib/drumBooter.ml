@@ -21,7 +21,7 @@
 
 open DrumPervasives
 
-module type CTX =
+module type GAMECONF =
 sig
 
   val receiver : string
@@ -31,15 +31,14 @@ sig
 
 end
 
-module Game = functor (F : CTX) ->
+module Game(F : GAMECONF) =
 struct
 
   let game_builder () =
     let elt = Html.getById F.receiver in
     let _   = DrumCanvas.createIn elt F.width F.height in
     ()
-  let _ = DrumPromises.(
-      run dom_onload game_builder
-    ) 
+    
+  let _ = DrumPromises.(run dom_onload game_builder ()) 
   
 end
