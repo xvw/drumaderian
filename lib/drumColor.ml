@@ -77,3 +77,9 @@ let to_string color =
 let js c =
   to_string c
   |> js_string
+
+let red   = make 255 0 0
+let green = make 0 255 0
+let blue  = make 0 0 255
+let white = make 255 255 255
+let black = make 0 0 0
