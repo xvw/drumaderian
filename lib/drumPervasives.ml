@@ -24,3 +24,15 @@ let caml_string = Js.to_string
 let js_string = Js.string
 let id x = x
 let mk_unit f x = (fun () -> f x)
+
+module Html =
+struct
+
+  let fail i () = raise (DrumExceptions.Unbound_id i)
+  let unopt i x = Js.Opt.get x (fail i) 
+  let getById id =
+    Dom_html.document ## getElementById (js_string id)
+    |> unopt id
+  
+
+end

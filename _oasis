@@ -18,6 +18,7 @@ Library "drumaderian"
     DrumExceptions,
     DrumPervasives,
     DrumColor,
+    DrumPromises,
     DrumCanvas,
     DrumBooter
   BuildDepends:
