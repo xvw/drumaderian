@@ -27,7 +27,7 @@ type 'a color = {
   red   : 'a
 ; green : 'a
 ; blue  : 'a
-; alpha : float
+; alpha : 'a
 }
 
 (** A simple color *)
@@ -36,21 +36,19 @@ type t = int color
 (** A WebGL color *)
 type gl = float color
 
-val make : ?alpha:float -> int -> int -> int -> t
+val make : ?alpha:int -> int -> int -> int -> gl
 (** [Color.make ~alpha:a r g b] create a color *)
 
-val of_string : string -> t
+val of_string : string -> gl
 (** [Color.of_string s] unsafe coersion *)
 
-val js : t -> Js.js_string Js.t
+val js : gl -> Js.js_string Js.t
 (** Create a color usable by a JavaScript function *)
 
-val gl : t -> gl
-(** Create a color usable by a JavaScript function for WebGL *)
 
 (** {2 List of presaved colors *)
-val black : t
-val white : t
-val green : t
-val blue  : t
-val red   : t
+val black : gl
+val white : gl
+val green : gl
+val blue  : gl
+val red   : gl

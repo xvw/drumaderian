@@ -44,27 +44,11 @@ let retreive_ctx () = perform
        ) (fun () -> raise DrumExceptions.WebGL_not_allowed)
     )
 
-
-(* Create a canvas *)
-let create width height =
-  match !canvas with
-  | Some _ -> raise DrumExceptions.Canvas_already_created
-  | None ->
-    let c = Dom_html.(createCanvas document) in
-    let _ = c ## width <- width in
-    let _ = c ## height <- height in 
-    let _ = canvas  := Some c in 
-    let _ = context := Some (retreive_ctx ()) in ()
-
-(* Append canvas to an element *)
-let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
-let createIn elt w h = let _ = create w h in appendTo elt
-
 let webgl_initialize rcolor =
   perform3d (fun canvas ctx ->
       let color = match rcolor with
         | Some x -> x
-        | None -> DrumColor.(gl black)
+        | None -> DrumColor.black
       in 
       let _ = ctx ## clearColor(
           color.red,
@@ -78,3 +62,21 @@ let webgl_initialize rcolor =
           ctx##_DEPTH_BUFFER_BIT_ lor ctx##_COLOR_BUFFER_BIT_) in
       ()
     )
+
+
+(* Create a canvas *)
+let create width height rcolor =
+  match !canvas with
+  | Some _ -> raise DrumExceptions.Canvas_already_created
+  | None ->
+    let c = Dom_html.(createCanvas document) in
+    let _ = c ## width <- width in
+    let _ = c ## height <- height in 
+    let _ = canvas  := Some c in 
+    let _ = context := Some (retreive_ctx ()) in
+    webgl_initialize rcolor
+
+(* Append canvas to an element *)
+let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
+let createIn elt w h rcolor = let _ = create w h rcolor in appendTo elt
+

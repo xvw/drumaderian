@@ -25,7 +25,7 @@ type 'a color = {
   red   : 'a
 ; green : 'a
 ; blue  : 'a
-; alpha : float
+; alpha : 'a
 }
 
 type t = int color
@@ -36,11 +36,14 @@ let bound v =
   else if v < 0 then 0
   else v
 
-let make ?(alpha = 1.) r g b = {
-  red = bound r
-; green = g
-; blue = b
-; alpha = alpha
+let itof v =
+  (float_of_int v) /. 255.0
+
+let make ?(alpha = 255) r g b = {
+  red = itof (bound r)
+; green = itof (bound g)
+; blue = itof (bound b)
+; alpha = itof (bound alpha)
 }
 
 let rgb r g b = make r g b 
@@ -50,7 +53,7 @@ let rgbx r g b = make (r*17) (g*17) (b*17)
 let ofrgb str =
   let open Scanf in
   try sscanf str "rgb(%d,%d,%d)" rgb with _ ->
-    sscanf str "rgba(%d,%d,%d,%g)"  rgba
+    sscanf str "rgba(%d,%d,%d,%d)"  rgba
 
 let ofxa str =
   let open Scanf in
@@ -68,25 +71,19 @@ let of_string str =
 let to_string color =
   let a, tl =
     if color.alpha <> 0.
-    then "a", ","^(string_of_float color.alpha)
+    then "a", ","^(string_of_int ((int_of_float color.alpha) * 255))
     else "", ""
   in Printf.sprintf "rgb%s(%d,%d,%d%s)"
     a
-    color.red
-    color.green
-    color.blue
+    ((int_of_float color.red)*255)
+    ((int_of_float color.green)*255)
+    ((int_of_float color.blue)*255)
     tl
 
 let js c =
   to_string c
   |> js_string
 
-let gl c = {
-  red = (float_of_int c.red) /. 255.0
-; green = (float_of_int c.green) /. 255.0
-; blue = (float_of_int c.blue) /. 255.0
-; alpha = c.alpha
-}
 
 let red   = make 255 0 0
 let green = make 0 255 0
