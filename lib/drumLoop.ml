@@ -39,39 +39,39 @@ let until ?(delay=0.1) pred f =
 
 let forN ?(delay=0.1) n = until ~delay (fun i -> i < n)
 
+let ev_window_wrap ev f =
+  async_loop
+    ev
+    Dom_html.window
+    ( fun e _ -> let _ = f e in Lwt.return_unit )
+    
+let ev_canvas_wrap ev f =
+  DrumCanvas.perform (
+    fun canvas ->
+      async_loop ev canvas ( fun e _ ->
+          let _ = f e in Lwt.return_unit
+        )
+  )
 
 (* Loop for mouse position *)
 let initialize_mouse () =
-  DrumCanvas.perform (fun canvas -> 
-      async_loop
-        mousemove
-        canvas
-        (fun evt _ ->
-           let _ = DrumMouse.retreive_position evt in
-           Lwt.return_unit
-        )
-    )
+  let _ = ev_canvas_wrap
+      mousemove
+      DrumMouse.retreive_position
+  in ()
 
 (* Loop for keyboard state *)
 let initialize_keyboard () =
-  let _ = DrumCanvas.perform (fun canvas ->
-      async_loop
-        keydown
-        Dom_html.window
-        (fun evt _ ->
-           let _ = DrumKeyboard.Internal.keydown evt in
-           Lwt.return_unit
-        )
-    ) in
-  DrumCanvas.perform (fun canvas ->
-      async_loop
-        keyup
-        Dom_html.window
-        (fun evt _ ->
-           let _ = DrumKeyboard.Internal.keyup evt in
-           Lwt.return_unit
-        )
-    )
+  let _ =
+    ev_window_wrap
+      keydown
+      DrumKeyboard.Internal.keydown
+  in
+  let _ =
+    ev_window_wrap
+      keyup
+      DrumKeyboard.Internal.keyup
+  in ()
 
 let initialize () =
   let _ = initialize_mouse () in

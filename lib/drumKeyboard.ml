@@ -42,7 +42,9 @@ end
 let press kc = (Internal.value kc) > 0
 let trigger kc = (Internal.value kc) = 1
 let repeat kc =
-  trigger kc || (Internal.value kc) >= 24 && ((Internal.value kc) mod 6) = 0
+  trigger kc ||
+  (Internal.value kc) >= 24
+  && ((Internal.value kc) mod 6) = 0
                                                     
 module Key =
 struct

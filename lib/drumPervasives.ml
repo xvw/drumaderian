@@ -30,6 +30,9 @@ let log r =
   Firebug.console ## log (r)
   |> ignore
 
+let document = Dom_html.document
+let window = Dom_html.window
+
 module Html =
 struct
 
