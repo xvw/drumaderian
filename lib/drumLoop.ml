@@ -22,6 +22,23 @@
 include Lwt_js_events
 open DrumPervasives
 
+let rec delayed ?(delay=1.0) f =
+  let _ = f () in
+  Lwt_js.sleep delay >>= (fun _ -> delayed ~delay f)
+
+let forever = delayed
+
+let until ?(delay=1.0) pred f =
+  let cpt = ref 0 in
+  let _ = while (pred !cpt) do
+      let _ = Lwt_js.sleep delay
+        >>= (fun _ -> Lwt.return (f ()))
+      in cpt := !cpt + 1
+    done
+  in Lwt.return_unit
+
+let forN ?(delay=1.0) n = until ~delay (fun i -> i < n)
+
 
 (* Loop for mouse position *)
 let initialize_mouse () =
