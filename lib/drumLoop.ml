@@ -22,13 +22,13 @@
 include Lwt_js_events
 open DrumPervasives
 
-let rec delayed ?(delay=1.0) f =
+let rec delayed ?(delay=0.1) f =
   let _ = f () in
   Lwt_js.sleep delay >>= (fun _ -> delayed ~delay f)
 
 let forever = delayed
 
-let until ?(delay=1.0) pred f =
+let until ?(delay=0.1) pred f =
   let cpt = ref 0 in
   let _ = while (pred !cpt) do
       let _ = Lwt_js.sleep delay
@@ -37,7 +37,7 @@ let until ?(delay=1.0) pred f =
     done
   in Lwt.return_unit
 
-let forN ?(delay=1.0) n = until ~delay (fun i -> i < n)
+let forN ?(delay=0.1) n = until ~delay (fun i -> i < n)
 
 
 (* Loop for mouse position *)
@@ -52,5 +52,28 @@ let initialize_mouse () =
         )
     )
 
+(* Loop for keyboard state *)
+let initialize_keyboard () =
+  let _ = DrumCanvas.perform (fun canvas ->
+      async_loop
+        keydown
+        Dom_html.window
+        (fun evt _ ->
+           let _ = DrumKeyboard.keydown evt in
+           Lwt.return_unit
+        )
+    ) in
+  DrumCanvas.perform (fun canvas ->
+      async_loop
+        keyup
+        Dom_html.window
+        (fun evt _ ->
+           let _ = DrumKeyboard.keyup evt in
+           Lwt.return_unit
+        )
+    )
+
 let initialize () =
-  initialize_mouse ()
+  let _ = initialize_mouse () in
+  let _ = initialize_keyboard () in
+  ()

@@ -21,6 +21,7 @@ Library "drumaderian"
     DrumPromises,
     DrumCanvas,
     DrumMouse,
+    DrumKeyboard,
     DrumLoop,
     DrumBooter
   BuildDepends:

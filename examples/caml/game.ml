@@ -10,7 +10,7 @@ let () =
     ~height:416
     ()
     
-let _ = Loop.forever ~delay:(0.0001) (fun () ->
-    let r = Printf.sprintf "%d-%d" (Mouse.x()) (Mouse.y()) in
-    log (js_string r)
+
+let _ = Loop.forever (fun () ->
+    if Keyboard.repeat 65 then log "yo"
   )

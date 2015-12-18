@@ -19,14 +19,22 @@
  * 
 *)
 
+open DrumPervasives
 
-module Color    = DrumColor
-module Promises = DrumPromises
-module Canvas   = DrumCanvas
-module Mouse    = DrumMouse
-module Keyboard = DrumKeyboard
-module Loop     = DrumLoop
-module Booter   = DrumBooter
+type keyboard_state = { mutable press : int array }
+let singleton_keyboard = { press = Array.make 256 0 }
 
-include DrumPervasives
-include Booter
+let keydown event =
+  let kc = event ## keyCode in
+  let state = singleton_keyboard.press.(kc) in
+  singleton_keyboard.press.(kc) <- state + 1
+
+let keyup event =
+  let kc = event ## keyCode in
+  singleton_keyboard.press.(kc) <- 0
+
+let value kc = singleton_keyboard.press.(kc)
+
+let press kc = (value kc) > 0
+let trigger kc = (value kc) = 1
+let repeat kc = trigger kc || (value kc) >= 24 && ((value kc) mod 6) = 0
