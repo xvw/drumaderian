@@ -25,6 +25,11 @@ let js_string = Js.string
 let id x = x
 let mk_unit f x = (fun () -> f x)
 
+let alert v = Dom_html.window ## alert (js_string v)
+let log r =
+  Firebug.console ## log (r)
+  |> ignore
+
 module Html =
 struct
 
