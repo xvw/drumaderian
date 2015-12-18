@@ -80,3 +80,5 @@ let create width height rcolor =
 let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
 let createIn elt w h rcolor = let _ = create w h rcolor in appendTo elt
 
+let boundedRect () =
+  perform (fun canvas -> canvas ## getBoundingClientRect ())

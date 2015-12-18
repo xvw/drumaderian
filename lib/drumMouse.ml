@@ -21,8 +21,27 @@
 
 open DrumPervasives
 
-let create ?(color=None) ~into ~width ~height () =
-  let _ = DrumCanvas.createIn into width height color in
-  let _ = DrumLoop.initialize () in
+type mouse_coords = {
+  mutable x : int
+; mutable y : int
+}
+let singleton_mouse = { x = 0 ; y = 0}
 
-  ()
+let mouse_position event =
+  let rect = DrumCanvas.boundedRect () in
+  let clientX = event ## clientX in
+  let clientY = event ## clientY in
+  let top = int_of_float (rect ## top) in
+  let left = int_of_float (rect ## left) in
+  (clientX - left, clientY - left)
+
+let retreive_position event =
+  let (x, y) = mouse_position event in
+  let _ = singleton_mouse.x <- x in
+  let _ = singleton_mouse.y <- y in
+  Js._true
+    
+let x () = singleton_mouse.x
+let y () = singleton_mouse.y
+
+  

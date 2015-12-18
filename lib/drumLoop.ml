@@ -19,10 +19,21 @@
  * 
 *)
 
+include Lwt_js_events
 open DrumPervasives
 
-let create ?(color=None) ~into ~width ~height () =
-  let _ = DrumCanvas.createIn into width height color in
-  let _ = DrumLoop.initialize () in
 
-  ()
+(* Loop for mouse position *)
+let initialize_mouse () =
+  DrumCanvas.perform (fun canvas -> 
+      async_loop
+        mousemove
+        canvas
+        (fun evt _ ->
+           let _ = DrumMouse.retreive_position evt in
+           Lwt.return_unit
+        )
+    )
+
+let initialize () =
+  initialize_mouse ()

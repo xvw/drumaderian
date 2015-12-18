@@ -1,5 +1,12 @@
 open Drumaderian
 
 let modal = Html.getById "modal"
-let _ = Canvas.createIn modal 800 420 (Some Color.black)
 
+
+let () =
+  create
+    ~into:modal
+    ~width:720
+    ~height:416
+    () 
+    

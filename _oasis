@@ -20,6 +20,8 @@ Library "drumaderian"
     DrumColor,
     DrumPromises,
     DrumCanvas,
+    DrumMouse,
+    DrumLoop,
     DrumBooter
   BuildDepends:
     camlp4,

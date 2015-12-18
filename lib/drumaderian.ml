@@ -23,6 +23,8 @@
 module Color    = DrumColor
 module Promises = DrumPromises
 module Canvas   = DrumCanvas
+module Mouse    = DrumMouse
+module Loop     = DrumLoop
 module Booter   = DrumBooter
 
 include DrumPervasives
