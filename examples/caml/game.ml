@@ -12,5 +12,5 @@ let () =
     
 
 let _ = Loop.forever (fun () ->
-    if Keyboard.repeat 65 then log "yo"
+    if Keyboard.(press a) then log "yo"
   )

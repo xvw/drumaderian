@@ -59,7 +59,7 @@ let initialize_keyboard () =
         keydown
         Dom_html.window
         (fun evt _ ->
-           let _ = DrumKeyboard.keydown evt in
+           let _ = DrumKeyboard.Internal.keydown evt in
            Lwt.return_unit
         )
     ) in
@@ -68,7 +68,7 @@ let initialize_keyboard () =
         keyup
         Dom_html.window
         (fun evt _ ->
-           let _ = DrumKeyboard.keyup evt in
+           let _ = DrumKeyboard.Internal.keyup evt in
            Lwt.return_unit
         )
     )
