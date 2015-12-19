@@ -55,9 +55,20 @@ let ev_canvas_wrap ev f =
 
 (* Loop for mouse position *)
 let initialize_mouse () =
-  let _ = ev_canvas_wrap
+  let _ =
+    ev_canvas_wrap
       mousemove
       DrumMouse.retreive_position
+  in
+  let _ =
+    ev_window_wrap
+      mousedown
+      DrumMouse.mousedown
+  in
+  let _ =
+    ev_window_wrap
+      mouseup
+      DrumMouse.mouseup
   in ()
 
 (* Loop for keyboard state *)

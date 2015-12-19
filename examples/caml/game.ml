@@ -12,6 +12,6 @@ let () =
     
 
 let _ = Loop.forever (fun () ->
-    if Keyboard.(press a) then
+    if Mouse.(repeat center)  then
       log (js_string (Printf.sprintf "%d-%d" (Mouse.x ()) (Mouse.y ())))
   )

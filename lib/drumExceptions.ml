@@ -25,3 +25,4 @@ exception Canvas_already_created
 exception WebGL_not_allowed
 exception WebGL_context_not_initialized
 exception Canvas_not_ready
+exception Optdef_failure

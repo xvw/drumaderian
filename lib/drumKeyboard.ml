@@ -24,7 +24,7 @@ open DrumPervasives
 module Internal =
 struct
   
-  type keyboard_state = { mutable press : int array }
+  type keyboard_state = { press : int array }
   let singleton_keyboard = { press = Array.make 256 0 }
                            
   let keydown event =
