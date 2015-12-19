@@ -25,9 +25,10 @@ type mouse_state = {
   mutable x : int
 ; mutable y : int
 ; press : int array
+; click : bool
 }
 let singleton_mouse = {
-  x = 0 ; y = 0; press = Array.make 3 0
+  x = 0 ; y = 0; press = Array.make 3 0; click = false
 }
 
 let mouse_position event =

@@ -52,6 +52,7 @@ struct
   let backspace = 8
   let tab = 9
   let enter = 13
+  let space = 32
     
   let shift = 16
   let ctrl = 17
