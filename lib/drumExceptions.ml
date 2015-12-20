@@ -19,6 +19,7 @@
  * 
 *)
 
+
 exception Unbound_id of string
 exception Canvas_not_created
 exception Canvas_already_created
@@ -26,3 +27,7 @@ exception WebGL_not_allowed
 exception WebGL_context_not_initialized
 exception Canvas_not_ready
 exception Optdef_failure
+exception Unknown_shader of string
+exception Invalid_shader
+exception Compilation_shader of string * string
+exception Unlinkable_shader

@@ -33,14 +33,23 @@ let log r =
 let document = Dom_html.document
 let window = Dom_html.window
 
+let fail i () = raise (DrumExceptions.Unbound_id i)
+let unopt i x = Js.Opt.get x (fail i) 
+
+let perform_fail exn () = raise exn
+
+let js_true expr = expr = Js._true
+
 module Html =
 struct
 
-  let fail i () = raise (DrumExceptions.Unbound_id i)
-  let unopt i x = Js.Opt.get x (fail i) 
   let getById id =
     Dom_html.document ## getElementById (js_string id)
     |> unopt id
+
+  let getById_opt id =
+    try Some (getById id)
+    with _ -> None 
   
 
 end
