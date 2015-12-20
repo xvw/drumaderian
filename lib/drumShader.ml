@@ -77,3 +77,30 @@ let retrieve_from_DOM gl id =
   shader
   
   
+let location ?(enable=true) gl prg label =
+  let lbl = gl ## getAttribLocation(prg, label) in
+  if enable then gl ## enableVertexAttribArray(lbl)
+
+
+module Presaved =
+struct
+
+  let sample_vertex =
+    ("attribute vec3 aVertexPosition;\n"
+    ^ "uniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;\n"
+    ^ "void main(void) {"
+    ^ "gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);}")
+    |> js_string
+
+  let sample_fragment color =
+    let open DrumColor in
+    (Printf.sprintf
+       "void main(void) {gl_FragColor = vec4(%g, %g, %g, %g);}"
+       color.red
+       color.green
+       color.blue
+       color.alpha
+    )
+    |> js_string
+  
+end

@@ -32,13 +32,22 @@ let log r =
 
 let document = Dom_html.document
 let window = Dom_html.window
-
 let fail i () = raise (DrumExceptions.Unbound_id i)
 let unopt i x = Js.Opt.get x (fail i) 
-
 let perform_fail exn () = raise exn
-
 let js_true expr = expr = Js._true
+
+let float32array a =
+  let len = Array.length a in 
+  let jsarray = jsnew Typed_array.float32Array(len) in
+  let _ = Array.iteri (fun i v -> Typed_array.set jsarray i v) a in
+  jsarray
+
+let int16array a =
+  let len = Array.length a in 
+  let jsarray = jsnew Typed_array.int16Array(len) in
+  let _ = Array.iteri (fun i v -> Typed_array.set jsarray i v) a in
+  jsarray  
 
 module Html =
 struct

@@ -20,6 +20,7 @@
 *)
 
 
+module Matrix   = DrumMatrix
 module Color    = DrumColor
 module Promises = DrumPromises
 module Canvas   = DrumCanvas
