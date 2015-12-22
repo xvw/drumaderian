@@ -1,0 +1,6 @@
+S .
+S lib
+S _build/lib
+B _build
+PKG js_of_ocaml
+EXT js
