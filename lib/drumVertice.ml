@@ -37,4 +37,12 @@ let shape arr =
         j := !j + 2
     done
   in float32array new_array
+
+let standard_rect =
+  [|
+    1.0;  1.0;  0.0;
+    -1.0; 1.0;  0.0;
+    1.0;  -1.0; 0.0;
+    -1.0; -1.0; 0.0
+  |] |> float32array
     

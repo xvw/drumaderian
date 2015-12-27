@@ -9,9 +9,13 @@ let () =
     ~width:720
     ~height:416
     ()
+
+let _ = Canvas.perform3d (
+    fun canvas gl -> Shader.InDebug.draw_rect gl
+  )
     
 
-let _ = Loop.forever (fun () ->
-    if Keyboard.(trigger space)  then
-      log (js_string (Printf.sprintf "%d-%d" (Mouse.x ()) (Mouse.y ())))
-  )
+(* let _ = Loop.forever (fun () -> *)
+(*     if Keyboard.(trigger space)  then *)
+(*       log (js_string (Printf.sprintf "%d-%d" (Mouse.x ()) (Mouse.y ()))) *)
+(*   ) *)

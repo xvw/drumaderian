@@ -29,6 +29,18 @@ type kind =
   | Vertex of string
   | Fragment of string
 
+type buffer_kind =
+  | BufferArray
+
+type draw_king =
+  | DrawStatic
+
+let of_buffer gl = function
+  | BufferArray -> gl ## _ARRAY_BUFFER_
+
+let of_draw gl = function
+  | DrawStatic -> gl ## _STATIC_DRAW_
+
 let create_shader gl sh =
   let txt, shader =
     match sh with
@@ -37,12 +49,12 @@ let create_shader gl sh =
   in
   let _ = gl ## shaderSource(shader, js_string txt) in
   let _ = gl ## compileShader (shader) in
-  let _ =
-    if (not (js_true (
-        gl ## getShaderParameter(shader, gl##_COMPILE_STATUS_))))
-    then raise (DrumExceptions.Compilation_shader
-                  (txt, gl ## getShaderInfoLog (shader)))
-  in shader
+  (* let _ = *)
+  (*   if (not (js_true ( *)
+  (*       gl ## getShaderParameter(shader, gl##_COMPILE_STATUS_)))) *)
+  (*   then raise (DrumExceptions.Compilation_shader *)
+  (*                 (txt, gl ## getShaderInfoLog (shader))) *)
+  (* in *) shader
 
 
 class shader_obj (gl_context, k) =
@@ -62,13 +74,93 @@ class program_obj (gl_context) =
     val context = gl_context
     val program : program = gl_context ## createProgram()
         
-    method link () : unit = context ## linkProgram (program)
+    method link () : unit =
+      let _ = context ## linkProgram (program) in ()
+      (* if (not (js_true ( *)
+      (*     context ## getProgramParameter( *)
+      (*       program, *)
+      (*       context ## _LINK_STATUS_ *)
+      (*     ) *)
+      (*   ))) then perform_fail DrumExceptions.Unlinkable_shader () *)
+      
     method use () : unit = context ## useProgram (program)
+        
     method attach (shader : shader_obj) : unit =
       context ## attachShader(program, (shader # get_obj()))
         
     method attach_more shaders =
       List.iter (fun x -> self # attach (x)) shaders
+
+    method get_obj () = program
     
   end
 
+class vertex_position (gl_context, program_in, name) =
+  object(self)
+
+    val context = gl_context
+    val program = program_in # get_obj ()
+    val raw_name = name
+    val position = gl_context ## getAttribLocation(
+        program_in # get_obj (),
+        js_string name)
+
+    initializer
+      context ## enableVertexAttribArray (position)
+
+  end
+
+class buffer (gl_context, vertices_in, buff, drw) =
+  object(self)
+
+    val context = gl_context
+    val buffer = gl_context ## createBuffer()
+    val vertices = vertices_in
+    val buffer_kind = of_buffer buff
+    val draw_kind = of_draw drw
+
+    initializer
+      let _ = context ## bindBuffer (buffer_kind, buffer) in
+      context ## bufferData(buffer_kind, vertices, draw_kind)
+    
+  end
+
+module Presaved =
+struct
+
+  let x_vertex =
+    Vertex (
+      "attribute vec3 aVertexPosition;\n"
+      ^ "uniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;"
+      ^ "void main(void) {\n"
+      ^ "gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"
+    )
+
+  let x_fragment (color : DrumColor.gl) =
+    let open DrumColor in
+    Fragment (
+      "void main(void) {\n"
+      ^ (Printf.sprintf
+           "gl_FragColor = vec4(%g, %g, %g, %g);\n}"
+           color.red color.green color.blue color.alpha)
+    )
+
+  let generic_fragment = x_fragment DrumColor.white
+  
+end
+
+
+module InDebug =
+struct
+
+  let draw_rect gl =
+    let vertex = new shader_obj(gl, Presaved.x_vertex) in
+    let fragment = new shader_obj(gl, Presaved.generic_fragment) in
+    let program = new program_obj(gl) in
+    let _ = program # attach_more([vertex; fragment]) in
+    let _ = program # link () in
+    let _ = program # use () in
+    let _ =  new vertex_position(gl, program, "aPosition") in
+    ()
+
+end

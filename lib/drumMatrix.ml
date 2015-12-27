@@ -30,7 +30,7 @@ let scale x y z =
     0.; y ; 0.; 0.;
     0.; 0.; z ; 0.;
     0.; 0.; 0.; 1.;
-  |] |> float32array
+  |]
 
 let translate x y z =
   [|
@@ -38,7 +38,7 @@ let translate x y z =
     0.; 1.; 0.; 0.;
     0.; 0.; 1.; 0.;
     x ; y ; z ; 1.;
-  |] |> float32array
+  |]
 
  let rotate_x t =
    [|
@@ -46,7 +46,7 @@ let translate x y z =
      0.; cos t; sin t; 0.;
      0.; -.sin t; cos t; 0.;
      0.; 0.; 0.; 1.;
-   |] |> float32array
+   |]
    
 let rotate_y t =
   [|
@@ -54,7 +54,7 @@ let rotate_y t =
     0.; 1.; 0.; 0.;
     sin t; 0.; cos t; 0.;
     0.; 0.; 0.; 1.;
-  |] |> float32array
+  |]
   
 
 let mult a b =
@@ -68,4 +68,3 @@ let mult a b =
     +. a.(sub i 3) *. b.(sub 3 j)
   in
   Array.init 16 aux
-  |> float32array 
