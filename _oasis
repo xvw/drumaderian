@@ -25,6 +25,7 @@ Library "drumaderian"
     DrumKeyboard,
     DrumLoop,
     DrumShader,
+    DrumScene,
     DrumBooter
   BuildDepends:
     camlp4,

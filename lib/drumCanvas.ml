@@ -22,6 +22,7 @@
 (* Store the current canvas *)
 let canvas = ref None
 let context = ref None
+let canvas_dimension = ref None
 
 (* Perform an operation on a canvas *)
 let perform f =
@@ -73,7 +74,8 @@ let create width height rcolor =
     let c = Dom_html.(createCanvas document) in
     let _ = c ## width <- width in
     let _ = c ## height <- height in 
-    let _ = canvas  := Some c in 
+    let _ = canvas  := Some c in
+    let _ = canvas_dimension := Some (width, height) in
     let _ = context := Some (retreive_ctx ()) in
     webgl_initialize rcolor
 
@@ -83,3 +85,8 @@ let createIn elt w h rcolor = let _ = create w h rcolor in appendTo elt
 
 let boundedRect () =
   perform (fun canvas -> canvas ## getBoundingClientRect ())
+
+let dimension () =
+  match !canvas_dimension with
+  | None -> raise DrumExceptions.Canvas_not_created
+  | Some (w, h) -> (w, h)

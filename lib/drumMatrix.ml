@@ -68,3 +68,19 @@ let mult a b =
     +. a.(sub i 3) *. b.(sub 3 j)
   in
   Array.init 16 aux
+
+(* Stoled from glMatrix by Brandon Jones and Colin MacKenzie *)
+let perspective matrix fov aspect near far =
+  let f  = 1.0 /. tan(fov /. 2.) in
+  let nf = 1.0 /. (near -. far) in
+  let _  = matrix.(0) <- f /. aspect in
+  let _  = for i = 0 to 4 do matrix.(i) <- 0. done in
+  let _  = matrix.(5) <- f in
+  let _  = for i = 6 to 9 do matrix.(i) <- 0. done in
+  let _ = matrix.(10) <- (far +. near) *. nf in
+  let _ = matrix.(11) <- -1. in
+  let _ = matrix.(12) <- 0. in
+  let _ = matrix.(13) <- 0. in
+  let _ = matrix.(14) <- (2. *. far *. near) *. nf in
+  let _ = matrix.(15) <- 0. in
+  matrix
