@@ -38,6 +38,11 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
       let h = gl_context ## viewportHeight in 
       let _ = gl_context ## viewport(0, 0, w, h) in
       let _ = aspect <- w /. h in
+      let _ =
+        gl_context ## clear (
+          gl_context ##_DEPTH_BUFFER_BIT_ lor gl_context ##_COLOR_BUFFER_BIT_
+        )
+      in
       DrumMatrix.perspective pMatrix fov aspect near far
       |> ignore
     
