@@ -23,6 +23,14 @@ open DrumPervasives
 
 type t = float array
 type js = (float, [ `Float32 ]) Typed_array.typedArray
+  
+let create () =
+  let arr = Array.make 16 0. in
+  let _   = arr.(0)  <- 1. in
+  let _   = arr.(5)  <- 1. in
+  let _   = arr.(10) <- 1. in
+  let _   = arr.(15) <- 1. in
+  arr
 
 let scale x y z =
   [|
@@ -84,3 +92,7 @@ let perspective matrix fov aspect near far =
   let _ = matrix.(14) <- (2. *. far *. near) *. nf in
   let _ = matrix.(15) <- 0. in
   matrix
+
+let create_perspective fov aspect near far =
+  let matrix = create () in
+  perspective matrix fov aspect near far

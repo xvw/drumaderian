@@ -24,6 +24,21 @@ open DrumPervasives
 class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
   object(self)
 
+    val mutable fov = angle
+    val mutable far = max
+    val mutable near = min
+    val mutable aspect = 0.0
+    
+    val pMatrix : float array  = DrumMatrix.create ()
+    val mMatrix : float array  = DrumMatrix.create ()
     val context = gl_context
+
+    initializer
+      let w = gl_context ## viewportWidth in
+      let h = gl_context ## viewportHeight in 
+      let _ = gl_context ## viewport(0, 0, w, h) in
+      let _ = aspect <- w /. h in
+      DrumMatrix.perspective pMatrix fov aspect near far
+      |> ignore
     
   end
