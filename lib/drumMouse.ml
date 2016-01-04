@@ -37,7 +37,7 @@ let mouse_position event =
   let clientY = event ## clientY in
   let top = int_of_float (rect ## top) in
   let left = int_of_float (rect ## left) in
-  (clientX - left, clientY - left)
+  (clientX - left, clientY - top)
 
 let retreive_position event =
   let (x, y) = mouse_position event in

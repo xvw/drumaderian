@@ -46,9 +46,10 @@ let retreive_ctx () = perform
 
 let webgl_initialize rcolor =
   perform3d (fun canvas ctx ->
+      let open DrumColor in
       let color = match rcolor with
         | Some x -> x
-        | None -> DrumColor.black
+        | None -> black
       in 
       let _ = ctx ## clearColor(
           color.red,
