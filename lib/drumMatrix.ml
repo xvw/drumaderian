@@ -23,14 +23,17 @@ open DrumPervasives
 
 type t = float array
 type js = (float, [ `Float32 ]) Typed_array.typedArray
-  
-let create () =
-  let arr = Array.make 16 0. in
+
+let identity arr =
+  let _   = Array.(fill arr 0 (length arr) 0.) in
   let _   = arr.(0)  <- 1. in
   let _   = arr.(5)  <- 1. in
   let _   = arr.(10) <- 1. in
   let _   = arr.(15) <- 1. in
   arr
+  
+let create () =
+  identity (Array.make 16 0.)
 
 let scale x y z =
   [|
