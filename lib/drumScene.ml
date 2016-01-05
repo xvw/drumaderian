@@ -31,7 +31,7 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
     
     val mutable pMatrix : float array  = DrumMatrix.create ()
     val mutable mMatrix : float array  = DrumMatrix.create ()
-    val context = gl_context
+    val context : WebGL.renderingContext Js.t = gl_context
 
     method getProjection () = pMatrix
     method getMovement () = mMatrix
@@ -55,7 +55,6 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
         )
       in gl_context ## uniform4fv_typed (
         alphaUniform,
-        false,
         float32array matrix
       ) |> ignore
 
@@ -77,13 +76,15 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
       let _ = self # set_matrix_uniforms (shaderA, shaderB, program) in
       let _ = gl_context ## drawArrays(
           gl_context ## _TRIANGLES,
-          0, 4
+          0, 6
         )
       in ()
 
     initializer
       let w, h = DrumCanvas.dimension () in
-      let _ = gl_context ## viewport(0, 0, w, h) in
+      let wi : WebGL.sizei = w in
+      let hi : WebGL.sizei = h in
+      let _ = gl_context ## viewport(0, 0, wi, hi) in
       let _ = aspect <- (float_of_int w) /. (float_of_int h) in
       let _ =
         gl_context ## clear (
