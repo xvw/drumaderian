@@ -117,7 +117,7 @@ class vertex_position (gl_context, program_in, name) =
 class buffer (gl_context, vertices_in, buff, drw) =
   object(self)
 
-    val context  = gl_context
+    val context : ctx  = gl_context
     val buffer = gl_context ## createBuffer()
     val vertices = vertices_in
     val buffer_kind = of_buffer gl_context buff
@@ -135,12 +135,14 @@ class buffer (gl_context, vertices_in, buff, drw) =
           zerosize, zerointpr
         ) in ()
 
-    (* initializer *)
-    (*   let _ = context ## bindBuffer (buffer_kind, buffer) in *)
-    (*   let _ = context ## bufferData( *)
-    (*       buffer_kind, float32array vertices, draw_kind *)
-    (*     ) in *)
-    (*   () *)
+    initializer
+      let _ = context ## bindBuffer (buffer_kind, buffer) in
+      let r = float32array vertices
+      in
+      let () = context ## bufferData(
+          buffer_kind, r , draw_kind
+        ) in
+      ()
       
   end
 

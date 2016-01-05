@@ -53,8 +53,9 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
           program # get_obj (),
           js_string name
         )
-      in gl_context ## uniform4fv_typed (
+      in gl_context ## uniformMatrix4fv_typed (
         alphaUniform,
+        Js._false,
         float32array matrix
       ) |> ignore
 
@@ -75,8 +76,8 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
       let _ = buffer # bind_for_draw (vertex_position) in
       let _ = self # set_matrix_uniforms (shaderA, shaderB, program) in
       let _ = gl_context ## drawArrays(
-          gl_context ## _TRIANGLES,
-          0, 6
+          gl_context ## _TRIANGLE_STRIP_,
+          0, 4
         )
       in ()
 
