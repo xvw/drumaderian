@@ -29,9 +29,12 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
     val mutable near = min
     val mutable aspect = 0.0
     
-    val pMatrix : float array  = DrumMatrix.create ()
-    val mMatrix : float array  = DrumMatrix.create ()
+    val mutable pMatrix : float array  = DrumMatrix.create ()
+    val mutable mMatrix : float array  = DrumMatrix.create ()
     val context = gl_context
+
+    method getProjection () = pMatrix
+    method getMovement () = mMatrix
 
     initializer
       let w = gl_context ## viewportWidth in
@@ -43,7 +46,8 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
           gl_context ##_DEPTH_BUFFER_BIT_ lor gl_context ##_COLOR_BUFFER_BIT_
         )
       in
-      DrumMatrix.perspective pMatrix fov aspect near far
-      |> ignore
+      let _ = DrumMatrix.perspective pMatrix fov aspect near far in
+      let _ = DrumMatrix.identity mMatrix in
+      ()
     
   end

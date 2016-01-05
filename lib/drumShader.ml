@@ -24,6 +24,7 @@ open DrumPervasives
 type shader = WebGL.shader Js.t
 type ctx = WebGL.renderingContext Js.t
 type program = WebGL.program Js.t
+type 'a uniLoc = 'a WebGL.uniformLocation Js.t
 
 type kind =
   | Vertex of string
@@ -92,6 +93,14 @@ class program_obj (gl_context) =
       List.iter (fun x -> self # attach (x)) shaders
 
     method get_obj () = program
+
+    method getMatrixUniforms (str : string) : program uniLoc =
+      gl_context ## getUniformLocation (program, js_string str)
+
+    method setMatrixUniforms ((uniform, out) : program uniLoc * float array) =
+      gl_context ## uniform4fv_typed (uniform, false, float32array out)
+      |> ignore
+      
     
   end
 
@@ -121,8 +130,8 @@ class buffer (gl_context, vertices_in, buff, drw) =
 
     initializer
       let _ = context ## bindBuffer (buffer_kind, buffer) in
-      context ## bufferData(buffer_kind, vertices, draw_kind)
-    
+      let _ = context ## bufferData(buffer_kind, vertices, draw_kind) in
+      ()
   end
 
 module Presaved =
@@ -161,6 +170,7 @@ struct
     let _ = program # link () in
     let _ = program # use () in
     let _ =  new vertex_position(gl, program, "aPosition") in
+    
     ()
 
 end
