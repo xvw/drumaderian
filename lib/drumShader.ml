@@ -42,7 +42,7 @@ let of_buffer gl = function
 let of_draw gl = function
   | DrawStatic -> gl ## _STATIC_DRAW_
 
-let create_shader gl sh =
+let create_shader (gl:ctx) sh =
   let txt, shader =
     match sh with
     | Vertex x -> x, gl ## createShader(gl ## _VERTEX_SHADER_)
@@ -50,18 +50,17 @@ let create_shader gl sh =
   in
   let _ = gl ## shaderSource(shader, js_string txt) in
   let _ = gl ## compileShader (shader) in
-  (* let _ = *)
-  (*   if (not (js_true ( *)
-  (*       gl ## getShaderParameter(shader, gl##_COMPILE_STATUS_)))) *)
-  (*   then raise (DrumExceptions.Compilation_shader *)
-  (*                 (txt, gl ## getShaderInfoLog (shader))) *)
-  (* in *) shader
+  let r = gl ## getShaderParameter(shader, gl##_COMPILE_STATUS_) in
+  let _ = if (r != Js._true) then
+      let log = gl##getShaderInfoLog(shader) in
+      alert ("An error is occured : " ^ (caml_string log))
+  in shader
 
 
 class shader_obj (gl_context, k) =
   object(self)
 
-    val context = gl_context
+    val context : ctx = gl_context
     val raw_shader : kind = k
     val shader : shader = create_shader gl_context k
 
@@ -72,18 +71,17 @@ class shader_obj (gl_context, k) =
 class program_obj (gl_context) =
   object(self)
 
-    val context = gl_context
+    val context : ctx = gl_context
     val program : program = gl_context ## createProgram()
         
     method link () : unit =
-      let _ = context ## linkProgram (program) in ()
-      (* if (not (js_true ( *)
-      (*     context ## getProgramParameter( *)
-      (*       program, *)
-      (*       context ## _LINK_STATUS_ *)
-      (*     ) *)
-      (*   ))) then perform_fail DrumExceptions.Unlinkable_shader () *)
-      
+      let _ = context ## linkProgram (program) in
+      let _ =
+        context ## getProgramParameter(
+          program,
+          context ## _LINK_STATUS_)
+      in ()
+
     method use () : unit = context ## useProgram (program)
         
     method attach (shader : shader_obj) : unit =
@@ -154,7 +152,7 @@ struct
       "attribute vec3 aPosition;\n"
       ^ "uniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;"
       ^ "void main(void) {\n"
-      ^ "gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"
+      ^ "gl_Position = uPMatrix * uMVMatrix * vec4(aPosition, 1.0);\n}"
     )
 
   let x_fragment (color : DrumColor.gl) =

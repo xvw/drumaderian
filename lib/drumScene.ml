@@ -107,7 +107,8 @@ struct
     let fragment = new shader_obj(gl, Presaved.generic_fragment) in
     let program = new program_obj(gl) in
     let scene = new scene (gl, 45.0) in
-    let _ = program # attach_more([vertex; fragment]) in
+    let _ = program # attach(vertex) in
+    let _ = program # attach(fragment) in
     let _ = program # link () in
     let _ = program # use () in
     let b =  new buffer(
