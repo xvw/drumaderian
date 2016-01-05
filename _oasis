@@ -24,6 +24,7 @@ Library "drumaderian"
     DrumMouse,
     DrumKeyboard,
     DrumLoop,
+    DrumVertice,
     DrumShader,
     DrumScene,
     DrumBooter

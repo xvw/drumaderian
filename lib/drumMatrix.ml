@@ -24,6 +24,7 @@ open DrumPervasives
 type t = float array
 type js = (float, [ `Float32 ]) Typed_array.typedArray
 
+(* Stoled from glMatrix by Brandon Jones and Colin MacKenzie *)
 let identity arr =
   let _   = Array.(fill arr 0 (length arr) 0.) in
   let _   = arr.(0)  <- 1. in
@@ -35,52 +36,6 @@ let identity arr =
 let create () =
   identity (Array.make 16 0.)
 
-let scale x y z =
-  [|
-    x;  0.; 0.; 0.;
-    0.; y ; 0.; 0.;
-    0.; 0.; z ; 0.;
-    0.; 0.; 0.; 1.;
-  |]
-
-let translate x y z =
-  [|
-    1.; 0.; 0.; 0.;
-    0.; 1.; 0.; 0.;
-    0.; 0.; 1.; 0.;
-    x ; y ; z ; 1.;
-  |]
-
- let rotate_x t =
-   [|
-     1.; 0.; 0.; 0.;
-     0.; cos t; sin t; 0.;
-     0.; -.sin t; cos t; 0.;
-     0.; 0.; 0.; 1.;
-   |]
-   
-let rotate_y t =
-  [|
-    cos t; 0.; -.sin t; 0.;
-    0.; 1.; 0.; 0.;
-    sin t; 0.; cos t; 0.;
-    0.; 0.; 0.; 1.;
-  |]
-  
-
-let mult a b =
-  let sub x y = x * 4 + y
-  and trs x = x/4, x mod 4 in 
-  let aux x =
-    let i, j = trs x in
-    a.(sub i 0) *. b.(sub 0 j)
-    +. a.(sub i 1) *. b.(sub 1 j)
-    +. a.(sub i 2) *. b.(sub 2 j)
-    +. a.(sub i 3) *. b.(sub 3 j)
-  in
-  Array.init 16 aux
-
-(* Stoled from glMatrix by Brandon Jones and Colin MacKenzie *)
 let perspective matrix fov aspect near far =
   let f  = 1.0 /. tan(fov /. 2.) in
   let nf = 1.0 /. (near -. far) in

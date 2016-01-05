@@ -93,13 +93,6 @@ class program_obj (gl_context) =
       List.iter (fun x -> self # attach (x)) shaders
 
     method get_obj () = program
-
-    method getMatrixUniforms (str : string) : program uniLoc =
-      gl_context ## getUniformLocation (program, js_string str)
-
-    method setMatrixUniforms ((uniform, out) : program uniLoc * float array) =
-      gl_context ## uniform4fv_typed (uniform, false, float32array out)
-      |> ignore
       
     
   end
@@ -110,9 +103,13 @@ class vertex_position (gl_context, program_in, name) =
     val context = gl_context
     val program = program_in # get_obj ()
     val raw_name = name
-    val position = gl_context ## getAttribLocation(
+    val position : WebGL.uint =
+      gl_context ## getAttribLocation(
         program_in # get_obj (),
-        js_string name)
+        js_string name
+      )
+    
+    method get_position () = position
 
     initializer
       context ## enableVertexAttribArray (position)
@@ -125,13 +122,26 @@ class buffer (gl_context, vertices_in, buff, drw) =
     val context = gl_context
     val buffer = gl_context ## createBuffer()
     val vertices = vertices_in
-    val buffer_kind = of_buffer buff
-    val draw_kind = of_draw drw
+    val buffer_kind = of_buffer gl_context buff
+    val draw_kind = of_draw gl_context drw
+
+    method bind_for_draw (vertex_position : vertex_position) =
+      let _ = context ## bindBuffer (buffer_kind, buffer) in
+      let _ = context ## vertexAttribPointer(
+          vertex_position # get_position (),
+          3,
+          context ## _FLOAT_,
+          false,
+          0, 0
+        ) in ()
 
     initializer
       let _ = context ## bindBuffer (buffer_kind, buffer) in
-      let _ = context ## bufferData(buffer_kind, vertices, draw_kind) in
+      let _ = context ## bufferData(
+          buffer_kind, float32array vertices, draw_kind
+        ) in
       ()
+      
   end
 
 module Presaved =
@@ -139,7 +149,7 @@ struct
 
   let x_vertex =
     Vertex (
-      "attribute vec3 aVertexPosition;\n"
+      "attribute vec3 aPosition;\n"
       ^ "uniform mat4 uMVMatrix;\nuniform mat4 uPMatrix;"
       ^ "void main(void) {\n"
       ^ "gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);\n}"
@@ -158,19 +168,3 @@ struct
   
 end
 
-
-module InDebug =
-struct
-
-  let draw_rect gl =
-    let vertex = new shader_obj(gl, Presaved.x_vertex) in
-    let fragment = new shader_obj(gl, Presaved.generic_fragment) in
-    let program = new program_obj(gl) in
-    let _ = program # attach_more([vertex; fragment]) in
-    let _ = program # link () in
-    let _ = program # use () in
-    let _ =  new vertex_position(gl, program, "aPosition") in
-    
-    ()
-
-end

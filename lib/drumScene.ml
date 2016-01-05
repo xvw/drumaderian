@@ -36,18 +36,87 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
     method getProjection () = pMatrix
     method getMovement () = mMatrix
 
+    method perspective() =
+      DrumMatrix.perspective pMatrix fov aspect near far
+
+    method identity () =
+      DrumMatrix.identity mMatrix
+
+    method setAMatrixUniforms (
+        (
+          program,
+          name,
+          matrix
+        ) : (DrumShader.program_obj * string * float array)
+      ) =
+      let alphaUniform = gl_context ## getUniformLocation(
+          program # get_obj (),
+          js_string name
+        )
+      in gl_context ## uniform4fv_typed (
+        alphaUniform,
+        false,
+        float32array matrix
+      ) |> ignore
+
+    method set_matrix_uniforms (shaderA, shaderB, program) =
+      let _ = self # setAMatrixUniforms(program, shaderA, pMatrix) in
+      self # setAMatrixUniforms(program, shaderB, mMatrix)
+
+    (* method translate (x, y, z) = *)
+    (*   DrumM *)
+
+    method draw_buffer (
+        (shaderA, shaderB, program, buffer, vertex_position) :
+          string
+          * string
+          * DrumShader.program_obj
+          * DrumShader.buffer
+          * DrumShader.vertex_position) =
+      let _ = buffer # bind_for_draw (vertex_position) in
+      let _ = self # set_matrix_uniforms (shaderA, shaderB, program) in
+      let _ = gl_context ## drawArrays(
+          gl_context ## _TRIANGLES,
+          0, 4
+        )
+      in ()
+
     initializer
-      let w = gl_context ## viewportWidth in
-      let h = gl_context ## viewportHeight in 
+      let w, h = DrumCanvas.dimension () in
       let _ = gl_context ## viewport(0, 0, w, h) in
-      let _ = aspect <- w /. h in
+      let _ = aspect <- (float_of_int w) /. (float_of_int h) in
       let _ =
         gl_context ## clear (
           gl_context ##_DEPTH_BUFFER_BIT_ lor gl_context ##_COLOR_BUFFER_BIT_
         )
       in
-      let _ = DrumMatrix.perspective pMatrix fov aspect near far in
-      let _ = DrumMatrix.identity mMatrix in
+      let _ = self#perspective() in
+      let _ = self#identity() in
       ()
     
   end
+
+
+module InDebug =
+struct
+
+  let draw_rect gl =
+    let open DrumShader in
+    let vertex = new shader_obj(gl, Presaved.x_vertex) in
+    let fragment = new shader_obj(gl, Presaved.generic_fragment) in
+    let program = new program_obj(gl) in
+    let scene = new scene (gl, 45.0) in
+    let _ = program # attach_more([vertex; fragment]) in
+    let _ = program # link () in
+    let _ = program # use () in
+    let b =  new buffer(
+      gl,
+      DrumVertice.standard_rect,
+      BufferArray,
+      DrawStatic
+    ) in
+    let v =  new vertex_position(gl, program, "aPosition") in
+    let _ = scene # draw_buffer ("uPMatrix", "uMVMatrix", program, b, v) in
+    ()
+
+end

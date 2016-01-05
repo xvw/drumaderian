@@ -27,7 +27,9 @@ module Canvas   = DrumCanvas
 module Mouse    = DrumMouse
 module Keyboard = DrumKeyboard
 module Loop     = DrumLoop
+module Vertice  = DrumVertice
 module Shader   = DrumShader
+module Scene    = DrumScene
 module Booter   = DrumBooter
 
 include DrumPervasives
