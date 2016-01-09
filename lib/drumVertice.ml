@@ -22,21 +22,6 @@
 
 open DrumPervasives
 
-type point = float * float
-             
-let shape arr =
-  let len = Array.length arr in
-  let new_array = Array.make (2*len) 0.0 in
-  let i, j = ref 0, ref 0 in
-  let _ =
-    while !i < len do
-        let (x, y) = arr.(!i) in
-        let _= new_array.(!j) <- x in
-        let _= new_array.(!j+1) <- y in
-        let _ = incr i in
-        j := !j + 2
-    done
-  in float32array new_array
 
 let standard_rect =
   [|

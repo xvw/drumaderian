@@ -76,11 +76,12 @@ class program_obj (gl_context) =
         
     method link () : unit =
       let _ = context ## linkProgram (program) in
-      let _ =
-        context ## getProgramParameter(
-          program,
-          context ## _LINK_STATUS_)
-      in ()
+      let r =
+        context ## getProgramParameter( 
+           program,
+          context ## _LINK_STATUS_) in
+      let _ = if (r != Js._true) then alert "Unlinkable" in
+      ()
 
     method use () : unit = context ## useProgram (program)
         
@@ -129,7 +130,7 @@ class buffer (gl_context, vertices_in, buff, drw) =
       let _ = context ## bindBuffer (buffer_kind, buffer) in
       let () = context ## vertexAttribPointer(
           vertex_position # get_position (),
-          3,
+          4,
           context##_FLOAT,
           Js._false,
           zerosize, zerointpr
@@ -160,7 +161,7 @@ struct
   let x_fragment (color : DrumColor.gl) =
     let open DrumColor in
     Fragment (
-      "void main(void) {\n"
+      "precision mediump float;\nvoid main(void) {\n"
       ^ (Printf.sprintf
            "gl_FragColor = vec4(%g, %g, %g, %g);\n}"
            color.red color.green color.blue color.alpha)

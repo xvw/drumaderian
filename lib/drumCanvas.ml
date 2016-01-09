@@ -50,7 +50,7 @@ let webgl_initialize rcolor =
       let open DrumColor in
       let color = match rcolor with
         | Some x -> x
-        | None -> black
+        | None -> green
       in 
       let _ = ctx ## clearColor(
           color.red,

@@ -63,8 +63,8 @@ class scene ?(min = 0.1) ?(max = 100.) (gl_context, angle) =
       let _ = self # setAMatrixUniforms(program, shaderA, pMatrix) in
       self # setAMatrixUniforms(program, shaderB, mMatrix)
 
-    (* method translate (x, y, z) = *)
-    (*   DrumM *)
+    method translate (x, y, z) =
+      DrumMatrix.translate mMatrix x y z
 
     method draw_buffer (
         (shaderA, shaderB, program, buffer, vertex_position) :
@@ -119,6 +119,7 @@ struct
       DrawStatic
     ) in
     let v =  new vertex_position(gl, program, "aPosition") in
+    let _ = scene # translate(-1.5, 0., -7.) in
     let _ = scene # draw_buffer ("uPMatrix", "uMVMatrix", program, b, v) in
     ()
 
