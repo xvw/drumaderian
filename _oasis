@@ -19,14 +19,10 @@ Library "drumaderian"
     DrumPervasives,
     DrumColor,
     DrumMatrix,
-    DrumPromises,
     DrumCanvas,
     DrumMouse,
     DrumKeyboard,
     DrumLoop,
-    DrumVertice,
-    DrumShader,
-    DrumScene,
     DrumBooter
   BuildDepends:
     camlp4,

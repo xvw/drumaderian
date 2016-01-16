@@ -19,6 +19,7 @@
  * 
 *)
 
+let ($) f x = f x 
 let ( >>= ) = Lwt.bind
 let caml_string = Js.to_string
 let js_string = Js.string
