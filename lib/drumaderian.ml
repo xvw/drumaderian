@@ -22,7 +22,6 @@
 
 module Matrix   = DrumMatrix
 module Color    = DrumColor
-module Promises = DrumPromises
 module Canvas   = DrumCanvas
 module Mouse    = DrumMouse
 module Keyboard = DrumKeyboard
@@ -30,7 +29,9 @@ module Loop     = DrumLoop
 module Shader   = DrumShader
 module Program  = DrumProgram
 module Buffer   = DrumBuffer
+module Scene    = DrumScene
 module Booter   = DrumBooter
+module Debug    = DrumDebug
 
 include DrumPervasives
 include Booter

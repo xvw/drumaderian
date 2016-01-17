@@ -55,6 +55,8 @@ class t((gl_in : gl), (vertices_in : DrumMatrix.t)) =
         0, 0
       )
 
+    method drawArrays() =
+      gl ## drawArrays(gl ## _TRIANGLE_STRIP_, 0, numItems)
 
     initializer 
       self # bind()

@@ -26,7 +26,9 @@ Library "drumaderian"
     DrumShader,
     DrumProgram,
     DrumBuffer,
-    DrumBooter
+    DrumScene,
+    DrumBooter,
+    DrumDebug
   BuildDepends:
     camlp4,
     js_of_ocaml,

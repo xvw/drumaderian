@@ -11,7 +11,7 @@ let () =
     ()
 
 let _ = Canvas.perform3d (
-    fun canvas gl -> Scene.InDebug.draw_rect gl
+    fun canvas gl -> Debug.scene_with_rect gl
   )
     
 
