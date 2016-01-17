@@ -23,7 +23,7 @@ open DrumPervasives
 type shader = DrumShader.t
 
 (* Represent a Shader's program *)
-class t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
+class ['a] t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
   object(self)
         
     val gl = gl_in
@@ -84,7 +84,7 @@ class t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
         raise DrumExceptions.Malformed_attribute
           
 
-    method uniformLocation(var) : [`mat4] WebGL.uniformLocation Js.t =
+    method uniformLocation(var) : 'a WebGL.uniformLocation Js.t =
       gl ## getUniformLocation(program, js_string var)
 
     method use(pos, pmatrix, mvmatrix) : unit =
