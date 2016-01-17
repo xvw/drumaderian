@@ -31,4 +31,4 @@ exception Unknown_shader of string
 exception Invalid_shader
 exception Compilation_shader of string * string
 exception Unlinkable_shader
-exception Malformed_position
+exception Malformed_attribute

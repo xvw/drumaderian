@@ -68,14 +68,23 @@ class t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
       let _ = position <- [pos]
       in gl ## enableVertexAttribArray(pos)
 
-    method positionAttribute() =
-      match position with
-      | [pos] -> pos
-      | _ ->
-        let () = alert "Position malformed" in 
-        raise DrumExceptions.Malformed_position
+    method vPosition() =
+      match position with | [x] -> x | _   ->
+        let () = alert "Malformed position" in
+        raise DrumExceptions.Malformed_attribute
+          
+    method pMatrix() =
+      match pMatrix with | [x] -> x | _   ->
+        let () = alert "Malformed pMatrix" in
+        raise DrumExceptions.Malformed_attribute
 
-    method uniformLocation(var) : [`vec4] WebGL.uniformLocation Js.t =
+    method mvMatrix() =
+      match mvMatrix with | [x] -> x | _   ->
+        let () = alert "Malformed pMatrix" in
+        raise DrumExceptions.Malformed_attribute
+          
+
+    method uniformLocation(var) : [`mat4] WebGL.uniformLocation Js.t =
       gl ## getUniformLocation(program, js_string var)
 
     method use(pos, pmatrix, mvmatrix) : unit =
