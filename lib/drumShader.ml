@@ -59,5 +59,34 @@ class t((gl_in : gl), shader_in) =
 module Cached =
 struct
 
+  let x_fragment color =
+    let open DrumColor in
+    let s = 
+      "precision mediump float;\n"
+      ^ "void main(void) {\n"
+      ^ "gl_FragColor = vec4("
+      ^ join color
+      ^ ");"
+      ^ "}"
+    in XFragment s
+
+  let default_fragment = x_fragment DrumColor.white
+
+  let x_vertex position uMVMatrix uPMatrix =
+    let s = 
+      "attribute vec3 "
+      ^ position ^ ";\n"
+      ^ "uniform mat4 " ^ uMVMatrix ^ ";\n"
+      ^ "uniform mat4 " ^ uPMatrix ^ ";\n"
+      ^ "void main(void){"
+      ^ "gl_Position = " ^ uPMatrix ^ " * " ^ uMVMatrix
+      ^ " * vec4(" ^ position ^ ", 1.0);\n" 
+      ^ "}"
+    in XVertex s
+
+  let default_vertex = x_vertex
+      "aVertexPosition"
+      "uMVMatrix"
+      "uPMatrix"
 
 end

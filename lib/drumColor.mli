@@ -45,6 +45,7 @@ val of_string : string -> gl
 val js : gl -> Js.js_string Js.t
 (** Create a color usable by a JavaScript function *)
 
+val join : gl -> string
 
 (** {2 List of presaved colors *)
 val black : gl
@@ -52,3 +53,4 @@ val white : gl
 val green : gl
 val blue  : gl
 val red   : gl
+

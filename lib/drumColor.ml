@@ -90,3 +90,13 @@ let green = make 0 255 0
 let blue  = make 0 0 255
 let white = make 255 255 255
 let black = make 0 0 0
+
+let join c =
+  Printf.sprintf
+    "%g,%g,%g,%g"
+    c.red
+    c.green
+    c.blue
+    c.alpha
+    
+    
