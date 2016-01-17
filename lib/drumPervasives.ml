@@ -19,6 +19,11 @@
  * 
 *)
 
+(* Type Aliasing *)
+
+
+type gl = WebGL.renderingContext Js.t
+
 let ($) f x = f x 
 let ( >>= ) = Lwt.bind
 let caml_string = Js.to_string
@@ -26,7 +31,8 @@ let js_string = Js.string
 let id x = x
 let mk_unit f x = (fun () -> f x)
 
-let alert v = Dom_html.window ## alert (js_string v)
+let js_alert v = Dom_html.window ## alert(v)
+let alert v = js_alert (js_string v)
 let log r =
   Firebug.console ## log (r)
   |> ignore
@@ -37,6 +43,7 @@ let fail i () = raise (DrumExceptions.Unbound_id i)
 let unopt i x = Js.Opt.get x (fail i) 
 let perform_fail exn () = raise exn
 let js_true expr = expr = Js._true
+let js_false expr = expr = Js._false
 
 let float32array a =
   let len = Array.length a in 

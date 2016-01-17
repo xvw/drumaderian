@@ -23,6 +23,7 @@ Library "drumaderian"
     DrumMouse,
     DrumKeyboard,
     DrumLoop,
+    DrumShader,
     DrumBooter
   BuildDepends:
     camlp4,

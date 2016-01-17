@@ -45,25 +45,38 @@ let retreive_ctx () = perform
        ) (fun () -> raise DrumExceptions.WebGL_not_allowed)
     )
 
+
+let boundedRect () =
+  perform (fun canvas -> canvas ## getBoundingClientRect ())
+
+let dimension () =
+  match !canvas_dimension with
+  | None -> raise DrumExceptions.Canvas_not_created
+  | Some (w, h) -> (w, h)
+
+
 let webgl_initialize rcolor =
   perform3d (fun canvas ctx ->
       let open DrumColor in
       let color = match rcolor with
         | Some x -> x
         | None -> green
-      in 
+      in
+      let w, h = dimension () in
       let _ = ctx ## clearColor(
           color.red,
           color.green,
           color.blue,
           color.alpha
         ) in
+      let _ = ctx ## viewport(0, 0, w, h) in
       let _ = ctx ## enable(ctx ## _DEPTH_TEST_) in
       let _ = ctx ## depthFunc(ctx ## _LESS) in
       let _ = ctx ## clear(
           ctx##_DEPTH_BUFFER_BIT_ lor ctx##_COLOR_BUFFER_BIT_) in
       ()
     )
+
 
 
 (* Create a canvas *)
@@ -82,11 +95,3 @@ let create width height rcolor =
 (* Append canvas to an element *)
 let appendTo elt = perform (fun canvas -> Dom.appendChild elt canvas)
 let createIn elt w h rcolor = let _ = create w h rcolor in appendTo elt
-
-let boundedRect () =
-  perform (fun canvas -> canvas ## getBoundingClientRect ())
-
-let dimension () =
-  match !canvas_dimension with
-  | None -> raise DrumExceptions.Canvas_not_created
-  | Some (w, h) -> (w, h)
