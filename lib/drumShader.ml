@@ -21,7 +21,7 @@
 
 open DrumPervasives
 
-type shader_kind =
+type x_shader =
   | XFragment of string
   | XVertex of string
 
@@ -38,22 +38,29 @@ let retreive_shader_content = function
 (* Represent a Shader *)
 class t((gl_in : gl), shader_in) =
   object(self)
+        
     val gl = gl_in
     val raw_shader = shader_in
     val shader = retreive_shader gl_in shader_in
     val shader_str = retreive_shader_content shader_in
+    val mutable compiled = false
 
-    method get() = shader
+    method isCompiled() = compiled
+    method obj() = shader
     method source()  : unit = gl ## shaderSource(shader, shader_str)
+        
     method pre_compile() : unit =
       let _ = gl ## compileShader(shader) in
       if (js_false (gl ## getShaderParameter(shader, gl ## _COMPILE_STATUS_)))
       then js_alert (gl ## getShaderInfoLog(shader))
+      else compiled <- true
+          
     method compile() : unit =
-      let () = self#source() in self#compile()
+      (* Compile only if it is necessary *)
+      if (not (self#isCompiled()))
+      then let () = self#source() in self#compile()
       
   end
-
 
 (* Presaved Shader *)
 module Cached =
