@@ -29,6 +29,7 @@ module Keyboard = DrumKeyboard
 module Loop     = DrumLoop
 module Shader   = DrumShader
 module Program  = DrumProgram
+module Buffer   = DrumBuffer
 module Booter   = DrumBooter
 
 include DrumPervasives

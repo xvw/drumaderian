@@ -25,6 +25,7 @@ Library "drumaderian"
     DrumLoop,
     DrumShader,
     DrumProgram,
+    DrumBuffer,
     DrumBooter
   BuildDepends:
     camlp4,

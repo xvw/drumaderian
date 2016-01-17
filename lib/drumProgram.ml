@@ -68,7 +68,7 @@ class ['a] t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
       let _ = position <- [pos]
       in gl ## enableVertexAttribArray(pos)
 
-    method vPosition() =
+    method vPosition() : WebGL.uint =
       match position with | [x] -> x | _   ->
         let () = alert "Malformed position" in
         raise DrumExceptions.Malformed_attribute
@@ -79,7 +79,7 @@ class ['a] t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
         raise DrumExceptions.Malformed_attribute
 
     method mvMatrix() =
-      match mvMatrix with | [x] -> x | _   ->
+      match mvMatrix with | [x] -> x | _ ->
         let () = alert "Malformed pMatrix" in
         raise DrumExceptions.Malformed_attribute
           
@@ -100,3 +100,5 @@ class ['a] t((gl_in : gl), (fragment_in : shader), (vertex_in : shader)) =
         () 
 
   end
+type std = [`mat4] t
+let create gl f v : std = new t(gl, f, v)

@@ -101,3 +101,14 @@ struct
   
 end
 
+module Vertices =
+struct 
+
+  let square = [| 
+    1.0;   1.0;  0.0; 
+    -1.0;  1.0;  0.0; 
+    1.0;  -1.0;  0.0;
+    -1.0; -1.0;  0.0; 
+  |] |> of_array 
+
+end
