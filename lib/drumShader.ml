@@ -58,7 +58,7 @@ class t((gl_in : gl), shader_in) =
     method compile() : unit =
       (* Compile only if it is necessary *)
       if (not (self#isCompiled()))
-      then let () = self#source() in self#compile()
+      then let () = self#source() in self#pre_compile()
       
   end
 
