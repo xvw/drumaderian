@@ -23,6 +23,14 @@ val ( >>= ) : 'a Lwt.t -> ('a -> 'b Lwt.t) -> 'b Lwt.t
 
 val id : 'a -> 'a
 
+val ( $ ) : ('a -> 'b) -> 'a -> 'b
+
+val ( % ) : ('a -> 'b) -> ('c -> 'a) -> 'c -> 'b
+
+val ( %> ) : ('a -> 'b) -> ('b -> 'c) -> 'a -> 'c
+
+val flip : ('a -> 'b -> 'c) -> 'b -> 'a -> 'c
+
 module String :
 sig
 

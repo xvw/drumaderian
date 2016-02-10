@@ -22,7 +22,10 @@
 
 let ( >>= ) = Lwt.bind
 let id x = x
-
+let ( $ ) f x = f x
+let flip f x y = f y x
+let ( % ) f g x = f (g x)
+let ( %> ) f g x = g (f x)
 
 module String =
 struct

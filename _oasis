@@ -16,7 +16,8 @@ Library "drumaderian"
   Modules:
     Drumaderian,
     DrumPervasives,
-    DrumInterfaces
+    DrumInterfaces,
+    DrumMonad
   BuildDepends:
     camlp4,
     js_of_ocaml,
