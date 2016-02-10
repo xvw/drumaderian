@@ -19,14 +19,17 @@
  *
 *)
 
+val ( >>= ) : 'a Lwt.t -> ('a -> 'b Lwt.t) -> 'b Lwt.t
 
-let ( >>= ) = Lwt.bind
-let id x = x
+val id : 'a -> 'a
 
-module String =
-struct
-  include String
-  let caml = Js.to_string
-  let js   = Js.string
+module String :
+sig
+
+  include (module type of String)
+  val caml : Js.js_string Js.t -> string
+  val js : string -> Js.js_string Js.t
 
 end
+
+
