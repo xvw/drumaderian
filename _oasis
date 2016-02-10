@@ -15,20 +15,7 @@ Library "drumaderian"
   Path: lib
   Modules:
     Drumaderian,
-    DrumExceptions,
-    DrumPervasives,
-    DrumColor,
-    DrumMatrix,
-    DrumCanvas,
-    DrumMouse,
-    DrumKeyboard,
-    DrumLoop,
-    DrumShader,
-    DrumProgram,
-    DrumBuffer,
-    DrumScene,
-    DrumBooter,
-    DrumDebug
+    DrumPervasives
   BuildDepends:
     camlp4,
     js_of_ocaml,
