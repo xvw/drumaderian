@@ -23,8 +23,10 @@
 let ( >>= ) = Lwt.bind
 let id x = x
 
+
 module String =
 struct
+
   include String
   let caml = Js.to_string
   let js   = Js.string
