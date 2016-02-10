@@ -15,7 +15,8 @@ Library "drumaderian"
   Path: lib
   Modules:
     Drumaderian,
-    DrumPervasives
+    DrumPervasives,
+    DrumInterfaces
   BuildDepends:
     camlp4,
     js_of_ocaml,
