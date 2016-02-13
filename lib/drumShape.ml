@@ -122,28 +122,48 @@ end
 module Rect =
 struct
 
-  type rect = (Point.t * Dimension.t)
-  type area = (Point.t * Point.t)
-
-  type 'a r = {
-    rect : 'a
+  type t = {
+    rect : (Point.t * Dimension.t)
   ; origin : Point.t
   }
 
-  type t =
-    | R of rect r
-    | A of area r
-
   let mk ?(origin = Point.zero) point dimension =
-    R {
+    {
       rect = (point, dimension)
     ; origin = origin
     }
 
   let mk_area ?(origin = Point.zero) p1 p2 =
-    A {
-      rect = (p1, p2)
-    ; origin = origin
-    }
+    let x1, y1 = Point.x p1, Point.y p1 in
+    let x2, y2 = Point.y p2, Point.y p2 in
+    let xmin, xmax = min x1 x2, max x1 x2 in
+    let ymin, ymax = min y1 y2, max y1 y2 in
+    let w, h = xmax -. xmin, ymax -. ymin in
+    mk ~origin (Point.float xmin ymin) (Dimension.float w h)
+
+  let point r = fst r.rect
+  let dimension r = snd r.rect
+  let origin r = r.origin
+
+  let set_origin r p = {
+    rect = r.rect
+  ; origin = p
+  }
+
+
+  let ox r = Point.x r.origin
+  let oy r = Point.y r.origin
+  let x r = Point.x (point r)
+  let y r = Point.y (point r)
+  let real_x r = (x r) -. (ox r)
+  let real_y r = (y r) -. (oy r)
+  let width r = Dimension.width (dimension r)
+  let height r = Dimension.height (dimension r)
+
+  let area r = (width r) *. (height r)
+  let perimeter r = ((width r) +. (height r)) *. 2.
+  let center r =
+    let p = Point.float ((width r) /. 2.) ((height r) /. 2.) in
+    set_origin r p
 
 end
