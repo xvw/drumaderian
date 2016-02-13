@@ -20,3 +20,6 @@
 *)
 
 include DrumPervasives
+
+module Interfaces = DrumInterfaces
+module Monad = DrumMonad
