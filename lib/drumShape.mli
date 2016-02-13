@@ -53,6 +53,14 @@ sig
 
   val mk : ?origin:Point.t -> Point.t -> Dimension.t -> t
   val mk_area : ?origin:Point.t -> Point.t -> Point.t -> t
+  val x : t -> float
+  val y : t -> float
+  val width : t -> float
+  val height : t -> float
+  val center : t -> t
+  val area : t -> float
+  val origin : t -> Point.t
+  val set_origin : t -> Point.t -> t
 
 end
 
