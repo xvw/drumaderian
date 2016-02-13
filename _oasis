@@ -18,6 +18,7 @@ Library "drumaderian"
     DrumPervasives,
     DrumInterfaces,
     DrumMonad,
+    DrumColor,
     DrumShape
   BuildDepends:
     camlp4,
