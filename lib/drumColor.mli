@@ -56,5 +56,5 @@ val of_hexa_string : string -> t
 (** [Color.of_string s] unsafe coersion *)
 val of_string : string -> t
 
-val to_js : t -> Js.js_string Js.t
+val js : t -> Js.js_string Js.t
 (** Create a color usable by a JavaScript function *)

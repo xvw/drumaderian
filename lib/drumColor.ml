@@ -65,7 +65,7 @@ let to_string c =
     c.green
     c.blue
 
-let to_js c = c |> to_string |> String.js
+let js c = c |> to_string |> String.js
 
 let red = make 255 0 0
 let green = make 0 255 0
