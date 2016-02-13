@@ -19,13 +19,14 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Color      = DrumColor
-module Shape      = DrumShape
-module Keyboard   = DrumKeyboard
-module Mouse      = DrumMouse
-module Key        = Keyboard.Key
-module Loop       = DrumLoop
+type mouse_state = {
+  mutable x : int
+; mutable y : int
+; press : int array
+; click : bool
+}
+let singleton_mouse = {
+  x = 0 ; y = 0; press = Array.make 3 0; click = false
+}

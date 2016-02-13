@@ -19,6 +19,9 @@ Library "drumaderian"
     DrumInterfaces,
     DrumMonad,
     DrumColor,
+    DrumKeyboard,
+    DrumMouse,
+    DrumLoop,
     DrumShape
   BuildDepends:
     camlp4,

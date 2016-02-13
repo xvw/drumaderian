@@ -19,13 +19,25 @@
  *
 *)
 
-include DrumPervasives
+include Lwt_js_events
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Color      = DrumColor
-module Shape      = DrumShape
-module Keyboard   = DrumKeyboard
-module Mouse      = DrumMouse
-module Key        = Keyboard.Key
-module Loop       = DrumLoop
+let rec delayed ?(delay=0.1) f =
+  let _ = f () in
+  Lwt_js.sleep delay
+  >>= (fun _ -> delayed ~delay f)
+
+let forever = delayed
+
+let until ?(delay=0.1) pred f =
+  let cpt = ref 0 in
+  let _ = while (pred !cpt) do
+      let _ = Lwt_js.sleep delay
+        >>= (fun _ -> Lwt.return (f ()))
+      in cpt := !cpt + 1
+    done
+  in Lwt.return_unit
+
+let forN ?(delay=0.1) n =
+  until ~delay (fun i -> i < n)
+
