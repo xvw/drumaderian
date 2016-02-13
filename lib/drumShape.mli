@@ -33,4 +33,27 @@ sig
 
 end
 
+module Dimension :
+sig
+
+  type t
+
+  val float : float -> float -> t
+  val int : int -> int -> t
+  val real : t -> t
+  val width : t -> float
+  val height : t -> float
+
+end
+
+module Rect :
+sig
+
+  type t
+
+  val mk : ?origin:Point.t -> Point.t -> Dimension.t -> t
+  val mk_area : ?origin:Point.t -> Point.t -> Point.t -> t
+
+end
+
 

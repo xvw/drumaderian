@@ -108,6 +108,15 @@ struct
     | F p -> F p
     | I p -> F (p.coers p)
 
+  let width = function
+    | F p -> p.width
+    | I p -> float_of_int (p.width)
+
+  let height = function
+    | F p -> p.height
+    | I p -> float_of_int (p.height)
+
+
 end
 
 module Rect =
@@ -125,14 +134,16 @@ struct
     | R of rect r
     | A of area r
 
-  let mk ?(origin = Point.zero) point dimension = {
-    rect = (point, dimension)
-  ; origin = origin
-  }
-
-  let mk_area ?(origin = Point.zero) p1 p2 = {
-    rect = (p1, p2)
+  let mk ?(origin = Point.zero) point dimension =
+    R {
+      rect = (point, dimension)
     ; origin = origin
-  }
+    }
+
+  let mk_area ?(origin = Point.zero) p1 p2 =
+    A {
+      rect = (p1, p2)
+    ; origin = origin
+    }
 
 end
