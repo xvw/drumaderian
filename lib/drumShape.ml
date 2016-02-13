@@ -24,15 +24,15 @@ open DrumPervasives
 module Point =
 struct
 
-  type 'a t = {
+  type 'a pt = {
     x : 'a
   ; y : 'a
-  ; coers : 'a t -> float t
+  ; coers : 'a pt -> float pt
   }
 
-  type coord =
-    | F of float t
-    | I of int t
+  type t =
+    | F of float pt
+    | I of int pt
 
   let float x y =
     F {
@@ -59,5 +59,40 @@ struct
 
 end
 
+module Dimension =
+struct
 
+  type 'a dim = {
+    width : 'a
+  ; height : 'a
+  ; coers : 'a dim -> float dim
+  }
 
+  type t =
+    | F of float dim
+    | I of int dim
+
+  let float width height =
+    F {
+      width = width
+    ; height = height
+    ; coers = id
+    }
+
+  let int width height =
+    I {
+      width = width
+    ; height = height
+    ; coers = fun r ->
+        {
+          width = (float_of_int r.width)
+        ; height = (float_of_int r.height)
+        ; coers = id
+        }
+    }
+
+  let real = function
+    | F p -> p
+    | I p -> p.coers p 
+
+end
