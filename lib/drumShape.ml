@@ -19,8 +19,45 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad = DrumMonad
-module Shape = DrumShape
+module Point =
+struct
+
+  type 'a t = {
+    x : 'a
+  ; y : 'a
+  ; coers : 'a t -> float t
+  }
+
+  type coord =
+    | F of float t
+    | I of int t
+
+  let float x y =
+    F {
+      x = x
+    ; y = y
+    ; coers = id
+    }
+
+  let int x y =
+    I {
+      x = x
+    ; y = y
+    ; coers = fun r ->
+        {
+          x = (float_of_int r.x)
+        ; y = (float_of_int r.y)
+        ; coers = id
+        }
+    }
+
+  let real = function
+    | F p -> p
+    | I p -> p.coers p
+
+end
+
+
+
