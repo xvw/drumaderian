@@ -22,7 +22,8 @@ Library "drumaderian"
     DrumKeyboard,
     DrumMouse,
     DrumLoop,
-    DrumShape
+    DrumShape,
+    DrumGame
   BuildDepends:
     camlp4,
     js_of_ocaml,

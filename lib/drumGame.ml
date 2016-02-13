@@ -19,14 +19,14 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Color      = DrumColor
-module Shape      = DrumShape
-module Keyboard   = DrumKeyboard
-module Mouse      = DrumMouse
-module Key        = Keyboard.Key
-module Loop       = DrumLoop
-module Game       = DrumGame
+type state = {
+  canvas  : Dom_html.canvasElement Js.t option
+; context : Dom_html.canvasRenderingContext2D Js.t option 
+}
+
+let singleton = {
+  canvas = None
+; context = None
+}
