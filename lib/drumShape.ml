@@ -54,8 +54,21 @@ struct
     }
 
   let real = function
-    | F p -> p
-    | I p -> p.coers p
+    | F p -> F p
+    | I p -> F (p.coers p)
+
+  let zero = int 0 0
+
+  let x r =
+    match r with
+    | F p -> p.x
+    | I p -> float_of_int (p.x)
+
+  let y r =
+    match r with
+    | F p -> p.y
+    | I p -> float_of_int (p.y)
+
 
 end
 
@@ -92,7 +105,34 @@ struct
     }
 
   let real = function
-    | F p -> p
-    | I p -> p.coers p 
+    | F p -> F p
+    | I p -> F (p.coers p)
+
+end
+
+module Rect =
+struct
+
+  type rect = (Point.t * Dimension.t)
+  type area = (Point.t * Point.t)
+
+  type 'a r = {
+    rect : 'a
+  ; origin : Point.t
+  }
+
+  type t =
+    | R of rect r
+    | A of area r
+
+  let mk ?(origin = Point.zero) point dimension = {
+    rect = (point, dimension)
+  ; origin = origin
+  }
+
+  let mk_area ?(origin = Point.zero) p1 p2 = {
+    rect = (p1, p2)
+    ; origin = origin
+  }
 
 end
