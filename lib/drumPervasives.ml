@@ -27,11 +27,32 @@ let flip f x y = f y x
 let ( % ) f g x = f (g x)
 let ( %> ) f g x = g (f x)
 
+
 module String =
 struct
 
   include String
   let caml = Js.to_string
   let js   = Js.string
+
+end
+
+
+let alert str = Dom_html.window ## alert (String.js str)
+let log v = Firebug.console ## log (v)
+
+module Error =
+struct
+
+  exception RuntimeError of string
+
+  let fail message =
+    let () = alert message in
+    log (String.js message)
+
+  let try_with f message =
+    try f () with _ ->
+      let () = fail message in
+      raise (RuntimeError message)
 
 end

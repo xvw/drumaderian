@@ -31,6 +31,11 @@ val ( %> ) : ('a -> 'b) -> ('b -> 'c) -> 'a -> 'c
 
 val flip : ('a -> 'b -> 'c) -> 'b -> 'a -> 'c
 
+val alert : string -> unit
+
+val log : 'a Js.t -> unit
+
+
 module String :
 sig
 
@@ -40,4 +45,11 @@ sig
 
 end
 
+module Error :
+sig
 
+  exception RuntimeError of string
+  val fail : string -> unit
+  val try_with : (unit -> 'a) -> string -> 'a
+
+end
