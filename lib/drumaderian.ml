@@ -23,6 +23,7 @@ include DrumPervasives
 
 module Interfaces = DrumInterfaces
 module Monad      = DrumMonad
+module Option     = DrumOption
 module Color      = DrumColor
 module Shape      = DrumShape
 module Keyboard   = DrumKeyboard

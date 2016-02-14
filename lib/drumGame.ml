@@ -43,4 +43,6 @@ let create ?(bgcolor = DrumColor.black) width height receiver =
     let canvas = Dom_html.(createCanvas document) in
     let () = canvas ## width <- width in
     let () = canvas ## height <- height in
-    Dom.appendChild elt canvas
+    let () = Dom.appendChild elt canvas in
+    let () = singleton.canvas <- Some canvas in
+    singleton.context <- Some (canvas ## getContext(Dom_html._2d_))
