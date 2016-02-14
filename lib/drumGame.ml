@@ -31,6 +31,15 @@ let singleton = {
 ; context = None
 }
 
+let canvas  () = singleton.canvas
+let context () = singleton.context
+
+let fill_canvas clr canvas ctx =
+  let w  = float_of_int (canvas ## width) in
+  let h  = float_of_int (canvas ## height) in
+  let () = ctx ## fillStyle <- (DrumColor.js clr) in
+  ctx ## fillRect(0., 0., w, h)
+
 let create ?(bgcolor = DrumColor.black) width height receiver =
   match singleton.canvas with
   | Some _ -> Error.fail "Canvas already created"
@@ -41,8 +50,10 @@ let create ?(bgcolor = DrumColor.black) width height receiver =
         ("Unable to find #" ^ receiver)
     in
     let canvas = Dom_html.(createCanvas document) in
-    let () = canvas ## width <- width in
-    let () = canvas ## height <- height in
-    let () = Dom.appendChild elt canvas in
-    let () = singleton.canvas <- Some canvas in
-    singleton.context <- Some (canvas ## getContext(Dom_html._2d_))
+    let ()  = canvas ## width <- width in
+    let ()  = canvas ## height <- height in
+    let ctx = canvas ## getContext(Dom_html._2d_) in
+    let ()  = Dom.appendChild elt canvas in
+    let ()  = singleton.canvas <- Some canvas in
+    let ()  = singleton.context <- Some ctx in
+    fill_canvas bgcolor canvas ctx

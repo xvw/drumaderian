@@ -19,16 +19,12 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Option     = DrumOption
-module Color      = DrumColor
-module Shape      = DrumShape
-module Keyboard   = DrumKeyboard
-module Mouse      = DrumMouse
-module Key        = Keyboard.Key
-module Loop       = DrumLoop
-module Game       = DrumGame
-module Canvas     = DrumCanvas
+let on f = match DrumGame.canvas () with
+  | None -> Error.fail "Canvas not initialized"
+  | Some canvas -> f canvas
+
+let on_context f = match (DrumGame.canvas (), DrumGame.context ()) with
+  | (None, _) | (_, None) -> Error.fail "Canvas not initialized"
+  | Some canvas, Some ctx -> f canvas ctx
