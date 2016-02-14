@@ -48,11 +48,9 @@ struct
 
   let fail message =
     let () = alert message in
-    log (String.js message)
+    let () = log (String.js message) in
+    raise (RuntimeError message)
 
-  let try_with f message =
-    try f () with _ ->
-      let () = fail message in
-      raise (RuntimeError message)
+  let try_with f message = try f () with _ -> fail message
 
 end

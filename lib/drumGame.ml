@@ -22,11 +22,25 @@
 open DrumPervasives
 
 type state = {
-  canvas  : Dom_html.canvasElement Js.t option
-; context : Dom_html.canvasRenderingContext2D Js.t option 
+  mutable canvas  : Dom_html.canvasElement Js.t option
+; mutable context : Dom_html.canvasRenderingContext2D Js.t option
 }
 
 let singleton = {
-  canvas = None
+  canvas  = None
 ; context = None
 }
+
+let create ?(bgcolor = DrumColor.black) width height receiver =
+  match singleton.canvas with
+  | Some _ -> Error.fail "Canvas already created"
+  | None ->
+    let elt =
+      Error.try_with
+        (fun () -> Dom_html.getElementById receiver)
+        ("Unable to find #" ^ receiver)
+    in
+    let canvas = Dom_html.(createCanvas document) in
+    let () = canvas ## width <- width in
+    let () = canvas ## height <- height in
+    Dom.appendChild elt canvas
