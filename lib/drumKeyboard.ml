@@ -27,25 +27,23 @@ struct
   type keyboard_state = { press : int array }
   let singleton_keyboard = { press = Array.make 256 0 }
 
-  let keydown event =
+  let keydown kbstate event =
     let kc = event ## keyCode in
-    let state = singleton_keyboard.press.(kc) in
-    singleton_keyboard.press.(kc) <- state + 1
+    let state = kbstate.press.(kc) in
+    kbstate.press.(kc) <- state + 1
 
-  let keyup event =
+  let keyup kbstate event =
     let kc = event ## keyCode in
-    singleton_keyboard.press.(kc) <- 0
-
-  let value kc = singleton_keyboard.press.(kc)
+    kbstate.press.(kc) <- 0
 
 end
 
-let press kc = (Internal.value kc) > 0
-let trigger kc = (Internal.value kc) = 1
-let repeat kc =
-  trigger kc ||
-  (Internal.value kc) >= 24
-  && ((Internal.value kc) mod 6) = 0
+let press kbstate kc = (kbstate.(kc)) > 0
+let trigger kbstate kc = (kbstate.(kc)) = 1
+let repeat kbstate kc =
+  trigger kbstate kc ||
+  (kbstate.(kc)) >= 24
+  && ((kbstate.(kc)) mod 6) = 0
 
 module Key =
 struct

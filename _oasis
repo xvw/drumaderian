@@ -20,8 +20,6 @@ Library "drumaderian"
     DrumMonad,
     DrumOption,
     DrumColor,
-    DrumKeyboard,
-    DrumMouse,
     DrumLoop,
     DrumShape,
     DrumGame,

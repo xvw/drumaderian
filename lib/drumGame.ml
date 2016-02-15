@@ -22,77 +22,59 @@
 open DrumPervasives
 
 type state = {
-  mutable canvas  : Dom_html.canvasElement Js.t option
-; mutable context : Dom_html.canvasRenderingContext2D Js.t option
-; mutable time : float
+  canvas  : Dom_html.canvasElement Js.t
+; ctx : Dom_html.canvasRenderingContext2D Js.t
+; time : float
+; keyboard : DrumKeyboard.Internal.keyboard_state
 }
 
-let singleton =
+let singleton canvas ctx =
   let t = jsnew Js.date_now () in
   {
-    canvas  = None
-  ; context = None
+    canvas  = canvas
+  ; ctx     = ctx
   ; time    = t ## getTime()
+  ; keyboard=  { DrumKeyboard.Internal.press = Array.make 256 0 }
   }
 
-let canvas  () = singleton.canvas
-let context () = singleton.context
+let fill_canvas clr state =
+  let w  = float_of_int (state.canvas ## width) in
+  let h  = float_of_int (state.canvas ## height) in
+  let () = state.ctx ## fillStyle <- (DrumColor.js clr) in
+ state. ctx ## fillRect(0., 0., w, h)
 
-let fill_canvas clr canvas ctx =
-  let w  = float_of_int (canvas ## width) in
-  let h  = float_of_int (canvas ## height) in
-  let () = ctx ## fillStyle <- (DrumColor.js clr) in
-  ctx ## fillRect(0., 0., w, h)
-
-let rec update canvas ctx =
-  let _ =
-    if DrumKeyboard.(press space) then
-      let c = DrumColor.make (Random.int 255) (Random.int 255) (Random.int 255) in
-      fill_canvas c canvas ctx
-  in
+let rec update state =
+  let c = DrumColor.make (Random.int 255) (Random.int 255) (Random.int 255) in
+  let _ =fill_canvas c state in
   Dom_html.window ## requestAnimationFrame(
-    Js.wrap_callback (fun t -> update canvas ctx)
+    Js.wrap_callback (fun t -> update (singleton state.canvas state.ctx))
   ) |> ignore
 
 
-let initialize_keyboard canvas =
+let initialize_keyboard canvas f =
   let open Lwt_js_events in
-  let _ =
-    async_loop keydown canvas (fun e _ ->
-        let _ = DrumKeyboard.Internal.keydown e
-        in Lwt.return_unit
-      )
-  in
-  let _ =
-    async_loop keyup canvas (fun e _ ->
-        let _ = DrumKeyboard.Internal.keyup e
-        in Lwt.return_unit
-      )
-  in ()
+  async_loop keydown Dom_html.document
+    (fun e _ -> let _ = f e in Lwt.return_unit)
+  |> ignore
 
 
 let create ?(bgcolor = DrumColor.black) width height receiver =
-  match singleton.canvas with
-  | Some _ -> Error.fail "Canvas already created"
-  | None ->
-    let elt =
-      Error.try_with
-        (fun () -> Dom_html.getElementById receiver)
-        ("Unable to find #" ^ receiver)
-    in
-    let canvas = Dom_html.(createCanvas document) in
-    let ()  = canvas ## width <- width in
-    let ()  = canvas ## height <- height in
-    let ctx = canvas ## getContext(Dom_html._2d_) in
-    let ()  = Dom.appendChild elt canvas in
-    let ()  = singleton.canvas <- Some canvas in
-    let ()  = singleton.context <- Some ctx in
-    fill_canvas bgcolor canvas ctx
+  let elt =
+    Error.try_with
+      (fun () -> Dom_html.getElementById receiver)
+      ("Unable to find #" ^ receiver)
+  in
+  let canvas = Dom_html.(createCanvas document) in
+  let ()  = canvas ## width <- width in
+  let ()  = canvas ## height <- height in
+  let ctx = canvas ## getContext(Dom_html._2d_) in
+  let ()  = Dom.appendChild elt canvas in
+  let st  = singleton canvas ctx in
+  let _   = fill_canvas bgcolor st in
+  st
 
-let run f =
-  match (canvas (), context ()) with
-  | None, _ | _, None -> Error.fail "Canvas not created"
-  | Some ca, Some ctx ->
-    let () = initialize_keyboard ca in
-    let () = f () in
-    update ca ctx
+let run f state =
+    (* let () = initialize_keyboard ca DrumKeyboard.Internal.keydown in *)
+    (* let () = initialize_keyboard ca DrumKeyboard.Internal.keyup in *)
+    let _ = f state in
+    update state

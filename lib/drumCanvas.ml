@@ -21,10 +21,3 @@
 
 open DrumPervasives
 
-let on f = match DrumGame.canvas () with
-  | None -> Error.fail "Canvas not initialized"
-  | Some canvas -> f canvas
-
-let on_context f = match (DrumGame.canvas (), DrumGame.context ()) with
-  | (None, _) | (_, None) -> Error.fail "Canvas not initialized"
-  | Some canvas, Some ctx -> f canvas ctx
