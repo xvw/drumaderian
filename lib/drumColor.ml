@@ -72,3 +72,8 @@ let green = make 0 255 0
 let blue = make 0 0 255
 let white = make 255 255 255
 let black = make 0 0 0
+
+let random ?(alpha=false)() =
+  let f () = Random.int 255 in
+  make ~alpha:(if alpha then f() else 255)
+    (f()) (f()) (f())

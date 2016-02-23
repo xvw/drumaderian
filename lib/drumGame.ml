@@ -44,8 +44,7 @@ let fill_canvas clr state =
  state. ctx ## fillRect(0., 0., w, h)
 
 let rec update state =
-  let c = DrumColor.make (Random.int 255) (Random.int 255) (Random.int 255) in
-  let _ =fill_canvas c state in
+  let _ =fill_canvas (DrumColor.random ()) state in
   Dom_html.window ## requestAnimationFrame(
     Js.wrap_callback (fun t -> update (singleton state.canvas state.ctx))
   ) |> ignore

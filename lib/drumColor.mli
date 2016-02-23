@@ -33,6 +33,8 @@ type t = {
 
 (** {2 Presaved color} *)
 
+val random : ?alpha:bool -> unit -> t
+
 val red   : t
 val green : t
 val blue  : t
