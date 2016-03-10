@@ -32,5 +32,5 @@ module Resource   = DrumResource
 module Canvas     = DrumCanvas
 module Sprite     = DrumSprite
 module Texture    = DrumSprite.Texture
-module Keyboard   = DrumKeyboard
+(* module Keyboard   = DrumKeyboard *)
 module Game       = DrumGame
