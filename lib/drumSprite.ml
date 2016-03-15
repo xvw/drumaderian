@@ -22,7 +22,8 @@
 open DrumPervasives
 
 class t =
-  object(this)
+  object(self)
+
 
     val mutable x        = 0.0
     val mutable y        = 0.0
@@ -34,14 +35,15 @@ class t =
     val mutable oy       = 0.0
     val mutable texture  : basic_texture option = None
 
-    method get_x         = x
-    method get_y         = y
-    method get_ox        = ox
-    method get_oy        = oy
-    method get_zoom_x    = zoom_x
-    method get_zoom_y    = zoom_y
-    method get_opacity   = opacity
-    method get_angle     = angle
+    method get_x          = x
+    method get_y          = y
+    method get_ox         = ox
+    method get_oy         = oy
+    method get_zoom_x     = zoom_x
+    method get_zoom_y     = zoom_y
+    method get_opacity    = opacity
+    method get_angle      = angle
+    method get_texture    = texture
 
     method set_x       xi = x       <- xi
     method set_y       yi = y       <- yi
@@ -52,6 +54,11 @@ class t =
     method set_opacity v  = opacity <- v
     method set_angle   a  = angle   <- a
     method set_texture t  = texture <- t
+
+    (* method draw(state : DrumGame.state) = *)
+    (*   match texture with *)
+    (*   | None -> () *)
+    (*   | Some textr -> textr # draw (state, self) *)
 
   end
 
@@ -92,3 +99,34 @@ let oy ?new_oy (sprite : t) =
   let open DrumOption in
   let _ = sprite # set_oy((sprite # get_oy) >?= new_oy) in
   sprite # get_oy
+
+let zoom_x ?new_zoom_x (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_zoom_x((sprite # get_zoom_x) >?= new_zoom_x) in
+  sprite # get_zoom_x
+
+let zoom_y ?new_zoom_y (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_zoom_y((sprite # get_zoom_y) >?= new_zoom_y) in
+  sprite # get_zoom_y
+
+let angle ?new_angle (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_angle((sprite # get_angle) >?= new_angle) in
+  sprite # get_angle
+
+let opacity ?new_opacity (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_opacity((sprite # get_opacity) >?= new_opacity) in
+  sprite # get_opacity
+
+let texture ?(new_texture = None) (sprite : t) =
+  let _ = sprite # set_texture new_texture in
+  sprite # get_texture
+
+
+module Texture =
+struct
+
+
+end
