@@ -19,6 +19,8 @@
  *
 *)
 
+type image = Dom_html.imageElement Js.t
+
 val ( >>= ) : 'a Lwt.t -> ('a -> 'b Lwt.t) -> 'b Lwt.t
 
 val id : 'a -> 'a

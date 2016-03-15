@@ -20,6 +20,16 @@
 *)
 
 open DrumPervasives
+open DrumShape
+
+
+(* Shame on me... this code is stolled to Grim's part on Jsoobootstrapper ! *)
+type texture =
+  | Color of DrumColor.t
+  | LinearGradient of Point.t * Point.t * (float * DrumColor.t) list
+  | RadialGradient of Point.t * Point.t * float * float * (float * DrumColor.t) list
+  | Pattern of image * [`Repeat | `Repeat_x | `Repeat_y | `No_repeat]
+  | Empty
 
 class t =
   object(self)
@@ -33,7 +43,7 @@ class t =
     val mutable angle    = 0.0
     val mutable ox       = 0.0
     val mutable oy       = 0.0
-    val mutable texture  : basic_texture option = None
+    val mutable texture  = Empty
 
     method get_x          = x
     method get_y          = y
@@ -55,28 +65,12 @@ class t =
     method set_angle   a  = angle   <- a
     method set_texture t  = texture <- t
 
-    (* method draw(state : DrumGame.state) = *)
-    (*   match texture with *)
-    (*   | None -> () *)
-    (*   | Some textr -> textr # draw (state, self) *)
+    (* TODO *)
+    method draw(gameState : DrumGame.state) = ()
+
 
   end
 
-and virtual basic_texture (width_in, height_in) =
-  object(this)
-
-    val mutable width : float   = width_in
-    val mutable height : float  = height_in
-
-    method get_width            = width
-    method get_height           = height
-
-    method virtual draw    : DrumGame.state -> t -> unit
-    method virtual dispose : DrumGame.state -> t -> unit
-
-  end
-
-let coerse_texture t = (t :> basic_texture)
 
 let create () = new t
 
@@ -120,8 +114,9 @@ let opacity ?new_opacity (sprite : t) =
   let _ = sprite # set_opacity((sprite # get_opacity) >?= new_opacity) in
   sprite # get_opacity
 
-let texture ?(new_texture = None) (sprite : t) =
-  let _ = sprite # set_texture new_texture in
+let texture ?new_texture (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_texture((sprite # get_texture) >?= new_texture) in
   sprite # get_texture
 
 

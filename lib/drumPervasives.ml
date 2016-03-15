@@ -19,6 +19,7 @@
  *
 *)
 
+type image = Dom_html.imageElement Js.t
 
 let ( >>= ) = Lwt.bind
 let id x = x
