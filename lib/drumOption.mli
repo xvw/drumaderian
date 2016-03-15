@@ -69,7 +69,7 @@ val is_none : 'a option -> bool
 val effect : ('a -> 'b) -> string -> 'a option -> unit
 
 val perform : 'a -> 'a option -> 'a
-val (?||) : 'a -> 'a option -> 'a
+val (>?=) : 'a -> 'a option -> 'a
 
 (** {2 Monadic functions} *)
 

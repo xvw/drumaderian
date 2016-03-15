@@ -83,4 +83,4 @@ let perform v = function
   | None -> v
   | Some x -> x
 
-let (?||) = perform
+let (>?=) = perform

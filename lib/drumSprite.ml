@@ -21,7 +21,7 @@
 
 open DrumPervasives
 
-class sprite =
+class t =
   object(this)
 
     val mutable x        = 0.0
@@ -30,10 +30,14 @@ class sprite =
     val mutable zoom_y   = 1.0
     val mutable opacity  = 1.0
     val mutable angle    = 0.0
+    val mutable ox       = 0.0
+    val mutable oy       = 0.0
     val mutable texture  : basic_texture option = None
 
     method get_x         = x
     method get_y         = y
+    method get_ox        = ox
+    method get_oy        = oy
     method get_zoom_x    = zoom_x
     method get_zoom_y    = zoom_y
     method get_opacity   = opacity
@@ -41,6 +45,8 @@ class sprite =
 
     method set_x       xi = x       <- xi
     method set_y       yi = y       <- yi
+    method set_ox      xi = ox      <- xi
+    method set_oy      yi = oy      <- yi
     method set_zoom_x  z  = zoom_x  <- z
     method set_zoom_y  z  = zoom_y  <- z
     method set_opacity v  = opacity <- v
@@ -58,9 +64,31 @@ and virtual basic_texture (width_in, height_in) =
     method get_width            = width
     method get_height           = height
 
-    method virtual draw    : DrumGame.state -> sprite -> unit
-    method virtual dispose : DrumGame.state -> sprite -> unit
+    method virtual draw    : DrumGame.state -> t -> unit
+    method virtual dispose : DrumGame.state -> t -> unit
 
   end
 
 let coerse_texture t = (t :> basic_texture)
+
+let create () = new t
+
+let x ?new_x (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_x((sprite # get_x) >?= new_x) in
+  sprite # get_x
+
+let y ?new_y (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_y((sprite # get_y) >?= new_y) in
+  sprite # get_y
+
+let ox ?new_ox (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_ox((sprite # get_ox) >?= new_ox) in
+  sprite # get_ox
+
+let oy ?new_oy (sprite : t) =
+  let open DrumOption in
+  let _ = sprite # set_oy((sprite # get_oy) >?= new_oy) in
+  sprite # get_oy
