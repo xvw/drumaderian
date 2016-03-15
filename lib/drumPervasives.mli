@@ -42,6 +42,7 @@ sig
   include (module type of String)
   val caml : Js.js_string Js.t -> string
   val js : string -> Js.js_string Js.t
+  val i_js : int -> Js.js_string Js.t
 
 end
 

@@ -25,7 +25,6 @@ type state = {
   canvas  : Dom_html.canvasElement Js.t
 ; ctx : Dom_html.canvasRenderingContext2D Js.t
 ; time : float
-; keyboard : DrumKeyboard.Internal.keyboard_state
 }
 
 let singleton canvas ctx =
@@ -34,8 +33,11 @@ let singleton canvas ctx =
     canvas  = canvas
   ; ctx     = ctx
   ; time    = t ## getTime()
-  ; keyboard=  { DrumKeyboard.Internal.press = Array.make 256 0 }
   }
+
+let next_state state =
+  let t = jsnew Js.date_now () in
+  { state with time = t ## getTime() }
 
 let fill_canvas clr state =
   let w  = float_of_int (state.canvas ## width) in
@@ -44,17 +46,32 @@ let fill_canvas clr state =
  state. ctx ## fillRect(0., 0., w, h)
 
 let rec update state =
-  let _ =fill_canvas (DrumColor.random ()) state in
   Dom_html.window ## requestAnimationFrame(
-    Js.wrap_callback (fun t -> update (singleton state.canvas state.ctx))
+    Js.wrap_callback (fun t ->
+        let _ = if DrumKeyboard.(press Key.space) then
+            fill_canvas (DrumColor.random ()) state
+        in
+        update (next_state state)
+      )
   ) |> ignore
 
 
-let initialize_keyboard canvas f =
+let initialize_keyboard state =
   let open Lwt_js_events in
-  async_loop keydown Dom_html.document
-    (fun e _ -> let _ = f e in Lwt.return_unit)
-  |> ignore
+  let _ =
+    async_loop keydown Dom_html.document
+      (fun e _ ->
+         let _ = DrumKeyboard.keydown e
+         in Lwt.return_unit
+      )
+  in
+  let _ =
+    async_loop keyup Dom_html.document
+      (fun e _ ->
+         let _ = DrumKeyboard.keyup e
+         in Lwt.return_unit
+      )
+  in ()
 
 
 let create ?(bgcolor = DrumColor.black) width height receiver =
@@ -73,7 +90,6 @@ let create ?(bgcolor = DrumColor.black) width height receiver =
   st
 
 let run f state =
-    (* let () = initialize_keyboard ca DrumKeyboard.Internal.keydown in *)
-    (* let () = initialize_keyboard ca DrumKeyboard.Internal.keyup in *)
+    let () = initialize_keyboard state in
     let _ = f state in
     update state

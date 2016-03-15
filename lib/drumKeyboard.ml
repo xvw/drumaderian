@@ -21,29 +21,24 @@
 
 open DrumPervasives
 
-module Internal =
-struct
+type keyboard_state = { press : int array }
+let singleton_keyboard = { press = Array.make 256 0 }
 
-  type keyboard_state = { press : int array }
-  let singleton_keyboard = { press = Array.make 256 0 }
+let keydown event =
+  let kc = event ## keyCode in
+  let state = singleton_keyboard.press.(kc) in
+  singleton_keyboard.press.(kc) <- state + 1
 
-  let keydown kbstate event =
-    let kc = event ## keyCode in
-    let state = kbstate.press.(kc) in
-    kbstate.press.(kc) <- state + 1
+let keyup event =
+  let kc = event ## keyCode in
+  singleton_keyboard.press.(kc) <- 0
 
-  let keyup kbstate event =
-    let kc = event ## keyCode in
-    kbstate.press.(kc) <- 0
-
-end
-
-let press kbstate kc = (kbstate.(kc)) > 0
-let trigger kbstate kc = (kbstate.(kc)) = 1
-let repeat kbstate kc =
-  trigger kbstate kc ||
-  (kbstate.(kc)) >= 24
-  && ((kbstate.(kc)) mod 6) = 0
+let press kc = (singleton_keyboard.press.(kc)) > 0
+let trigger kc = (singleton_keyboard.press.(kc)) = 1
+let repeat kc =
+  trigger kc ||
+  (  singleton_keyboard.press.(kc)) >= 24
+  && ((singleton_keyboard.press.(kc)) mod 6) = 0
 
 module Key =
 struct

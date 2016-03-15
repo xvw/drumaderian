@@ -32,8 +32,13 @@ module String =
 struct
 
   include String
-  let caml = Js.to_string
-  let js   = Js.string
+  let caml   = Js.to_string
+  let js     = Js.string
+                 
+  let i_js x =
+    string_of_int x
+    |> js
+
 
 end
 
