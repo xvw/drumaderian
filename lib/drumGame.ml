@@ -59,19 +59,15 @@ let rec update state =
 let initialize_keyboard state =
   let open Lwt_js_events in
   let _ =
-    async_loop keydown Dom_html.document
-      (fun e _ ->
-         let _ = DrumKeyboard.keydown e
+    async_loop keydown document
+      (fun e _ -> let _ = DrumKeyboard.keydown e
          in Lwt.return_unit
-      )
-  in
+      ) in
   let _ =
-    async_loop keyup Dom_html.document
-      (fun e _ ->
-         let _ = DrumKeyboard.keyup e
+    async_loop keyup document
+      (fun e _ -> let _ = DrumKeyboard.keyup e
          in Lwt.return_unit
-      )
-  in ()
+      ) in ()
 
 
 let create ?(bgcolor = DrumColor.black) width height receiver =

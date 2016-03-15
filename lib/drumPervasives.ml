@@ -28,13 +28,15 @@ let ( % ) f g x = f (g x)
 let ( %> ) f g x = g (f x)
 
 
+let document = Dom_html.document
+
 module String =
 struct
 
   include String
   let caml   = Js.to_string
   let js     = Js.string
-                 
+
   let i_js x =
     string_of_int x
     |> js

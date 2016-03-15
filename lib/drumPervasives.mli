@@ -35,6 +35,7 @@ val alert : string -> unit
 
 val log : 'a Js.t -> unit
 
+val document : Dom_html.document Js.t
 
 module String :
 sig
