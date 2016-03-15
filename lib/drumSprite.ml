@@ -23,13 +23,31 @@ open DrumPervasives
 open DrumShape
 
 
-(* Shame on me... this code is stolled to Grim's part on Jsoobootstrapper ! *)
-type texture =
-  | Color of DrumColor.t
-  | LinearGradient of Point.t * Point.t * (float * DrumColor.t) list
-  | RadialGradient of Point.t * Point.t * float * float * (float * DrumColor.t) list
-  | Pattern of image * [`Repeat | `Repeat_x | `Repeat_y | `No_repeat]
-  | Empty
+
+module Texture =
+struct
+
+
+  (* Shame on me... this code is stolled to Grim's part on Jsoobootstrapper ! *)
+  type texture =
+    | Color of DrumColor.t
+    | LinearGradient of Point.t * Point.t * (float * DrumColor.t) list
+    | RadialGradient of Point.t * Point.t * float * float * (float * DrumColor.t) list
+    | Pattern of image * [`Repeat | `Repeat_x | `Repeat_y | `No_repeat]
+    | Empty
+
+  let empty = Empty
+  let color c = Color c
+  let pattern img repetition = Pattern (img, repetition)
+
+  let linear_gradient pointA pointB step  =
+    LinearGradient (pointA, pointB, step)
+
+  let radial_gradient pointA pointB radA radB step =
+    RadialGradient (pointA, pointB, radA, radB, step)
+
+end
+
 
 class t =
   object(self)
@@ -43,7 +61,7 @@ class t =
     val mutable angle    = 0.0
     val mutable ox       = 0.0
     val mutable oy       = 0.0
-    val mutable texture  = Empty
+    val mutable texture  = Texture.empty
 
     method get_x          = x
     method get_y          = y
@@ -119,9 +137,3 @@ let texture ?new_texture (sprite : t) =
   let _ = sprite # set_texture((sprite # get_texture) >?= new_texture) in
   sprite # get_texture
 
-
-module Texture =
-struct
-
-
-end
