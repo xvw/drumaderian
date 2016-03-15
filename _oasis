@@ -20,11 +20,9 @@ Library "drumaderian"
     DrumMonad,
     DrumOption,
     DrumColor,
-    DrumLoop,
     DrumShape,
     DrumKeyboard,
-    DrumGame,
-    DrumCanvas
+    DrumGame
   BuildDepends:
     camlp4,
     js_of_ocaml,
