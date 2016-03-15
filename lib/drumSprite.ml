@@ -39,13 +39,13 @@ class sprite =
     method get_opacity   = opacity
     method get_angle     = angle
 
-    method set_x xi      = x       <- xi
-    method set_y yi      = y       <- yi
-    method set_zoom_x z  = zoom_x  <- z
-    method set_zoom_y z  = zoom_y  <- z
-    method set_opacity v = opacity <- v
-    method set_angle a   = angle   <- a
-    method set_texture t = texture <- t
+    method set_x       xi = x       <- xi
+    method set_y       yi = y       <- yi
+    method set_zoom_x  z  = zoom_x  <- z
+    method set_zoom_y  z  = zoom_y  <- z
+    method set_opacity v  = opacity <- v
+    method set_angle   a  = angle   <- a
+    method set_texture t  = texture <- t
 
   end
 
@@ -62,3 +62,5 @@ and virtual basic_texture (width_in, height_in) =
     method virtual dispose : DrumGame.state -> sprite -> unit
 
   end
+
+let coerse_texture t = (t :> basic_texture)
