@@ -19,13 +19,14 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Option     = DrumOption
-module Color      = DrumColor
-module Shape      = DrumShape
-module Bitmap     = DrumBitmap
-module Keyboard   = DrumKeyboard
-module Game       = DrumGame
+class empty (width_in, height_in) =
+  object(this)
+
+    val mutable x      = 0
+    val mutable y      = 0
+    val mutable width  = width_in
+    val mutable height = height_in
+
+  end

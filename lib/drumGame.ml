@@ -48,9 +48,7 @@ let fill_canvas clr state =
 let rec update state =
   Dom_html.window ## requestAnimationFrame(
     Js.wrap_callback (fun t ->
-        let _ = if DrumKeyboard.(press Key.space) then
-            fill_canvas (DrumColor.random ()) state
-        in
+        (* Here code for stage updates *)
         update (next_state state)
       )
   ) |> ignore
