@@ -26,6 +26,6 @@ module Monad      = DrumMonad
 module Option     = DrumOption
 module Color      = DrumColor
 module Shape      = DrumShape
-module Bitmap     = DrumBitmap
+module Sprite     = DrumSprite
 module Keyboard   = DrumKeyboard
 module Game       = DrumGame

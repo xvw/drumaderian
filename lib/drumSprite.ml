@@ -21,12 +21,13 @@
 
 open DrumPervasives
 
-class empty (width_in, height_in) =
+class basic_texture (width_in, height_in) =
   object(this)
 
-    val mutable x      = 0
-    val mutable y      = 0
-    val mutable width  = width_in
-    val mutable height = height_in
+    val mutable width : float   = width_in
+    val mutable height : float  = height_in
+
+    method get_width            = width
+    method get_height           = height
 
   end
