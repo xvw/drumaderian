@@ -21,13 +21,14 @@
 
 open DrumPervasives
 
-class basic_texture (width_in, height_in) =
+class ['sprite] basic_texture (width_in, height_in) =
   object(this)
 
     val mutable width : float   = width_in
     val mutable height : float  = height_in
-
     method get_width            = width
     method get_height           = height
+    method draw(s : 'sprite)    = ()
+    method clear(s: 'sprite)    = ()
 
   end
