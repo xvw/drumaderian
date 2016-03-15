@@ -21,8 +21,8 @@
 
 
 
-(** 
-   Option in OCaml are like Maybe from Haskell. A value could exist [Some x] or 
+(**
+   Option in OCaml are like Maybe from Haskell. A value could exist [Some x] or
    not, [None]. This library provides some function for using Option.
 *)
 
@@ -67,6 +67,9 @@ val is_none : 'a option -> bool
 (** [is_none opt] returns true if opt is None, otherwise false *)
 
 val effect : ('a -> 'b) -> string -> 'a option -> unit
+
+val perform : 'a -> 'a option -> 'a
+val (?||) : 'a -> 'a option -> 'a
 
 (** {2 Monadic functions} *)
 

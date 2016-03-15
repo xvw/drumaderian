@@ -21,14 +21,44 @@
 
 open DrumPervasives
 
-class ['sprite] basic_texture (width_in, height_in) =
+class sprite =
+  object(this)
+
+    val mutable x        = 0.0
+    val mutable y        = 0.0
+    val mutable zoom_x   = 1.0
+    val mutable zoom_y   = 1.0
+    val mutable opacity  = 1.0
+    val mutable angle    = 0.0
+    val mutable texture  : basic_texture option = None
+
+    method get_x         = x
+    method get_y         = y
+    method get_zoom_x    = zoom_x
+    method get_zoom_y    = zoom_y
+    method get_opacity   = opacity
+    method get_angle     = angle
+
+    method set_x xi      = x       <- xi
+    method set_y yi      = y       <- yi
+    method set_zoom_x z  = zoom_x  <- z
+    method set_zoom_y z  = zoom_y  <- z
+    method set_opacity v = opacity <- v
+    method set_angle a   = angle   <- a
+    method set_texture t = texture <- t
+
+  end
+
+and virtual basic_texture (width_in, height_in) =
   object(this)
 
     val mutable width : float   = width_in
     val mutable height : float  = height_in
+
     method get_width            = width
     method get_height           = height
-    method draw(s : 'sprite)    = ()
-    method clear(s: 'sprite)    = ()
+
+    method virtual draw    : DrumGame.state -> sprite -> unit
+    method virtual dispose : DrumGame.state -> sprite -> unit
 
   end

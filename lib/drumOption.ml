@@ -79,3 +79,8 @@ end
 module Basic_monad = DrumMonad.Make.WithBind(Bind)
 include DrumMonad.Make.Plus (Basic_monad) (Plus)
 
+let perform v = function
+  | None -> v
+  | Some x -> x
+
+let (?||) = perform
