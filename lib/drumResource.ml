@@ -19,15 +19,22 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Option     = DrumOption
-module Color      = DrumColor
-module Shape      = DrumShape
-module Resource   = DrumResource
-module Sprite     = DrumSprite
-module Texture    = DrumSprite.Texture
-module Keyboard   = DrumKeyboard
-module Game       = DrumGame
+let unopt x =
+  Js.Opt.get x
+    (fun () -> raise (Error.RuntimeError "unable to find"))
+
+let load_image ?id ?path ~onload () =
+  let img =
+    Dom_html.createImg document
+    |> Dom_html.CoerceTo.img
+    |> unopt
+  in
+  let _ = DrumOption.unit_map (fun x -> img ## id  <- (String.js x)) id   in
+  let _ = DrumOption.unit_map (fun x -> img ## src <- (String.js x)) path in
+  let _ =
+    if Js.to_bool (img ## complete)
+    then onload img
+    else img ## onload <- Dom.handler (fun _ -> onload img; Js._false)
+  in img

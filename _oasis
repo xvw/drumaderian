@@ -21,6 +21,7 @@ Library "drumaderian"
     DrumOption,
     DrumColor,
     DrumShape,
+    DrumResource,
     DrumSprite,
     DrumKeyboard,
     DrumGame
