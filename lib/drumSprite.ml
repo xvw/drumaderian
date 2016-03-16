@@ -46,6 +46,12 @@ struct
   let radial_gradient pointA pointB radA radB step =
     RadialGradient (pointA, pointB, radA, radB, step)
 
+  let load path f =
+    DrumResource.load_image
+      ~path:path
+      ~onload:f
+      ()
+
 end
 
 
