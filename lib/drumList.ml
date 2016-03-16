@@ -19,18 +19,29 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
+include List
 
-module List       = DrumList
-module Math       = DrumMath
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Option     = DrumOption
-module Color      = DrumColor
-module Shape      = DrumShape
-module Resource   = DrumResource
-module Canvas     = DrumCanvas
-module Sprite     = DrumSprite
-module Texture    = DrumSprite.Texture
-module Keyboard   = DrumKeyboard
-module Game       = DrumGame
+exception Empty_list
+
+module Join : DrumInterfaces.Monad.JOIN with type 'a t = 'a list =
+struct
+  type 'a t = 'a list
+  let return x = [x]
+  let fmap = List.map
+  let join = List.flatten
+end
+
+module Plus : DrumInterfaces.Monad.PLUS with type 'a t = 'a list =
+struct
+  type 'a t = 'a list
+  let mempty = []
+  let mplus = List.append
+end
+
+module Basic_monad = DrumMonad.Make.WithJoin (Join)
+include DrumMonad.Make.Plus (Basic_monad) (Plus)
+
+let reduce f = function
+  | [] -> raise Empty_list
+  | x :: xs -> fold_left f x xs

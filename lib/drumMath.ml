@@ -1,4 +1,4 @@
-(*
+ (*
  * Drumaderian
  *
  * Copyright (C) 2015  Xavier Van de Woestyne <xaviervdw@gmail.com>
@@ -19,18 +19,11 @@
  *
 *)
 
-include DrumPervasives
+open DrumPervasives
 
-module List       = DrumList
-module Math       = DrumMath
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Option     = DrumOption
-module Color      = DrumColor
-module Shape      = DrumShape
-module Resource   = DrumResource
-module Canvas     = DrumCanvas
-module Sprite     = DrumSprite
-module Texture    = DrumSprite.Texture
-module Keyboard   = DrumKeyboard
-module Game       = DrumGame
+let pi = 3.14159265358979323846
+
+let max_of l = DrumList.reduce max l
+let min_of l = DrumList.reduce min l
+let max = max
+let min = min

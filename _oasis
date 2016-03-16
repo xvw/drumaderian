@@ -16,12 +16,15 @@ Library "drumaderian"
   Modules:
     Drumaderian,
     DrumPervasives,
+    DrumList,
+    DrumMath,
     DrumInterfaces,
     DrumMonad,
     DrumOption,
     DrumColor,
     DrumShape,
     DrumResource,
+    DrumCanvas,
     DrumSprite,
     DrumKeyboard,
     DrumGame

@@ -19,18 +19,4 @@
  *
 *)
 
-include DrumPervasives
 
-module List       = DrumList
-module Math       = DrumMath
-module Interfaces = DrumInterfaces
-module Monad      = DrumMonad
-module Option     = DrumOption
-module Color      = DrumColor
-module Shape      = DrumShape
-module Resource   = DrumResource
-module Canvas     = DrumCanvas
-module Sprite     = DrumSprite
-module Texture    = DrumSprite.Texture
-module Keyboard   = DrumKeyboard
-module Game       = DrumGame
