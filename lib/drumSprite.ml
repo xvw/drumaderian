@@ -91,6 +91,7 @@ class t =
 
     (* TODO *)
     method draw(gameState : DrumGame.state) = ()
+    method dispose(gameState : DrumGame.state) = ()
 
 
   end
