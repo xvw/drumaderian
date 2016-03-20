@@ -36,6 +36,12 @@ struct
     | Pattern of image * [`Repeat | `Repeat_x | `Repeat_y | `No_repeat]
     | Empty
 
+  type bitmap = {
+    texture : texture
+  ; width : float
+  ; height : float
+  }
+
   let empty = Empty
   let color c = Color c
   let pattern img repetition = Pattern (img, repetition)
