@@ -38,8 +38,8 @@ struct
 
   type bitmap = {
     texture : texture
-  ; width : float
-  ; height : float
+  ; width   : float
+  ; height  : float
   }
 
   let empty = Empty
@@ -58,6 +58,12 @@ struct
       ~onload:f
       ()
 
+  let empty_bitmap = {
+    texture = empty
+  ; width   = 0.
+  ; height  = 0.
+  }
+
 end
 
 
@@ -73,7 +79,7 @@ class t =
     val mutable angle    = 0.0
     val mutable ox       = 0.0
     val mutable oy       = 0.0
-    val mutable texture  = Texture.empty
+    val mutable texture  = Texture.empty_bitmap
 
     method get_x          = x
     method get_y          = y
