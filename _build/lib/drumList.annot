@@ -1,0 +1,187 @@
+"lib/drumList.ml" 30 900 906 "lib/drumList.ml" 30 900 912
+type(
+  'a -> 'a list
+)
+ident(
+  def return "lib/drumList.ml" 31 921 923 "lib/drumList.ml" 33 969 972
+)
+"lib/drumList.ml" 30 900 913 "lib/drumList.ml" 30 900 914
+type(
+  'a
+)
+ident(
+  def x "lib/drumList.ml" 30 900 918 "lib/drumList.ml" 30 900 919
+)
+"lib/drumList.ml" 30 900 918 "lib/drumList.ml" 30 900 919
+type(
+  'a
+)
+ident(
+  int_ref x "lib/drumList.ml" 30 900 913 "lib/drumList.ml" 30 900 914
+)
+type(
+  'a list
+)
+"lib/drumList.ml" 30 900 917 "lib/drumList.ml" 30 900 920
+type(
+  'a list
+)
+"lib/drumList.ml" 30 900 913 "lib/drumList.ml" 30 900 920
+type(
+  'a -> 'a list
+)
+"lib/drumList.ml" 31 921 927 "lib/drumList.ml" 31 921 931
+type(
+  ('b -> 'c) -> 'b list -> 'c list
+)
+ident(
+  def fmap "lib/drumList.ml" 32 943 945 "lib/drumList.ml" 33 969 972
+)
+"lib/drumList.ml" 31 921 934 "lib/drumList.ml" 31 921 942
+type(
+  ('b -> 'c) -> 'b list -> 'c list
+)
+ident(
+  ext_ref List.map
+)
+"lib/drumList.ml" 32 943 949 "lib/drumList.ml" 32 943 953
+type(
+  'd list list -> 'd list
+)
+ident(
+  def join "lib/drumList.ml" 32 943 968 "lib/drumList.ml" 33 969 972
+)
+"lib/drumList.ml" 32 943 956 "lib/drumList.ml" 32 943 968
+type(
+  'd list list -> 'd list
+)
+ident(
+  ext_ref List.flatten
+)
+"lib/drumList.ml" 38 1070 1076 "lib/drumList.ml" 38 1070 1082
+type(
+  'a list
+)
+ident(
+  def mempty "lib/drumList.ml" 39 1088 1090 "lib/drumList.ml" 40 1114 1117
+)
+"lib/drumList.ml" 38 1070 1085 "lib/drumList.ml" 38 1070 1087
+type(
+  'a list
+)
+"lib/drumList.ml" 39 1088 1094 "lib/drumList.ml" 39 1088 1099
+type(
+  'b list -> 'b list -> 'b list
+)
+ident(
+  def mplus "lib/drumList.ml" 39 1088 1113 "lib/drumList.ml" 40 1114 1117
+)
+"lib/drumList.ml" 39 1088 1102 "lib/drumList.ml" 39 1088 1113
+type(
+  'b list -> 'b list -> 'b list
+)
+ident(
+  ext_ref List.append
+)
+"lib/drumList.ml" 42 1119 1140 "lib/drumList.ml" 42 1119 1170
+call(
+  stack
+)
+"lib/drumList.ml" 43 1171 1179 "lib/drumList.ml" 43 1171 1219
+call(
+  stack
+)
+"lib/drumList.ml" 45 1221 1225 "lib/drumList.ml" 45 1221 1231
+type(
+  ('a -> 'a -> 'a) -> 'a list -> 'a
+)
+ident(
+  def reduce "lib/drumList.ml" 47 1272 1303 "lib/drumList.ml" 1 0 -1
+)
+"lib/drumList.ml" 45 1221 1232 "lib/drumList.ml" 45 1221 1233
+type(
+  'a -> 'a -> 'a
+)
+ident(
+  def f "lib/drumList.ml" 45 1221 1236 "lib/drumList.ml" 47 1272 1303
+)
+"lib/drumList.ml" 46 1245 1249 "lib/drumList.ml" 46 1245 1251
+type(
+  'a list
+)
+"lib/drumList.ml" 46 1245 1255 "lib/drumList.ml" 46 1245 1260
+type(
+  exn -> 'a
+)
+ident(
+  ext_ref Pervasives.raise
+)
+"lib/drumList.ml" 46 1245 1261 "lib/drumList.ml" 46 1245 1271
+type(
+  exn
+)
+"lib/drumList.ml" 46 1245 1255 "lib/drumList.ml" 46 1245 1271
+type(
+  'a
+)
+"lib/drumList.ml" 47 1272 1276 "lib/drumList.ml" 47 1272 1277
+type(
+  'a
+)
+ident(
+  def x "lib/drumList.ml" 47 1272 1287 "lib/drumList.ml" 47 1272 1303
+)
+"lib/drumList.ml" 47 1272 1281 "lib/drumList.ml" 47 1272 1283
+type(
+  'a list
+)
+ident(
+  def xs "lib/drumList.ml" 47 1272 1287 "lib/drumList.ml" 47 1272 1303
+)
+"lib/drumList.ml" 47 1272 1276 "lib/drumList.ml" 47 1272 1283
+type(
+  'a list
+)
+"lib/drumList.ml" 47 1272 1287 "lib/drumList.ml" 47 1272 1296
+type(
+  ('a -> 'a -> 'a) -> 'a -> 'a list -> 'a
+)
+ident(
+  ext_ref fold_left
+)
+"lib/drumList.ml" 47 1272 1297 "lib/drumList.ml" 47 1272 1298
+type(
+  'a -> 'a -> 'a
+)
+ident(
+  int_ref f "lib/drumList.ml" 45 1221 1232 "lib/drumList.ml" 45 1221 1233
+)
+"lib/drumList.ml" 47 1272 1299 "lib/drumList.ml" 47 1272 1300
+type(
+  'a
+)
+ident(
+  int_ref x "lib/drumList.ml" 47 1272 1276 "lib/drumList.ml" 47 1272 1277
+)
+"lib/drumList.ml" 47 1272 1301 "lib/drumList.ml" 47 1272 1303
+type(
+  'a list
+)
+ident(
+  int_ref xs "lib/drumList.ml" 47 1272 1281 "lib/drumList.ml" 47 1272 1283
+)
+"lib/drumList.ml" 47 1272 1287 "lib/drumList.ml" 47 1272 1303
+call(
+  tail
+)
+type(
+  'a
+)
+"lib/drumList.ml" 45 1221 1236 "lib/drumList.ml" 47 1272 1303
+type(
+  'a list -> 'a
+)
+"lib/drumList.ml" 45 1221 1232 "lib/drumList.ml" 47 1272 1303
+type(
+  ('a -> 'a -> 'a) -> 'a list -> 'a
+)

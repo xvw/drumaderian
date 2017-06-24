@@ -1,0 +1,2355 @@
+"lib/drumShape.ml" 37 916 922 "lib/drumShape.ml" 37 916 927
+type(
+  float -> float -> t
+)
+ident(
+  def float "lib/drumShape.ml" 44 990 992 "lib/drumShape.ml" 73 1423 1426
+)
+"lib/drumShape.ml" 37 916 928 "lib/drumShape.ml" 37 916 929
+type(
+  float
+)
+ident(
+  def x "lib/drumShape.ml" 37 916 930 "lib/drumShape.ml" 42 983 988
+)
+"lib/drumShape.ml" 37 916 930 "lib/drumShape.ml" 37 916 931
+type(
+  float
+)
+ident(
+  def y "lib/drumShape.ml" 38 934 938 "lib/drumShape.ml" 42 983 988
+)
+"lib/drumShape.ml" 39 942 952 "lib/drumShape.ml" 39 942 953
+type(
+  float
+)
+ident(
+  int_ref x "lib/drumShape.ml" 37 916 928 "lib/drumShape.ml" 37 916 929
+)
+"lib/drumShape.ml" 40 954 964 "lib/drumShape.ml" 40 954 965
+type(
+  float
+)
+ident(
+  int_ref y "lib/drumShape.ml" 37 916 930 "lib/drumShape.ml" 37 916 931
+)
+"lib/drumShape.ml" 41 966 980 "lib/drumShape.ml" 41 966 982
+type(
+  float pt -> float pt
+)
+ident(
+  ext_ref DrumPervasives.id
+)
+"lib/drumShape.ml" 38 934 940 "lib/drumShape.ml" 42 983 988
+type(
+  float pt
+)
+"lib/drumShape.ml" 38 934 938 "lib/drumShape.ml" 42 983 988
+type(
+  t
+)
+"lib/drumShape.ml" 37 916 930 "lib/drumShape.ml" 42 983 988
+type(
+  float -> t
+)
+"lib/drumShape.ml" 37 916 928 "lib/drumShape.ml" 42 983 988
+type(
+  float -> float -> t
+)
+"lib/drumShape.ml" 44 990 996 "lib/drumShape.ml" 44 990 999
+type(
+  int -> int -> t
+)
+ident(
+  def int "lib/drumShape.ml" 56 1175 1177 "lib/drumShape.ml" 73 1423 1426
+)
+"lib/drumShape.ml" 44 990 1000 "lib/drumShape.ml" 44 990 1001
+type(
+  int
+)
+ident(
+  def x "lib/drumShape.ml" 44 990 1002 "lib/drumShape.ml" 54 1168 1173
+)
+"lib/drumShape.ml" 44 990 1002 "lib/drumShape.ml" 44 990 1003
+type(
+  int
+)
+ident(
+  def y "lib/drumShape.ml" 45 1006 1010 "lib/drumShape.ml" 54 1168 1173
+)
+"lib/drumShape.ml" 46 1014 1024 "lib/drumShape.ml" 46 1014 1025
+type(
+  int
+)
+ident(
+  int_ref x "lib/drumShape.ml" 44 990 1000 "lib/drumShape.ml" 44 990 1001
+)
+"lib/drumShape.ml" 47 1026 1036 "lib/drumShape.ml" 47 1026 1037
+type(
+  int
+)
+ident(
+  int_ref y "lib/drumShape.ml" 44 990 1002 "lib/drumShape.ml" 44 990 1003
+)
+"lib/drumShape.ml" 48 1038 1056 "lib/drumShape.ml" 48 1038 1057
+type(
+  int pt
+)
+ident(
+  def r "lib/drumShape.ml" 49 1061 1069 "lib/drumShape.ml" 53 1158 1167
+)
+"lib/drumShape.ml" 50 1071 1086 "lib/drumShape.ml" 50 1071 1098
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 50 1071 1099 "lib/drumShape.ml" 50 1071 1100
+type(
+  int pt
+)
+ident(
+  int_ref r "lib/drumShape.ml" 48 1038 1056 "lib/drumShape.ml" 48 1038 1057
+)
+"lib/drumShape.ml" 50 1071 1099 "lib/drumShape.ml" 50 1071 1102
+type(
+  int
+)
+"lib/drumShape.ml" 50 1071 1086 "lib/drumShape.ml" 50 1071 1102
+type(
+  float
+)
+"lib/drumShape.ml" 51 1104 1119 "lib/drumShape.ml" 51 1104 1131
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 51 1104 1132 "lib/drumShape.ml" 51 1104 1133
+type(
+  int pt
+)
+ident(
+  int_ref r "lib/drumShape.ml" 48 1038 1056 "lib/drumShape.ml" 48 1038 1057
+)
+"lib/drumShape.ml" 51 1104 1132 "lib/drumShape.ml" 51 1104 1135
+type(
+  int
+)
+"lib/drumShape.ml" 51 1104 1119 "lib/drumShape.ml" 51 1104 1135
+type(
+  float
+)
+"lib/drumShape.ml" 52 1137 1155 "lib/drumShape.ml" 52 1137 1157
+type(
+  float pt -> float pt
+)
+ident(
+  ext_ref DrumPervasives.id
+)
+"lib/drumShape.ml" 49 1061 1069 "lib/drumShape.ml" 53 1158 1167
+type(
+  float pt
+)
+"lib/drumShape.ml" 48 1038 1056 "lib/drumShape.ml" 53 1158 1167
+type(
+  int pt -> float pt
+)
+"lib/drumShape.ml" 45 1006 1012 "lib/drumShape.ml" 54 1168 1173
+type(
+  int pt
+)
+"lib/drumShape.ml" 45 1006 1010 "lib/drumShape.ml" 54 1168 1173
+type(
+  t
+)
+"lib/drumShape.ml" 44 990 1002 "lib/drumShape.ml" 54 1168 1173
+type(
+  int -> t
+)
+"lib/drumShape.ml" 44 990 1000 "lib/drumShape.ml" 54 1168 1173
+type(
+  int -> int -> t
+)
+"lib/drumShape.ml" 56 1175 1181 "lib/drumShape.ml" 56 1175 1185
+type(
+  t -> t
+)
+ident(
+  def real "lib/drumShape.ml" 60 1242 1244 "lib/drumShape.ml" 73 1423 1426
+)
+"lib/drumShape.ml" 57 1197 1205 "lib/drumShape.ml" 57 1197 1206
+type(
+  float pt
+)
+ident(
+  def p "lib/drumShape.ml" 57 1197 1210 "lib/drumShape.ml" 57 1197 1213
+)
+"lib/drumShape.ml" 57 1197 1203 "lib/drumShape.ml" 57 1197 1206
+type(
+  t
+)
+"lib/drumShape.ml" 57 1197 1212 "lib/drumShape.ml" 57 1197 1213
+type(
+  float pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 57 1197 1205 "lib/drumShape.ml" 57 1197 1206
+)
+"lib/drumShape.ml" 57 1197 1210 "lib/drumShape.ml" 57 1197 1213
+type(
+  t
+)
+"lib/drumShape.ml" 58 1214 1222 "lib/drumShape.ml" 58 1214 1223
+type(
+  int pt
+)
+ident(
+  def p "lib/drumShape.ml" 58 1214 1227 "lib/drumShape.ml" 58 1214 1240
+)
+"lib/drumShape.ml" 58 1214 1220 "lib/drumShape.ml" 58 1214 1223
+type(
+  t
+)
+"lib/drumShape.ml" 58 1214 1230 "lib/drumShape.ml" 58 1214 1231
+type(
+  int pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 58 1214 1222 "lib/drumShape.ml" 58 1214 1223
+)
+"lib/drumShape.ml" 58 1214 1230 "lib/drumShape.ml" 58 1214 1237
+type(
+  int pt -> float pt
+)
+"lib/drumShape.ml" 58 1214 1238 "lib/drumShape.ml" 58 1214 1239
+type(
+  int pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 58 1214 1222 "lib/drumShape.ml" 58 1214 1223
+)
+"lib/drumShape.ml" 58 1214 1230 "lib/drumShape.ml" 58 1214 1239
+call(
+  stack
+)
+type(
+  float pt
+)
+"lib/drumShape.ml" 58 1214 1227 "lib/drumShape.ml" 58 1214 1240
+type(
+  t
+)
+"lib/drumShape.ml" 56 1175 1188 "lib/drumShape.ml" 58 1214 1240
+type(
+  t -> t
+)
+"lib/drumShape.ml" 60 1242 1248 "lib/drumShape.ml" 60 1242 1252
+type(
+  t
+)
+ident(
+  def zero "lib/drumShape.ml" 62 1264 1266 "lib/drumShape.ml" 73 1423 1426
+)
+"lib/drumShape.ml" 60 1242 1255 "lib/drumShape.ml" 60 1242 1258
+type(
+  int -> int -> t
+)
+ident(
+  int_ref int "lib/drumShape.ml" 44 990 996 "lib/drumShape.ml" 44 990 999
+)
+"lib/drumShape.ml" 60 1242 1259 "lib/drumShape.ml" 60 1242 1260
+type(
+  int
+)
+"lib/drumShape.ml" 60 1242 1261 "lib/drumShape.ml" 60 1242 1262
+type(
+  int
+)
+"lib/drumShape.ml" 60 1242 1255 "lib/drumShape.ml" 60 1242 1262
+call(
+  stack
+)
+type(
+  t
+)
+"lib/drumShape.ml" 62 1264 1270 "lib/drumShape.ml" 62 1264 1271
+type(
+  t -> float
+)
+ident(
+  def x "lib/drumShape.ml" 67 1343 1345 "lib/drumShape.ml" 73 1423 1426
+)
+"lib/drumShape.ml" 62 1264 1272 "lib/drumShape.ml" 62 1264 1273
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 63 1276 1280 "lib/drumShape.ml" 65 1310 1341
+)
+"lib/drumShape.ml" 63 1276 1286 "lib/drumShape.ml" 63 1276 1287
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 62 1264 1272 "lib/drumShape.ml" 62 1264 1273
+)
+"lib/drumShape.ml" 64 1293 1301 "lib/drumShape.ml" 64 1293 1302
+type(
+  float pt
+)
+ident(
+  def p "lib/drumShape.ml" 64 1293 1306 "lib/drumShape.ml" 64 1293 1309
+)
+"lib/drumShape.ml" 64 1293 1299 "lib/drumShape.ml" 64 1293 1302
+type(
+  t
+)
+"lib/drumShape.ml" 64 1293 1306 "lib/drumShape.ml" 64 1293 1307
+type(
+  float pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 64 1293 1301 "lib/drumShape.ml" 64 1293 1302
+)
+"lib/drumShape.ml" 64 1293 1306 "lib/drumShape.ml" 64 1293 1309
+type(
+  float
+)
+"lib/drumShape.ml" 65 1310 1318 "lib/drumShape.ml" 65 1310 1319
+type(
+  int pt
+)
+ident(
+  def p "lib/drumShape.ml" 65 1310 1323 "lib/drumShape.ml" 65 1310 1341
+)
+"lib/drumShape.ml" 65 1310 1316 "lib/drumShape.ml" 65 1310 1319
+type(
+  t
+)
+"lib/drumShape.ml" 65 1310 1323 "lib/drumShape.ml" 65 1310 1335
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 65 1310 1337 "lib/drumShape.ml" 65 1310 1338
+type(
+  int pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 65 1310 1318 "lib/drumShape.ml" 65 1310 1319
+)
+"lib/drumShape.ml" 65 1310 1337 "lib/drumShape.ml" 65 1310 1340
+type(
+  int
+)
+"lib/drumShape.ml" 65 1310 1323 "lib/drumShape.ml" 65 1310 1341
+type(
+  float
+)
+"lib/drumShape.ml" 63 1276 1280 "lib/drumShape.ml" 65 1310 1341
+type(
+  float
+)
+"lib/drumShape.ml" 62 1264 1272 "lib/drumShape.ml" 65 1310 1341
+type(
+  t -> float
+)
+"lib/drumShape.ml" 67 1343 1349 "lib/drumShape.ml" 67 1343 1350
+type(
+  t -> float
+)
+ident(
+  def y "lib/drumShape.ml" 70 1389 1420 "lib/drumShape.ml" 73 1423 1426
+)
+"lib/drumShape.ml" 67 1343 1351 "lib/drumShape.ml" 67 1343 1352
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 68 1355 1359 "lib/drumShape.ml" 70 1389 1420
+)
+"lib/drumShape.ml" 68 1355 1365 "lib/drumShape.ml" 68 1355 1366
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 67 1343 1351 "lib/drumShape.ml" 67 1343 1352
+)
+"lib/drumShape.ml" 69 1372 1380 "lib/drumShape.ml" 69 1372 1381
+type(
+  float pt
+)
+ident(
+  def p "lib/drumShape.ml" 69 1372 1385 "lib/drumShape.ml" 69 1372 1388
+)
+"lib/drumShape.ml" 69 1372 1378 "lib/drumShape.ml" 69 1372 1381
+type(
+  t
+)
+"lib/drumShape.ml" 69 1372 1385 "lib/drumShape.ml" 69 1372 1386
+type(
+  float pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 69 1372 1380 "lib/drumShape.ml" 69 1372 1381
+)
+"lib/drumShape.ml" 69 1372 1385 "lib/drumShape.ml" 69 1372 1388
+type(
+  float
+)
+"lib/drumShape.ml" 70 1389 1397 "lib/drumShape.ml" 70 1389 1398
+type(
+  int pt
+)
+ident(
+  def p "lib/drumShape.ml" 70 1389 1402 "lib/drumShape.ml" 70 1389 1420
+)
+"lib/drumShape.ml" 70 1389 1395 "lib/drumShape.ml" 70 1389 1398
+type(
+  t
+)
+"lib/drumShape.ml" 70 1389 1402 "lib/drumShape.ml" 70 1389 1414
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 70 1389 1416 "lib/drumShape.ml" 70 1389 1417
+type(
+  int pt
+)
+ident(
+  int_ref p "lib/drumShape.ml" 70 1389 1397 "lib/drumShape.ml" 70 1389 1398
+)
+"lib/drumShape.ml" 70 1389 1416 "lib/drumShape.ml" 70 1389 1419
+type(
+  int
+)
+"lib/drumShape.ml" 70 1389 1402 "lib/drumShape.ml" 70 1389 1420
+type(
+  float
+)
+"lib/drumShape.ml" 68 1355 1359 "lib/drumShape.ml" 70 1389 1420
+type(
+  float
+)
+"lib/drumShape.ml" 67 1343 1351 "lib/drumShape.ml" 70 1389 1420
+type(
+  t -> float
+)
+"lib/drumShape.ml" 88 1593 1599 "lib/drumShape.ml" 88 1593 1604
+type(
+  float -> float -> t
+)
+ident(
+  def float "lib/drumShape.ml" 95 1694 1696 "lib/drumShape.ml" 120 2157 2160
+)
+"lib/drumShape.ml" 88 1593 1605 "lib/drumShape.ml" 88 1593 1610
+type(
+  float
+)
+ident(
+  def width "lib/drumShape.ml" 88 1593 1611 "lib/drumShape.ml" 93 1687 1692
+)
+"lib/drumShape.ml" 88 1593 1611 "lib/drumShape.ml" 88 1593 1617
+type(
+  float
+)
+ident(
+  def height "lib/drumShape.ml" 89 1620 1624 "lib/drumShape.ml" 93 1687 1692
+)
+"lib/drumShape.ml" 90 1628 1642 "lib/drumShape.ml" 90 1628 1647
+type(
+  float
+)
+ident(
+  int_ref width "lib/drumShape.ml" 88 1593 1605 "lib/drumShape.ml" 88 1593 1610
+)
+"lib/drumShape.ml" 91 1648 1663 "lib/drumShape.ml" 91 1648 1669
+type(
+  float
+)
+ident(
+  int_ref height "lib/drumShape.ml" 88 1593 1611 "lib/drumShape.ml" 88 1593 1617
+)
+"lib/drumShape.ml" 92 1670 1684 "lib/drumShape.ml" 92 1670 1686
+type(
+  float dim -> float dim
+)
+ident(
+  ext_ref DrumPervasives.id
+)
+"lib/drumShape.ml" 89 1620 1626 "lib/drumShape.ml" 93 1687 1692
+type(
+  float dim
+)
+"lib/drumShape.ml" 89 1620 1624 "lib/drumShape.ml" 93 1687 1692
+type(
+  t
+)
+"lib/drumShape.ml" 88 1593 1611 "lib/drumShape.ml" 93 1687 1692
+type(
+  float -> t
+)
+"lib/drumShape.ml" 88 1593 1605 "lib/drumShape.ml" 93 1687 1692
+type(
+  float -> float -> t
+)
+"lib/drumShape.ml" 95 1694 1700 "lib/drumShape.ml" 95 1694 1703
+type(
+  int -> int -> t
+)
+ident(
+  def int "lib/drumShape.ml" 107 1924 1926 "lib/drumShape.ml" 120 2157 2160
+)
+"lib/drumShape.ml" 95 1694 1704 "lib/drumShape.ml" 95 1694 1709
+type(
+  int
+)
+ident(
+  def width "lib/drumShape.ml" 95 1694 1710 "lib/drumShape.ml" 105 1917 1922
+)
+"lib/drumShape.ml" 95 1694 1710 "lib/drumShape.ml" 95 1694 1716
+type(
+  int
+)
+ident(
+  def height "lib/drumShape.ml" 96 1719 1723 "lib/drumShape.ml" 105 1917 1922
+)
+"lib/drumShape.ml" 97 1727 1741 "lib/drumShape.ml" 97 1727 1746
+type(
+  int
+)
+ident(
+  int_ref width "lib/drumShape.ml" 95 1694 1704 "lib/drumShape.ml" 95 1694 1709
+)
+"lib/drumShape.ml" 98 1747 1762 "lib/drumShape.ml" 98 1747 1768
+type(
+  int
+)
+ident(
+  int_ref height "lib/drumShape.ml" 95 1694 1710 "lib/drumShape.ml" 95 1694 1716
+)
+"lib/drumShape.ml" 99 1769 1787 "lib/drumShape.ml" 99 1769 1788
+type(
+  int dim
+)
+ident(
+  def r "lib/drumShape.ml" 100 1792 1800 "lib/drumShape.ml" 104 1907 1916
+)
+"lib/drumShape.ml" 101 1802 1821 "lib/drumShape.ml" 101 1802 1833
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 101 1802 1834 "lib/drumShape.ml" 101 1802 1835
+type(
+  int dim
+)
+ident(
+  int_ref r "lib/drumShape.ml" 99 1769 1787 "lib/drumShape.ml" 99 1769 1788
+)
+"lib/drumShape.ml" 101 1802 1834 "lib/drumShape.ml" 101 1802 1841
+type(
+  int
+)
+"lib/drumShape.ml" 101 1802 1821 "lib/drumShape.ml" 101 1802 1841
+type(
+  float
+)
+"lib/drumShape.ml" 102 1843 1863 "lib/drumShape.ml" 102 1843 1875
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 102 1843 1876 "lib/drumShape.ml" 102 1843 1877
+type(
+  int dim
+)
+ident(
+  int_ref r "lib/drumShape.ml" 99 1769 1787 "lib/drumShape.ml" 99 1769 1788
+)
+"lib/drumShape.ml" 102 1843 1876 "lib/drumShape.ml" 102 1843 1884
+type(
+  int
+)
+"lib/drumShape.ml" 102 1843 1863 "lib/drumShape.ml" 102 1843 1884
+type(
+  float
+)
+"lib/drumShape.ml" 103 1886 1904 "lib/drumShape.ml" 103 1886 1906
+type(
+  float dim -> float dim
+)
+ident(
+  ext_ref DrumPervasives.id
+)
+"lib/drumShape.ml" 100 1792 1800 "lib/drumShape.ml" 104 1907 1916
+type(
+  float dim
+)
+"lib/drumShape.ml" 99 1769 1787 "lib/drumShape.ml" 104 1907 1916
+type(
+  int dim -> float dim
+)
+"lib/drumShape.ml" 96 1719 1725 "lib/drumShape.ml" 105 1917 1922
+type(
+  int dim
+)
+"lib/drumShape.ml" 96 1719 1723 "lib/drumShape.ml" 105 1917 1922
+type(
+  t
+)
+"lib/drumShape.ml" 95 1694 1710 "lib/drumShape.ml" 105 1917 1922
+type(
+  int -> t
+)
+"lib/drumShape.ml" 95 1694 1704 "lib/drumShape.ml" 105 1917 1922
+type(
+  int -> int -> t
+)
+"lib/drumShape.ml" 107 1924 1930 "lib/drumShape.ml" 107 1924 1934
+type(
+  t -> t
+)
+ident(
+  def real "lib/drumShape.ml" 111 1991 1993 "lib/drumShape.ml" 120 2157 2160
+)
+"lib/drumShape.ml" 108 1946 1954 "lib/drumShape.ml" 108 1946 1955
+type(
+  float dim
+)
+ident(
+  def p "lib/drumShape.ml" 108 1946 1959 "lib/drumShape.ml" 108 1946 1962
+)
+"lib/drumShape.ml" 108 1946 1952 "lib/drumShape.ml" 108 1946 1955
+type(
+  t
+)
+"lib/drumShape.ml" 108 1946 1961 "lib/drumShape.ml" 108 1946 1962
+type(
+  float dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 108 1946 1954 "lib/drumShape.ml" 108 1946 1955
+)
+"lib/drumShape.ml" 108 1946 1959 "lib/drumShape.ml" 108 1946 1962
+type(
+  t
+)
+"lib/drumShape.ml" 109 1963 1971 "lib/drumShape.ml" 109 1963 1972
+type(
+  int dim
+)
+ident(
+  def p "lib/drumShape.ml" 109 1963 1976 "lib/drumShape.ml" 109 1963 1989
+)
+"lib/drumShape.ml" 109 1963 1969 "lib/drumShape.ml" 109 1963 1972
+type(
+  t
+)
+"lib/drumShape.ml" 109 1963 1979 "lib/drumShape.ml" 109 1963 1980
+type(
+  int dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 109 1963 1971 "lib/drumShape.ml" 109 1963 1972
+)
+"lib/drumShape.ml" 109 1963 1979 "lib/drumShape.ml" 109 1963 1986
+type(
+  int dim -> float dim
+)
+"lib/drumShape.ml" 109 1963 1987 "lib/drumShape.ml" 109 1963 1988
+type(
+  int dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 109 1963 1971 "lib/drumShape.ml" 109 1963 1972
+)
+"lib/drumShape.ml" 109 1963 1979 "lib/drumShape.ml" 109 1963 1988
+call(
+  stack
+)
+type(
+  float dim
+)
+"lib/drumShape.ml" 109 1963 1976 "lib/drumShape.ml" 109 1963 1989
+type(
+  t
+)
+"lib/drumShape.ml" 107 1924 1937 "lib/drumShape.ml" 109 1963 1989
+type(
+  t -> t
+)
+"lib/drumShape.ml" 111 1991 1997 "lib/drumShape.ml" 111 1991 2002
+type(
+  t -> float
+)
+ident(
+  def width "lib/drumShape.ml" 115 2072 2074 "lib/drumShape.ml" 120 2157 2160
+)
+"lib/drumShape.ml" 112 2014 2022 "lib/drumShape.ml" 112 2014 2023
+type(
+  float dim
+)
+ident(
+  def p "lib/drumShape.ml" 112 2014 2027 "lib/drumShape.ml" 112 2014 2034
+)
+"lib/drumShape.ml" 112 2014 2020 "lib/drumShape.ml" 112 2014 2023
+type(
+  t
+)
+"lib/drumShape.ml" 112 2014 2027 "lib/drumShape.ml" 112 2014 2028
+type(
+  float dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 112 2014 2022 "lib/drumShape.ml" 112 2014 2023
+)
+"lib/drumShape.ml" 112 2014 2027 "lib/drumShape.ml" 112 2014 2034
+type(
+  float
+)
+"lib/drumShape.ml" 113 2035 2043 "lib/drumShape.ml" 113 2035 2044
+type(
+  int dim
+)
+ident(
+  def p "lib/drumShape.ml" 113 2035 2048 "lib/drumShape.ml" 113 2035 2070
+)
+"lib/drumShape.ml" 113 2035 2041 "lib/drumShape.ml" 113 2035 2044
+type(
+  t
+)
+"lib/drumShape.ml" 113 2035 2048 "lib/drumShape.ml" 113 2035 2060
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 113 2035 2062 "lib/drumShape.ml" 113 2035 2063
+type(
+  int dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 113 2035 2043 "lib/drumShape.ml" 113 2035 2044
+)
+"lib/drumShape.ml" 113 2035 2062 "lib/drumShape.ml" 113 2035 2069
+type(
+  int
+)
+"lib/drumShape.ml" 113 2035 2048 "lib/drumShape.ml" 113 2035 2070
+type(
+  float
+)
+"lib/drumShape.ml" 111 1991 2005 "lib/drumShape.ml" 113 2035 2070
+type(
+  t -> float
+)
+"lib/drumShape.ml" 115 2072 2078 "lib/drumShape.ml" 115 2072 2084
+type(
+  t -> float
+)
+ident(
+  def height "lib/drumShape.ml" 117 2118 2154 "lib/drumShape.ml" 120 2157 2160
+)
+"lib/drumShape.ml" 116 2096 2104 "lib/drumShape.ml" 116 2096 2105
+type(
+  float dim
+)
+ident(
+  def p "lib/drumShape.ml" 116 2096 2109 "lib/drumShape.ml" 116 2096 2117
+)
+"lib/drumShape.ml" 116 2096 2102 "lib/drumShape.ml" 116 2096 2105
+type(
+  t
+)
+"lib/drumShape.ml" 116 2096 2109 "lib/drumShape.ml" 116 2096 2110
+type(
+  float dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 116 2096 2104 "lib/drumShape.ml" 116 2096 2105
+)
+"lib/drumShape.ml" 116 2096 2109 "lib/drumShape.ml" 116 2096 2117
+type(
+  float
+)
+"lib/drumShape.ml" 117 2118 2126 "lib/drumShape.ml" 117 2118 2127
+type(
+  int dim
+)
+ident(
+  def p "lib/drumShape.ml" 117 2118 2131 "lib/drumShape.ml" 117 2118 2154
+)
+"lib/drumShape.ml" 117 2118 2124 "lib/drumShape.ml" 117 2118 2127
+type(
+  t
+)
+"lib/drumShape.ml" 117 2118 2131 "lib/drumShape.ml" 117 2118 2143
+type(
+  int -> float
+)
+ident(
+  ext_ref Pervasives.float_of_int
+)
+"lib/drumShape.ml" 117 2118 2145 "lib/drumShape.ml" 117 2118 2146
+type(
+  int dim
+)
+ident(
+  int_ref p "lib/drumShape.ml" 117 2118 2126 "lib/drumShape.ml" 117 2118 2127
+)
+"lib/drumShape.ml" 117 2118 2145 "lib/drumShape.ml" 117 2118 2153
+type(
+  int
+)
+"lib/drumShape.ml" 117 2118 2131 "lib/drumShape.ml" 117 2118 2154
+type(
+  float
+)
+"lib/drumShape.ml" 115 2072 2087 "lib/drumShape.ml" 117 2118 2154
+type(
+  t -> float
+)
+"lib/drumShape.ml" 130 2258 2264 "lib/drumShape.ml" 130 2258 2266
+type(
+  ?origin:Point.t -> Point.t -> Dimension.t -> t
+)
+ident(
+  def mk "lib/drumShape.ml" 136 2375 2377 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 130 2258 2278 "lib/drumShape.ml" 130 2258 2288
+type(
+  Point.t
+)
+ident(
+  int_ref Point.zero "lib/drumShape.ml" 60 1242 1248 "lib/drumShape.ml" 60 1242 1252
+)
+type(
+  Point.t
+)
+ident(
+  int_ref *sth* "lib/drumShape.ml" 130 2258 2278 "lib/drumShape.ml" 130 2258 2288
+)
+type(
+  Point.t option
+)
+type(
+  Point.t option
+)
+type(
+  Point.t
+)
+"lib/drumShape.ml" 130 2258 2267 "lib/drumShape.ml" 130 2258 2289
+type(
+  Point.t
+)
+"lib/drumShape.ml" 130 2258 2290 "lib/drumShape.ml" 130 2258 2295
+type(
+  Point.t
+)
+ident(
+  def point "lib/drumShape.ml" 130 2258 2296 "lib/drumShape.ml" 134 2368 2373
+)
+"lib/drumShape.ml" 130 2258 2296 "lib/drumShape.ml" 130 2258 2305
+type(
+  Dimension.t
+)
+ident(
+  def dimension "lib/drumShape.ml" 131 2308 2312 "lib/drumShape.ml" 134 2368 2373
+)
+"lib/drumShape.ml" 132 2314 2328 "lib/drumShape.ml" 132 2314 2333
+type(
+  Point.t
+)
+ident(
+  int_ref point "lib/drumShape.ml" 130 2258 2290 "lib/drumShape.ml" 130 2258 2295
+)
+"lib/drumShape.ml" 132 2314 2335 "lib/drumShape.ml" 132 2314 2344
+type(
+  Dimension.t
+)
+ident(
+  int_ref dimension "lib/drumShape.ml" 130 2258 2296 "lib/drumShape.ml" 130 2258 2305
+)
+"lib/drumShape.ml" 132 2314 2328 "lib/drumShape.ml" 132 2314 2344
+type(
+  Point.t * Dimension.t
+)
+"lib/drumShape.ml" 133 2346 2361 "lib/drumShape.ml" 133 2346 2367
+type(
+  Point.t
+)
+ident(
+  int_ref origin "lib/drumShape.ml" 130 2258 2267 "lib/drumShape.ml" 130 2258 2289
+)
+"lib/drumShape.ml" 131 2308 2312 "lib/drumShape.ml" 134 2368 2373
+type(
+  t
+)
+"lib/drumShape.ml" 130 2258 2296 "lib/drumShape.ml" 134 2368 2373
+type(
+  Dimension.t -> t
+)
+"lib/drumShape.ml" 130 2258 2290 "lib/drumShape.ml" 134 2368 2373
+type(
+  Point.t -> Dimension.t -> t
+)
+"lib/drumShape.ml" 130 2258 2267 "lib/drumShape.ml" 134 2368 2373
+type(
+  ?origin:Point.t -> Point.t -> Dimension.t -> t
+)
+type(
+  Point.t -> Dimension.t -> t
+)
+type(
+  Point.t
+)
+type(
+  Point.t option
+)
+ident(
+  int_ref *opt* "lib/drumShape.ml" 130 2258 2267 "lib/drumShape.ml" 134 2368 2373
+)
+type(
+  Point.t option
+)
+"lib/drumShape.ml" 136 2375 2381 "lib/drumShape.ml" 136 2375 2388
+type(
+  ?origin:Point.t -> Point.t -> Point.t -> t
+)
+ident(
+  def mk_area "lib/drumShape.ml" 144 2703 2705 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 136 2375 2400 "lib/drumShape.ml" 136 2375 2410
+type(
+  Point.t
+)
+ident(
+  int_ref Point.zero "lib/drumShape.ml" 60 1242 1248 "lib/drumShape.ml" 60 1242 1252
+)
+type(
+  Point.t
+)
+ident(
+  int_ref *sth* "lib/drumShape.ml" 136 2375 2400 "lib/drumShape.ml" 136 2375 2410
+)
+type(
+  Point.t option
+)
+type(
+  Point.t option
+)
+type(
+  Point.t
+)
+"lib/drumShape.ml" 136 2375 2389 "lib/drumShape.ml" 136 2375 2411
+type(
+  Point.t
+)
+"lib/drumShape.ml" 136 2375 2412 "lib/drumShape.ml" 136 2375 2414
+type(
+  Point.t
+)
+ident(
+  def p1 "lib/drumShape.ml" 136 2375 2415 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 136 2375 2415 "lib/drumShape.ml" 136 2375 2417
+type(
+  Point.t
+)
+ident(
+  def p2 "lib/drumShape.ml" 137 2420 2424 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 137 2420 2428 "lib/drumShape.ml" 137 2420 2430
+type(
+  float
+)
+ident(
+  def x1 "lib/drumShape.ml" 138 2463 2467 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 137 2420 2432 "lib/drumShape.ml" 137 2420 2434
+type(
+  float
+)
+ident(
+  def y1 "lib/drumShape.ml" 138 2463 2467 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 137 2420 2428 "lib/drumShape.ml" 137 2420 2434
+type(
+  float * float
+)
+"lib/drumShape.ml" 137 2420 2437 "lib/drumShape.ml" 137 2420 2444
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.x "lib/drumShape.ml" 62 1264 1270 "lib/drumShape.ml" 62 1264 1271
+)
+"lib/drumShape.ml" 137 2420 2445 "lib/drumShape.ml" 137 2420 2447
+type(
+  Point.t
+)
+ident(
+  int_ref p1 "lib/drumShape.ml" 136 2375 2412 "lib/drumShape.ml" 136 2375 2414
+)
+"lib/drumShape.ml" 137 2420 2437 "lib/drumShape.ml" 137 2420 2447
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 137 2420 2449 "lib/drumShape.ml" 137 2420 2456
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.y "lib/drumShape.ml" 67 1343 1349 "lib/drumShape.ml" 67 1343 1350
+)
+"lib/drumShape.ml" 137 2420 2457 "lib/drumShape.ml" 137 2420 2459
+type(
+  Point.t
+)
+ident(
+  int_ref p1 "lib/drumShape.ml" 136 2375 2412 "lib/drumShape.ml" 136 2375 2414
+)
+"lib/drumShape.ml" 137 2420 2449 "lib/drumShape.ml" 137 2420 2459
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 137 2420 2437 "lib/drumShape.ml" 137 2420 2459
+type(
+  float * float
+)
+"lib/drumShape.ml" 138 2463 2471 "lib/drumShape.ml" 138 2463 2473
+type(
+  float
+)
+ident(
+  def x2 "lib/drumShape.ml" 139 2506 2510 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 138 2463 2475 "lib/drumShape.ml" 138 2463 2477
+type(
+  float
+)
+ident(
+  def y2 "lib/drumShape.ml" 139 2506 2510 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 138 2463 2471 "lib/drumShape.ml" 138 2463 2477
+type(
+  float * float
+)
+"lib/drumShape.ml" 138 2463 2480 "lib/drumShape.ml" 138 2463 2487
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.y "lib/drumShape.ml" 67 1343 1349 "lib/drumShape.ml" 67 1343 1350
+)
+"lib/drumShape.ml" 138 2463 2488 "lib/drumShape.ml" 138 2463 2490
+type(
+  Point.t
+)
+ident(
+  int_ref p2 "lib/drumShape.ml" 136 2375 2415 "lib/drumShape.ml" 136 2375 2417
+)
+"lib/drumShape.ml" 138 2463 2480 "lib/drumShape.ml" 138 2463 2490
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 138 2463 2492 "lib/drumShape.ml" 138 2463 2499
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.y "lib/drumShape.ml" 67 1343 1349 "lib/drumShape.ml" 67 1343 1350
+)
+"lib/drumShape.ml" 138 2463 2500 "lib/drumShape.ml" 138 2463 2502
+type(
+  Point.t
+)
+ident(
+  int_ref p2 "lib/drumShape.ml" 136 2375 2415 "lib/drumShape.ml" 136 2375 2417
+)
+"lib/drumShape.ml" 138 2463 2492 "lib/drumShape.ml" 138 2463 2502
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 138 2463 2480 "lib/drumShape.ml" 138 2463 2502
+type(
+  float * float
+)
+"lib/drumShape.ml" 139 2506 2514 "lib/drumShape.ml" 139 2506 2518
+type(
+  float
+)
+ident(
+  def xmin "lib/drumShape.ml" 140 2551 2555 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 139 2506 2520 "lib/drumShape.ml" 139 2506 2524
+type(
+  float
+)
+ident(
+  def xmax "lib/drumShape.ml" 140 2551 2555 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 139 2506 2514 "lib/drumShape.ml" 139 2506 2524
+type(
+  float * float
+)
+"lib/drumShape.ml" 139 2506 2527 "lib/drumShape.ml" 139 2506 2530
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.min
+)
+"lib/drumShape.ml" 139 2506 2531 "lib/drumShape.ml" 139 2506 2533
+type(
+  float
+)
+ident(
+  int_ref x1 "lib/drumShape.ml" 137 2420 2428 "lib/drumShape.ml" 137 2420 2430
+)
+"lib/drumShape.ml" 139 2506 2534 "lib/drumShape.ml" 139 2506 2536
+type(
+  float
+)
+ident(
+  int_ref x2 "lib/drumShape.ml" 138 2463 2471 "lib/drumShape.ml" 138 2463 2473
+)
+"lib/drumShape.ml" 139 2506 2527 "lib/drumShape.ml" 139 2506 2536
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 139 2506 2538 "lib/drumShape.ml" 139 2506 2541
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.max
+)
+"lib/drumShape.ml" 139 2506 2542 "lib/drumShape.ml" 139 2506 2544
+type(
+  float
+)
+ident(
+  int_ref x1 "lib/drumShape.ml" 137 2420 2428 "lib/drumShape.ml" 137 2420 2430
+)
+"lib/drumShape.ml" 139 2506 2545 "lib/drumShape.ml" 139 2506 2547
+type(
+  float
+)
+ident(
+  int_ref x2 "lib/drumShape.ml" 138 2463 2471 "lib/drumShape.ml" 138 2463 2473
+)
+"lib/drumShape.ml" 139 2506 2538 "lib/drumShape.ml" 139 2506 2547
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 139 2506 2527 "lib/drumShape.ml" 139 2506 2547
+type(
+  float * float
+)
+"lib/drumShape.ml" 140 2551 2559 "lib/drumShape.ml" 140 2551 2563
+type(
+  float
+)
+ident(
+  def ymin "lib/drumShape.ml" 141 2596 2600 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 140 2551 2565 "lib/drumShape.ml" 140 2551 2569
+type(
+  float
+)
+ident(
+  def ymax "lib/drumShape.ml" 141 2596 2600 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 140 2551 2559 "lib/drumShape.ml" 140 2551 2569
+type(
+  float * float
+)
+"lib/drumShape.ml" 140 2551 2572 "lib/drumShape.ml" 140 2551 2575
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.min
+)
+"lib/drumShape.ml" 140 2551 2576 "lib/drumShape.ml" 140 2551 2578
+type(
+  float
+)
+ident(
+  int_ref y1 "lib/drumShape.ml" 137 2420 2432 "lib/drumShape.ml" 137 2420 2434
+)
+"lib/drumShape.ml" 140 2551 2579 "lib/drumShape.ml" 140 2551 2581
+type(
+  float
+)
+ident(
+  int_ref y2 "lib/drumShape.ml" 138 2463 2475 "lib/drumShape.ml" 138 2463 2477
+)
+"lib/drumShape.ml" 140 2551 2572 "lib/drumShape.ml" 140 2551 2581
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 140 2551 2583 "lib/drumShape.ml" 140 2551 2586
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.max
+)
+"lib/drumShape.ml" 140 2551 2587 "lib/drumShape.ml" 140 2551 2589
+type(
+  float
+)
+ident(
+  int_ref y1 "lib/drumShape.ml" 137 2420 2432 "lib/drumShape.ml" 137 2420 2434
+)
+"lib/drumShape.ml" 140 2551 2590 "lib/drumShape.ml" 140 2551 2592
+type(
+  float
+)
+ident(
+  int_ref y2 "lib/drumShape.ml" 138 2463 2475 "lib/drumShape.ml" 138 2463 2477
+)
+"lib/drumShape.ml" 140 2551 2583 "lib/drumShape.ml" 140 2551 2592
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 140 2551 2572 "lib/drumShape.ml" 140 2551 2592
+type(
+  float * float
+)
+"lib/drumShape.ml" 141 2596 2604 "lib/drumShape.ml" 141 2596 2605
+type(
+  float
+)
+ident(
+  def w "lib/drumShape.ml" 142 2641 2645 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 141 2596 2607 "lib/drumShape.ml" 141 2596 2608
+type(
+  float
+)
+ident(
+  def h "lib/drumShape.ml" 142 2641 2645 "lib/drumShape.ml" 142 2641 2701
+)
+"lib/drumShape.ml" 141 2596 2604 "lib/drumShape.ml" 141 2596 2608
+type(
+  float * float
+)
+"lib/drumShape.ml" 141 2596 2611 "lib/drumShape.ml" 141 2596 2615
+type(
+  float
+)
+ident(
+  int_ref xmax "lib/drumShape.ml" 139 2506 2520 "lib/drumShape.ml" 139 2506 2524
+)
+"lib/drumShape.ml" 141 2596 2616 "lib/drumShape.ml" 141 2596 2618
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( -. )
+)
+"lib/drumShape.ml" 141 2596 2619 "lib/drumShape.ml" 141 2596 2623
+type(
+  float
+)
+ident(
+  int_ref xmin "lib/drumShape.ml" 139 2506 2514 "lib/drumShape.ml" 139 2506 2518
+)
+"lib/drumShape.ml" 141 2596 2611 "lib/drumShape.ml" 141 2596 2623
+type(
+  float
+)
+"lib/drumShape.ml" 141 2596 2625 "lib/drumShape.ml" 141 2596 2629
+type(
+  float
+)
+ident(
+  int_ref ymax "lib/drumShape.ml" 140 2551 2565 "lib/drumShape.ml" 140 2551 2569
+)
+"lib/drumShape.ml" 141 2596 2630 "lib/drumShape.ml" 141 2596 2632
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( -. )
+)
+"lib/drumShape.ml" 141 2596 2633 "lib/drumShape.ml" 141 2596 2637
+type(
+  float
+)
+ident(
+  int_ref ymin "lib/drumShape.ml" 140 2551 2559 "lib/drumShape.ml" 140 2551 2563
+)
+"lib/drumShape.ml" 141 2596 2625 "lib/drumShape.ml" 141 2596 2637
+type(
+  float
+)
+"lib/drumShape.ml" 141 2596 2611 "lib/drumShape.ml" 141 2596 2637
+type(
+  float * float
+)
+"lib/drumShape.ml" 142 2641 2645 "lib/drumShape.ml" 142 2641 2647
+type(
+  ?origin:Point.t -> Point.t -> Dimension.t -> t
+)
+ident(
+  int_ref mk "lib/drumShape.ml" 130 2258 2264 "lib/drumShape.ml" 130 2258 2266
+)
+"lib/drumShape.ml" 142 2641 2648 "lib/drumShape.ml" 142 2641 2655
+type(
+  Point.t
+)
+ident(
+  int_ref origin "lib/drumShape.ml" 136 2375 2389 "lib/drumShape.ml" 136 2375 2411
+)
+"lib/drumShape.ml" 142 2641 2657 "lib/drumShape.ml" 142 2641 2668
+type(
+  float -> float -> Point.t
+)
+ident(
+  int_ref Point.float "lib/drumShape.ml" 37 916 922 "lib/drumShape.ml" 37 916 927
+)
+"lib/drumShape.ml" 142 2641 2669 "lib/drumShape.ml" 142 2641 2673
+type(
+  float
+)
+ident(
+  int_ref xmin "lib/drumShape.ml" 139 2506 2514 "lib/drumShape.ml" 139 2506 2518
+)
+"lib/drumShape.ml" 142 2641 2674 "lib/drumShape.ml" 142 2641 2678
+type(
+  float
+)
+ident(
+  int_ref ymin "lib/drumShape.ml" 140 2551 2559 "lib/drumShape.ml" 140 2551 2563
+)
+"lib/drumShape.ml" 142 2641 2657 "lib/drumShape.ml" 142 2641 2678
+call(
+  stack
+)
+type(
+  Point.t
+)
+"lib/drumShape.ml" 142 2641 2681 "lib/drumShape.ml" 142 2641 2696
+type(
+  float -> float -> Dimension.t
+)
+ident(
+  int_ref Dimension.float "lib/drumShape.ml" 88 1593 1599 "lib/drumShape.ml" 88 1593 1604
+)
+"lib/drumShape.ml" 142 2641 2697 "lib/drumShape.ml" 142 2641 2698
+type(
+  float
+)
+ident(
+  int_ref w "lib/drumShape.ml" 141 2596 2604 "lib/drumShape.ml" 141 2596 2605
+)
+"lib/drumShape.ml" 142 2641 2699 "lib/drumShape.ml" 142 2641 2700
+type(
+  float
+)
+ident(
+  int_ref h "lib/drumShape.ml" 141 2596 2607 "lib/drumShape.ml" 141 2596 2608
+)
+"lib/drumShape.ml" 142 2641 2681 "lib/drumShape.ml" 142 2641 2700
+call(
+  stack
+)
+type(
+  Dimension.t
+)
+"lib/drumShape.ml" 142 2641 2645 "lib/drumShape.ml" 142 2641 2701
+call(
+  tail
+)
+type(
+  t
+)
+"lib/drumShape.ml" 141 2596 2600 "lib/drumShape.ml" 142 2641 2701
+type(
+  t
+)
+"lib/drumShape.ml" 140 2551 2555 "lib/drumShape.ml" 142 2641 2701
+type(
+  t
+)
+"lib/drumShape.ml" 139 2506 2510 "lib/drumShape.ml" 142 2641 2701
+type(
+  t
+)
+"lib/drumShape.ml" 138 2463 2467 "lib/drumShape.ml" 142 2641 2701
+type(
+  t
+)
+"lib/drumShape.ml" 137 2420 2424 "lib/drumShape.ml" 142 2641 2701
+type(
+  t
+)
+"lib/drumShape.ml" 136 2375 2415 "lib/drumShape.ml" 142 2641 2701
+type(
+  Point.t -> t
+)
+"lib/drumShape.ml" 136 2375 2412 "lib/drumShape.ml" 142 2641 2701
+type(
+  Point.t -> Point.t -> t
+)
+"lib/drumShape.ml" 136 2375 2389 "lib/drumShape.ml" 142 2641 2701
+type(
+  ?origin:Point.t -> Point.t -> Point.t -> t
+)
+type(
+  Point.t -> Point.t -> t
+)
+type(
+  Point.t
+)
+type(
+  Point.t option
+)
+ident(
+  int_ref *opt* "lib/drumShape.ml" 136 2375 2389 "lib/drumShape.ml" 142 2641 2701
+)
+type(
+  Point.t option
+)
+"lib/drumShape.ml" 144 2703 2709 "lib/drumShape.ml" 144 2703 2714
+type(
+  t -> Point.t
+)
+ident(
+  def point "lib/drumShape.ml" 145 2730 2732 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 144 2703 2715 "lib/drumShape.ml" 144 2703 2716
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 144 2703 2719 "lib/drumShape.ml" 144 2703 2729
+)
+"lib/drumShape.ml" 144 2703 2719 "lib/drumShape.ml" 144 2703 2722
+type(
+  Point.t * Dimension.t -> Point.t
+)
+ident(
+  ext_ref Pervasives.fst
+)
+"lib/drumShape.ml" 144 2703 2723 "lib/drumShape.ml" 144 2703 2724
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 144 2703 2715 "lib/drumShape.ml" 144 2703 2716
+)
+"lib/drumShape.ml" 144 2703 2723 "lib/drumShape.ml" 144 2703 2729
+type(
+  Point.t * Dimension.t
+)
+"lib/drumShape.ml" 144 2703 2719 "lib/drumShape.ml" 144 2703 2729
+type(
+  Point.t
+)
+"lib/drumShape.ml" 144 2703 2715 "lib/drumShape.ml" 144 2703 2729
+type(
+  t -> Point.t
+)
+"lib/drumShape.ml" 145 2730 2736 "lib/drumShape.ml" 145 2730 2745
+type(
+  t -> Dimension.t
+)
+ident(
+  def dimension "lib/drumShape.ml" 146 2761 2763 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 145 2730 2746 "lib/drumShape.ml" 145 2730 2747
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 145 2730 2750 "lib/drumShape.ml" 145 2730 2760
+)
+"lib/drumShape.ml" 145 2730 2750 "lib/drumShape.ml" 145 2730 2753
+type(
+  Point.t * Dimension.t -> Dimension.t
+)
+ident(
+  ext_ref Pervasives.snd
+)
+"lib/drumShape.ml" 145 2730 2754 "lib/drumShape.ml" 145 2730 2755
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 145 2730 2746 "lib/drumShape.ml" 145 2730 2747
+)
+"lib/drumShape.ml" 145 2730 2754 "lib/drumShape.ml" 145 2730 2760
+type(
+  Point.t * Dimension.t
+)
+"lib/drumShape.ml" 145 2730 2750 "lib/drumShape.ml" 145 2730 2760
+type(
+  Dimension.t
+)
+"lib/drumShape.ml" 145 2730 2746 "lib/drumShape.ml" 145 2730 2760
+type(
+  t -> Dimension.t
+)
+"lib/drumShape.ml" 146 2761 2767 "lib/drumShape.ml" 146 2761 2773
+type(
+  t -> Point.t
+)
+ident(
+  def origin "lib/drumShape.ml" 148 2788 2790 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 146 2761 2774 "lib/drumShape.ml" 146 2761 2775
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 146 2761 2778 "lib/drumShape.ml" 146 2761 2786
+)
+"lib/drumShape.ml" 146 2761 2778 "lib/drumShape.ml" 146 2761 2779
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 146 2761 2774 "lib/drumShape.ml" 146 2761 2775
+)
+"lib/drumShape.ml" 146 2761 2778 "lib/drumShape.ml" 146 2761 2786
+type(
+  Point.t
+)
+"lib/drumShape.ml" 146 2761 2774 "lib/drumShape.ml" 146 2761 2786
+type(
+  t -> Point.t
+)
+"lib/drumShape.ml" 148 2788 2794 "lib/drumShape.ml" 148 2788 2804
+type(
+  t -> Point.t -> t
+)
+ident(
+  def set_origin "lib/drumShape.ml" 154 2852 2854 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 148 2788 2805 "lib/drumShape.ml" 148 2788 2806
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 148 2788 2807 "lib/drumShape.ml" 151 2846 2849
+)
+"lib/drumShape.ml" 148 2788 2807 "lib/drumShape.ml" 148 2788 2808
+type(
+  Point.t
+)
+ident(
+  def p "lib/drumShape.ml" 148 2788 2811 "lib/drumShape.ml" 151 2846 2849
+)
+"lib/drumShape.ml" 149 2813 2824 "lib/drumShape.ml" 149 2813 2825
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 148 2788 2805 "lib/drumShape.ml" 148 2788 2806
+)
+"lib/drumShape.ml" 149 2813 2824 "lib/drumShape.ml" 149 2813 2830
+type(
+  Point.t * Dimension.t
+)
+"lib/drumShape.ml" 150 2831 2844 "lib/drumShape.ml" 150 2831 2845
+type(
+  Point.t
+)
+ident(
+  int_ref p "lib/drumShape.ml" 148 2788 2807 "lib/drumShape.ml" 148 2788 2808
+)
+"lib/drumShape.ml" 148 2788 2811 "lib/drumShape.ml" 151 2846 2849
+type(
+  t
+)
+"lib/drumShape.ml" 148 2788 2807 "lib/drumShape.ml" 151 2846 2849
+type(
+  Point.t -> t
+)
+"lib/drumShape.ml" 148 2788 2805 "lib/drumShape.ml" 151 2846 2849
+type(
+  t -> Point.t -> t
+)
+"lib/drumShape.ml" 154 2852 2858 "lib/drumShape.ml" 154 2852 2860
+type(
+  t -> float
+)
+ident(
+  def ox "lib/drumShape.ml" 155 2882 2884 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 154 2852 2861 "lib/drumShape.ml" 154 2852 2862
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 154 2852 2865 "lib/drumShape.ml" 154 2852 2881
+)
+"lib/drumShape.ml" 154 2852 2865 "lib/drumShape.ml" 154 2852 2872
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.x "lib/drumShape.ml" 62 1264 1270 "lib/drumShape.ml" 62 1264 1271
+)
+"lib/drumShape.ml" 154 2852 2873 "lib/drumShape.ml" 154 2852 2874
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 154 2852 2861 "lib/drumShape.ml" 154 2852 2862
+)
+"lib/drumShape.ml" 154 2852 2873 "lib/drumShape.ml" 154 2852 2881
+type(
+  Point.t
+)
+"lib/drumShape.ml" 154 2852 2865 "lib/drumShape.ml" 154 2852 2881
+call(
+  tail
+)
+type(
+  float
+)
+"lib/drumShape.ml" 154 2852 2861 "lib/drumShape.ml" 154 2852 2881
+type(
+  t -> float
+)
+"lib/drumShape.ml" 155 2882 2888 "lib/drumShape.ml" 155 2882 2890
+type(
+  t -> float
+)
+ident(
+  def oy "lib/drumShape.ml" 156 2912 2914 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 155 2882 2891 "lib/drumShape.ml" 155 2882 2892
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 155 2882 2895 "lib/drumShape.ml" 155 2882 2911
+)
+"lib/drumShape.ml" 155 2882 2895 "lib/drumShape.ml" 155 2882 2902
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.y "lib/drumShape.ml" 67 1343 1349 "lib/drumShape.ml" 67 1343 1350
+)
+"lib/drumShape.ml" 155 2882 2903 "lib/drumShape.ml" 155 2882 2904
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 155 2882 2891 "lib/drumShape.ml" 155 2882 2892
+)
+"lib/drumShape.ml" 155 2882 2903 "lib/drumShape.ml" 155 2882 2911
+type(
+  Point.t
+)
+"lib/drumShape.ml" 155 2882 2895 "lib/drumShape.ml" 155 2882 2911
+call(
+  tail
+)
+type(
+  float
+)
+"lib/drumShape.ml" 155 2882 2891 "lib/drumShape.ml" 155 2882 2911
+type(
+  t -> float
+)
+"lib/drumShape.ml" 156 2912 2918 "lib/drumShape.ml" 156 2912 2919
+type(
+  t -> float
+)
+ident(
+  def x "lib/drumShape.ml" 157 2942 2944 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 156 2912 2920 "lib/drumShape.ml" 156 2912 2921
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 156 2912 2924 "lib/drumShape.ml" 156 2912 2941
+)
+"lib/drumShape.ml" 156 2912 2924 "lib/drumShape.ml" 156 2912 2931
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.x "lib/drumShape.ml" 62 1264 1270 "lib/drumShape.ml" 62 1264 1271
+)
+"lib/drumShape.ml" 156 2912 2933 "lib/drumShape.ml" 156 2912 2938
+type(
+  t -> Point.t
+)
+ident(
+  int_ref point "lib/drumShape.ml" 144 2703 2709 "lib/drumShape.ml" 144 2703 2714
+)
+"lib/drumShape.ml" 156 2912 2939 "lib/drumShape.ml" 156 2912 2940
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 156 2912 2920 "lib/drumShape.ml" 156 2912 2921
+)
+"lib/drumShape.ml" 156 2912 2933 "lib/drumShape.ml" 156 2912 2940
+call(
+  stack
+)
+type(
+  Point.t
+)
+"lib/drumShape.ml" 156 2912 2924 "lib/drumShape.ml" 156 2912 2941
+call(
+  tail
+)
+type(
+  float
+)
+"lib/drumShape.ml" 156 2912 2920 "lib/drumShape.ml" 156 2912 2941
+type(
+  t -> float
+)
+"lib/drumShape.ml" 157 2942 2948 "lib/drumShape.ml" 157 2942 2949
+type(
+  t -> float
+)
+ident(
+  def y "lib/drumShape.ml" 158 2972 2974 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 157 2942 2950 "lib/drumShape.ml" 157 2942 2951
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 157 2942 2954 "lib/drumShape.ml" 157 2942 2971
+)
+"lib/drumShape.ml" 157 2942 2954 "lib/drumShape.ml" 157 2942 2961
+type(
+  Point.t -> float
+)
+ident(
+  int_ref Point.y "lib/drumShape.ml" 67 1343 1349 "lib/drumShape.ml" 67 1343 1350
+)
+"lib/drumShape.ml" 157 2942 2963 "lib/drumShape.ml" 157 2942 2968
+type(
+  t -> Point.t
+)
+ident(
+  int_ref point "lib/drumShape.ml" 144 2703 2709 "lib/drumShape.ml" 144 2703 2714
+)
+"lib/drumShape.ml" 157 2942 2969 "lib/drumShape.ml" 157 2942 2970
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 157 2942 2950 "lib/drumShape.ml" 157 2942 2951
+)
+"lib/drumShape.ml" 157 2942 2963 "lib/drumShape.ml" 157 2942 2970
+call(
+  stack
+)
+type(
+  Point.t
+)
+"lib/drumShape.ml" 157 2942 2954 "lib/drumShape.ml" 157 2942 2971
+call(
+  tail
+)
+type(
+  float
+)
+"lib/drumShape.ml" 157 2942 2950 "lib/drumShape.ml" 157 2942 2971
+type(
+  t -> float
+)
+"lib/drumShape.ml" 158 2972 2978 "lib/drumShape.ml" 158 2972 2984
+type(
+  t -> float
+)
+ident(
+  def real_x "lib/drumShape.ml" 159 3005 3007 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 158 2972 2985 "lib/drumShape.ml" 158 2972 2986
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 158 2972 2989 "lib/drumShape.ml" 158 2972 3004
+)
+"lib/drumShape.ml" 158 2972 2990 "lib/drumShape.ml" 158 2972 2991
+type(
+  t -> float
+)
+ident(
+  int_ref x "lib/drumShape.ml" 156 2912 2918 "lib/drumShape.ml" 156 2912 2919
+)
+"lib/drumShape.ml" 158 2972 2992 "lib/drumShape.ml" 158 2972 2993
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 158 2972 2985 "lib/drumShape.ml" 158 2972 2986
+)
+"lib/drumShape.ml" 158 2972 2990 "lib/drumShape.ml" 158 2972 2993
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 158 2972 2995 "lib/drumShape.ml" 158 2972 2997
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( -. )
+)
+"lib/drumShape.ml" 158 2972 2999 "lib/drumShape.ml" 158 2972 3001
+type(
+  t -> float
+)
+ident(
+  int_ref ox "lib/drumShape.ml" 154 2852 2858 "lib/drumShape.ml" 154 2852 2860
+)
+"lib/drumShape.ml" 158 2972 3002 "lib/drumShape.ml" 158 2972 3003
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 158 2972 2985 "lib/drumShape.ml" 158 2972 2986
+)
+"lib/drumShape.ml" 158 2972 2999 "lib/drumShape.ml" 158 2972 3003
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 158 2972 2989 "lib/drumShape.ml" 158 2972 3004
+type(
+  float
+)
+"lib/drumShape.ml" 158 2972 2985 "lib/drumShape.ml" 158 2972 3004
+type(
+  t -> float
+)
+"lib/drumShape.ml" 159 3005 3011 "lib/drumShape.ml" 159 3005 3017
+type(
+  t -> float
+)
+ident(
+  def real_y "lib/drumShape.ml" 160 3038 3040 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 159 3005 3018 "lib/drumShape.ml" 159 3005 3019
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 159 3005 3022 "lib/drumShape.ml" 159 3005 3037
+)
+"lib/drumShape.ml" 159 3005 3023 "lib/drumShape.ml" 159 3005 3024
+type(
+  t -> float
+)
+ident(
+  int_ref y "lib/drumShape.ml" 157 2942 2948 "lib/drumShape.ml" 157 2942 2949
+)
+"lib/drumShape.ml" 159 3005 3025 "lib/drumShape.ml" 159 3005 3026
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 159 3005 3018 "lib/drumShape.ml" 159 3005 3019
+)
+"lib/drumShape.ml" 159 3005 3023 "lib/drumShape.ml" 159 3005 3026
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 159 3005 3028 "lib/drumShape.ml" 159 3005 3030
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( -. )
+)
+"lib/drumShape.ml" 159 3005 3032 "lib/drumShape.ml" 159 3005 3034
+type(
+  t -> float
+)
+ident(
+  int_ref oy "lib/drumShape.ml" 155 2882 2888 "lib/drumShape.ml" 155 2882 2890
+)
+"lib/drumShape.ml" 159 3005 3035 "lib/drumShape.ml" 159 3005 3036
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 159 3005 3018 "lib/drumShape.ml" 159 3005 3019
+)
+"lib/drumShape.ml" 159 3005 3032 "lib/drumShape.ml" 159 3005 3036
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 159 3005 3022 "lib/drumShape.ml" 159 3005 3037
+type(
+  float
+)
+"lib/drumShape.ml" 159 3005 3018 "lib/drumShape.ml" 159 3005 3037
+type(
+  t -> float
+)
+"lib/drumShape.ml" 160 3038 3044 "lib/drumShape.ml" 160 3038 3049
+type(
+  t -> float
+)
+ident(
+  def width "lib/drumShape.ml" 161 3084 3086 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 160 3038 3050 "lib/drumShape.ml" 160 3038 3051
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 160 3038 3054 "lib/drumShape.ml" 160 3038 3083
+)
+"lib/drumShape.ml" 160 3038 3054 "lib/drumShape.ml" 160 3038 3069
+type(
+  Dimension.t -> float
+)
+ident(
+  int_ref Dimension.width "lib/drumShape.ml" 111 1991 1997 "lib/drumShape.ml" 111 1991 2002
+)
+"lib/drumShape.ml" 160 3038 3071 "lib/drumShape.ml" 160 3038 3080
+type(
+  t -> Dimension.t
+)
+ident(
+  int_ref dimension "lib/drumShape.ml" 145 2730 2736 "lib/drumShape.ml" 145 2730 2745
+)
+"lib/drumShape.ml" 160 3038 3081 "lib/drumShape.ml" 160 3038 3082
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 160 3038 3050 "lib/drumShape.ml" 160 3038 3051
+)
+"lib/drumShape.ml" 160 3038 3071 "lib/drumShape.ml" 160 3038 3082
+call(
+  stack
+)
+type(
+  Dimension.t
+)
+"lib/drumShape.ml" 160 3038 3054 "lib/drumShape.ml" 160 3038 3083
+call(
+  tail
+)
+type(
+  float
+)
+"lib/drumShape.ml" 160 3038 3050 "lib/drumShape.ml" 160 3038 3083
+type(
+  t -> float
+)
+"lib/drumShape.ml" 161 3084 3090 "lib/drumShape.ml" 161 3084 3096
+type(
+  t -> float
+)
+ident(
+  def height "lib/drumShape.ml" 163 3133 3135 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 161 3084 3097 "lib/drumShape.ml" 161 3084 3098
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 161 3084 3101 "lib/drumShape.ml" 161 3084 3131
+)
+"lib/drumShape.ml" 161 3084 3101 "lib/drumShape.ml" 161 3084 3117
+type(
+  Dimension.t -> float
+)
+ident(
+  int_ref Dimension.height "lib/drumShape.ml" 115 2072 2078 "lib/drumShape.ml" 115 2072 2084
+)
+"lib/drumShape.ml" 161 3084 3119 "lib/drumShape.ml" 161 3084 3128
+type(
+  t -> Dimension.t
+)
+ident(
+  int_ref dimension "lib/drumShape.ml" 145 2730 2736 "lib/drumShape.ml" 145 2730 2745
+)
+"lib/drumShape.ml" 161 3084 3129 "lib/drumShape.ml" 161 3084 3130
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 161 3084 3097 "lib/drumShape.ml" 161 3084 3098
+)
+"lib/drumShape.ml" 161 3084 3119 "lib/drumShape.ml" 161 3084 3130
+call(
+  stack
+)
+type(
+  Dimension.t
+)
+"lib/drumShape.ml" 161 3084 3101 "lib/drumShape.ml" 161 3084 3131
+call(
+  tail
+)
+type(
+  float
+)
+"lib/drumShape.ml" 161 3084 3097 "lib/drumShape.ml" 161 3084 3131
+type(
+  t -> float
+)
+"lib/drumShape.ml" 163 3133 3139 "lib/drumShape.ml" 163 3133 3143
+type(
+  t -> float
+)
+ident(
+  def area "lib/drumShape.ml" 164 3172 3174 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 163 3133 3144 "lib/drumShape.ml" 163 3133 3145
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 163 3133 3148 "lib/drumShape.ml" 163 3133 3171
+)
+"lib/drumShape.ml" 163 3133 3149 "lib/drumShape.ml" 163 3133 3154
+type(
+  t -> float
+)
+ident(
+  int_ref width "lib/drumShape.ml" 160 3038 3044 "lib/drumShape.ml" 160 3038 3049
+)
+"lib/drumShape.ml" 163 3133 3155 "lib/drumShape.ml" 163 3133 3156
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 163 3133 3144 "lib/drumShape.ml" 163 3133 3145
+)
+"lib/drumShape.ml" 163 3133 3149 "lib/drumShape.ml" 163 3133 3156
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 163 3133 3158 "lib/drumShape.ml" 163 3133 3160
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( *. )
+)
+"lib/drumShape.ml" 163 3133 3162 "lib/drumShape.ml" 163 3133 3168
+type(
+  t -> float
+)
+ident(
+  int_ref height "lib/drumShape.ml" 161 3084 3090 "lib/drumShape.ml" 161 3084 3096
+)
+"lib/drumShape.ml" 163 3133 3169 "lib/drumShape.ml" 163 3133 3170
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 163 3133 3144 "lib/drumShape.ml" 163 3133 3145
+)
+"lib/drumShape.ml" 163 3133 3162 "lib/drumShape.ml" 163 3133 3170
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 163 3133 3148 "lib/drumShape.ml" 163 3133 3171
+type(
+  float
+)
+"lib/drumShape.ml" 163 3133 3144 "lib/drumShape.ml" 163 3133 3171
+type(
+  t -> float
+)
+"lib/drumShape.ml" 164 3172 3178 "lib/drumShape.ml" 164 3172 3187
+type(
+  t -> float
+)
+ident(
+  def perimeter "lib/drumShape.ml" 165 3224 3226 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 164 3172 3188 "lib/drumShape.ml" 164 3172 3189
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 164 3172 3192 "lib/drumShape.ml" 164 3172 3223
+)
+"lib/drumShape.ml" 164 3172 3194 "lib/drumShape.ml" 164 3172 3199
+type(
+  t -> float
+)
+ident(
+  int_ref width "lib/drumShape.ml" 160 3038 3044 "lib/drumShape.ml" 160 3038 3049
+)
+"lib/drumShape.ml" 164 3172 3200 "lib/drumShape.ml" 164 3172 3201
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 164 3172 3188 "lib/drumShape.ml" 164 3172 3189
+)
+"lib/drumShape.ml" 164 3172 3194 "lib/drumShape.ml" 164 3172 3201
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 164 3172 3203 "lib/drumShape.ml" 164 3172 3205
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( +. )
+)
+"lib/drumShape.ml" 164 3172 3207 "lib/drumShape.ml" 164 3172 3213
+type(
+  t -> float
+)
+ident(
+  int_ref height "lib/drumShape.ml" 161 3084 3090 "lib/drumShape.ml" 161 3084 3096
+)
+"lib/drumShape.ml" 164 3172 3214 "lib/drumShape.ml" 164 3172 3215
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 164 3172 3188 "lib/drumShape.ml" 164 3172 3189
+)
+"lib/drumShape.ml" 164 3172 3207 "lib/drumShape.ml" 164 3172 3215
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 164 3172 3193 "lib/drumShape.ml" 164 3172 3216
+type(
+  float
+)
+"lib/drumShape.ml" 164 3172 3218 "lib/drumShape.ml" 164 3172 3220
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( *. )
+)
+"lib/drumShape.ml" 164 3172 3221 "lib/drumShape.ml" 164 3172 3223
+type(
+  float
+)
+"lib/drumShape.ml" 164 3172 3192 "lib/drumShape.ml" 164 3172 3223
+type(
+  float
+)
+"lib/drumShape.ml" 164 3172 3188 "lib/drumShape.ml" 164 3172 3223
+type(
+  t -> float
+)
+"lib/drumShape.ml" 165 3224 3230 "lib/drumShape.ml" 165 3224 3236
+type(
+  t -> t
+)
+ident(
+  def center "lib/drumShape.ml" 167 3305 3323 "lib/drumShape.ml" 169 3325 3328
+)
+"lib/drumShape.ml" 165 3224 3237 "lib/drumShape.ml" 165 3224 3238
+type(
+  t
+)
+ident(
+  def r "lib/drumShape.ml" 166 3241 3245 "lib/drumShape.ml" 167 3305 3323
+)
+"lib/drumShape.ml" 166 3241 3249 "lib/drumShape.ml" 166 3241 3250
+type(
+  Point.t
+)
+ident(
+  def p "lib/drumShape.ml" 167 3305 3309 "lib/drumShape.ml" 167 3305 3323
+)
+"lib/drumShape.ml" 166 3241 3253 "lib/drumShape.ml" 166 3241 3264
+type(
+  float -> float -> Point.t
+)
+ident(
+  int_ref Point.float "lib/drumShape.ml" 37 916 922 "lib/drumShape.ml" 37 916 927
+)
+"lib/drumShape.ml" 166 3241 3267 "lib/drumShape.ml" 166 3241 3272
+type(
+  t -> float
+)
+ident(
+  int_ref width "lib/drumShape.ml" 160 3038 3044 "lib/drumShape.ml" 160 3038 3049
+)
+"lib/drumShape.ml" 166 3241 3273 "lib/drumShape.ml" 166 3241 3274
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 165 3224 3237 "lib/drumShape.ml" 165 3224 3238
+)
+"lib/drumShape.ml" 166 3241 3267 "lib/drumShape.ml" 166 3241 3274
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 166 3241 3276 "lib/drumShape.ml" 166 3241 3278
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( /. )
+)
+"lib/drumShape.ml" 166 3241 3279 "lib/drumShape.ml" 166 3241 3281
+type(
+  float
+)
+"lib/drumShape.ml" 166 3241 3266 "lib/drumShape.ml" 166 3241 3281
+type(
+  float
+)
+"lib/drumShape.ml" 166 3241 3285 "lib/drumShape.ml" 166 3241 3291
+type(
+  t -> float
+)
+ident(
+  int_ref height "lib/drumShape.ml" 161 3084 3090 "lib/drumShape.ml" 161 3084 3096
+)
+"lib/drumShape.ml" 166 3241 3292 "lib/drumShape.ml" 166 3241 3293
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 165 3224 3237 "lib/drumShape.ml" 165 3224 3238
+)
+"lib/drumShape.ml" 166 3241 3285 "lib/drumShape.ml" 166 3241 3293
+call(
+  stack
+)
+type(
+  float
+)
+"lib/drumShape.ml" 166 3241 3295 "lib/drumShape.ml" 166 3241 3297
+type(
+  float -> float -> float
+)
+ident(
+  ext_ref Pervasives.( /. )
+)
+"lib/drumShape.ml" 166 3241 3298 "lib/drumShape.ml" 166 3241 3300
+type(
+  float
+)
+"lib/drumShape.ml" 166 3241 3284 "lib/drumShape.ml" 166 3241 3300
+type(
+  float
+)
+"lib/drumShape.ml" 166 3241 3253 "lib/drumShape.ml" 166 3241 3301
+call(
+  stack
+)
+type(
+  Point.t
+)
+"lib/drumShape.ml" 167 3305 3309 "lib/drumShape.ml" 167 3305 3319
+type(
+  t -> Point.t -> t
+)
+ident(
+  int_ref set_origin "lib/drumShape.ml" 148 2788 2794 "lib/drumShape.ml" 148 2788 2804
+)
+"lib/drumShape.ml" 167 3305 3320 "lib/drumShape.ml" 167 3305 3321
+type(
+  t
+)
+ident(
+  int_ref r "lib/drumShape.ml" 165 3224 3237 "lib/drumShape.ml" 165 3224 3238
+)
+"lib/drumShape.ml" 167 3305 3322 "lib/drumShape.ml" 167 3305 3323
+type(
+  Point.t
+)
+ident(
+  int_ref p "lib/drumShape.ml" 166 3241 3249 "lib/drumShape.ml" 166 3241 3250
+)
+"lib/drumShape.ml" 167 3305 3309 "lib/drumShape.ml" 167 3305 3323
+call(
+  tail
+)
+type(
+  t
+)
+"lib/drumShape.ml" 166 3241 3245 "lib/drumShape.ml" 167 3305 3323
+type(
+  t
+)
+"lib/drumShape.ml" 165 3224 3237 "lib/drumShape.ml" 167 3305 3323
+type(
+  t -> t
+)
